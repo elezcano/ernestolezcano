@@ -5,66 +5,341 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sector portuario — Ernesto Lezcano</title>
-<meta name="description" content="Conocimiento del dominio portuario de Ernesto Lezcano: tarifas de los puertos de la Generalitat Valenciana, procesos de gestión y vocabulario.">
+<meta name="description" content="Panel interactivo del dominio portuario: tarifas de los puertos de la Generalitat Valenciana y cuánto cuesta amarrar un barco según cómo y dónde.">
 <meta name="author" content="Ernesto Lezcano">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sector portuario — Ernesto Lezcano">
-<meta property="og:description" content="Conocimiento del dominio portuario de Ernesto Lezcano: tarifas de los puertos de la Generalitat Valenciana, procesos de gestión y vocabulario.">
+<meta property="og:description" content="Panel interactivo del dominio portuario: tarifas de los puertos de la Generalitat Valenciana y cuánto cuesta amarrar un barco según cómo y dónde.">
 <meta property="og:locale" content="es_ES">
 <meta name="theme-color" content="#0D1A28">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/lora.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
-<script src="assets/site.js" defer></script>
+<script src="assets/site.js" defer>
+</script>
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
 <nav class="sidebar" aria-label="Principal">
-  <a class="brand" href="index.html"><strong>Ernesto Lezcano</strong><span>Analista funcional</span></a>
+  <a class="brand" href="index.html">
+<strong>Ernesto Lezcano</strong>
+<span>Analista funcional</span>
+</a>
   <button class="menu-toggle" type="button" aria-expanded="false">Menú</button>
-  <ul class="menu"><li><a href="index.html">Inicio</a></li><li><a href="proyectos/">Proyectos</a></li><li><a href="sector.html" aria-current="page">Sector portuario</a></li><li><a href="herramientas.html">Herramientas</a></li><li><a href="trayectoria.html">Trayectoria</a></li><li><a href="blog/">Blog</a></li><li><a href="contacto.html">Contacto</a></li></ul>
-  <div class="side-foot"><a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a></div>
+  <ul class="menu">
+<li>
+<a href="index.html">Inicio</a>
+</li>
+<li>
+<a href="proyectos/">Proyectos</a>
+</li>
+<li>
+<a href="sector.html" aria-current="page">Sector portuario</a>
+</li>
+<li>
+<a href="herramientas.html">Herramientas</a>
+</li>
+<li>
+<a href="trayectoria.html">Trayectoria</a>
+</li>
+<li>
+<a href="blog/">Blog</a>
+</li>
+<li>
+<a href="contacto.html">Contacto</a>
+</li>
+</ul>
+  <div class="side-foot">
+<a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a>
+</div>
 </nav>
 <div class="main">
 <main id="contenido">
 <div class="content">
-<h1 class="page-title">Sector portuario</h1>
-<p class="page-intro">El dominio que conozco: qué cobra un puerto, por qué y cómo se gestiona. Todo lo que hay aquí sale de normativa pública.</p>
-
-<section class="block">
-  <h2 class="block-title">Las tarifas de los puertos de la Generalitat</h2>
-  <p class="block-intro">La Ley 1/1999 de Tarifas Portuarias regula siete tarifas. Las generales se devengan al realizar la actividad; las específicas, solo cuando se solicita el servicio.</p>
-  <div class="tar-groups">
-    <div><h3>Generales</h3><ul class="tars"><li class="tar g"><span class="tar-code">G-2</span><strong>Buques</strong><span>La estancia del buque en el puerto: aguas, accesos y atraque, amarre o fondeo.</span></li><li class="tar g"><span class="tar-code">G-3</span><strong>Pasajeros y mercancías</strong><span>El paso de mercancías, pasajeros y vehículos embarcados por el puerto.</span></li><li class="tar g"><span class="tar-code">G-4</span><strong>Pesca fresca y acuicultura</strong><span>Los buques pesqueros y la entrada de sus productos en las zonas del puerto.</span></li><li class="tar g"><span class="tar-code">G-5</span><strong>Embarcaciones deportivas</strong><span>Las embarcaciones de recreo: aguas, atraque y servicios disponibles.</span><a href="calculadora-g5.html">Calculadora</a></li></ul></div>
-    <div><h3>Específicas</h3><ul class="tars"><li class="tar e"><span class="tar-code">E-1</span><strong>Equipos</strong><span>Grúas, maquinaria, básculas y otro utillaje portuario.</span></li><li class="tar e"><span class="tar-code">E-2</span><strong>Superficies y locales</strong><span>Explanadas, almacenes y locales que no están en concesión.</span></li><li class="tar e"><span class="tar-code">E-3</span><strong>Suministros</strong><span>Agua, electricidad y otros suministros dentro del puerto.</span></li></ul></div>
+<header class="dash-head">
+  <div>
+    <h1 class="page-title">Sector portuario</h1>
+    <p class="page-intro">El dominio que conozco, en datos: qué cobra un puerto de la Generalitat y cuánto. Los importes se calculan en vivo con los precios vigentes de la tarifa G-5.</p>
   </div>
-</section>
+</header>
 
-<section class="block">
-  <h2 class="block-title">Procesos de la gestión portuaria</h2>
-  <ul class="proc"><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4M6 4h11l-2.5 4L17 12H6"/></svg><strong>Escalas y atraques</strong><span>Desde la llegada del buque hasta la liquidación de su estancia.</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="2.8"/><path d="M5 6v12c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8V6M5 12c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8"/></svg><strong>Mercancías y pasaje</strong><span>Declaraciones de mercancías y pasajeros por escala.</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg><strong>Amarres deportivos</strong><span>Plazas base y tránsitos: altas, cambios y bajas.</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7"/><rect x="13.5" y="3.5" width="7" height="7"/><rect x="3.5" y="13.5" width="7" height="7"/><rect x="13.5" y="13.5" width="7" height="7"/></svg><strong>Dominio público</strong><span>Concesiones y autorizaciones, cánones, cambios de titularidad.</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 15.5h6M9 19h3.5"/></svg><strong>Liquidaciones</strong><span>Cálculo de tasas por vigencias, bonificaciones, recargos y remesas.</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8 12.3l2.7 2.7L16.2 9.5"/></svg><strong>Sanciones y recursos</strong><span>Expedientes sancionadores y recursos contra liquidaciones.</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 8.5A7.5 7.5 0 0 0 5.2 9M5 15.5a7.5 7.5 0 0 0 13.8-.5"/><path d="M19.5 4v4.8h-4.8M4.5 20v-4.8h4.8"/></svg><strong>Administración electrónica</strong><span>Registro, notificaciones, firma y gestión documental.</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M8 9h8M8 12.5h8M8 16h5"/></svg><strong>Servicios y suministros</strong><span>Equipos, superficies, agua y electricidad: las tarifas E.</span></li></ul>
-</section>
-
-<section class="block">
-  <h2 class="block-title">De la norma al sistema</h2>
-  <ol class="flow">
-    <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 15.5h6M9 19h3.5"/></svg><strong>Norma</strong><span>Ley, ordenanza o resolución</span></li>
-    <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5.5 5.5"/></svg><strong>Reglas</strong><span>Qué se cobra, cuándo y a quién</span></li>
-    <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7"/><rect x="13.5" y="3.5" width="7" height="7"/><rect x="3.5" y="13.5" width="7" height="7"/><rect x="13.5" y="13.5" width="7" height="7"/></svg><strong>Especificación</strong><span>Datos, cálculos y casos límite</span></li>
-    <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8 12.3l2.7 2.7L16.2 9.5"/></svg><strong>Pruebas</strong><span>Casos reales con resultado esperado</span></li>
-    <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 8.5A7.5 7.5 0 0 0 5.2 9M5 15.5a7.5 7.5 0 0 0 13.8-.5"/><path d="M19.5 4v4.8h-4.8M4.5 20v-4.8h4.8"/></svg><strong>Mantenimiento</strong><span>Nuevas vigencias sin tocar código</span></li>
-  </ol>
-  <div class="actions" style="margin-top:2rem">
-    <a class="btn btn-primary" href="muestras/especificacion-g5.html">Ver una especificación de ejemplo</a>
-    <a class="btn" href="calculadora-g5.html">Probar la calculadora G-5</a>
+<form class="dash-filters" id="dashF" aria-label="Filtros del panel" onsubmit="return false">
+  <div class="seg-group" role="radiogroup" aria-label="Tipo de puerto">
+    <label>
+<input type="radio" name="escala" value="general" checked>
+<span>Puerto no exclusivamente deportivo</span>
+</label>
+    <label>
+<input type="radio" name="escala" value="deportivo">
+<span>Exclusivamente deportivo</span>
+</label>
   </div>
+  <label class="dash-sel">Barco
+    <select name="barco">
+      <option value="6x2.5">6 × 2,5 m</option>
+      <option value="8x3" selected>8 × 3 m</option>
+      <option value="10x3.5">10 × 3,5 m</option>
+      <option value="12x4">12 × 4 m</option>
+      <option value="15x4.5">15 × 4,5 m</option>
+    </select>
+  </label>
+  <fieldset class="dash-svc">
+    <legend>Servicios</legend>
+    <label>
+<input type="checkbox" name="svc" value="agua" checked> Agua</label>
+    <label>
+<input type="checkbox" name="svc" value="electricidad" checked> Luz</label>
+    <label>
+<input type="checkbox" name="svc" value="basura"> Basura</label>
+    <label>
+<input type="checkbox" name="svc" value="vigilancia"> Vigilancia</label>
+  </fieldset>
+</form>
+
+<section class="kpis" aria-label="Cifras clave">
+  <div class="kpi kpi-main">
+<p class="kpi-label">Amarre en punta, gestión directa</p>
+<p class="kpi-value" id="kDia">—</p>
+<p class="kpi-sub" id="kDiaSub">
+</p>
+</div>
+  <div class="kpi">
+<p class="kpi-label">Plaza base, un semestre</p>
+<p class="kpi-value" id="kSem">—</p>
+<p class="kpi-sub" id="kSemSub">184 días · sin domiciliar</p>
+</div>
+  <div class="kpi">
+<p class="kpi-label">El mismo barco en un club náutico</p>
+<p class="kpi-value" id="kCon">—</p>
+<p class="kpi-sub">Semestre · solo tramo A · −20 %</p>
+</div>
+  <div class="kpi">
+<p class="kpi-label">Tarifas que regula la ley</p>
+<p class="kpi-value">7</p>
+<p class="kpi-sub">4 generales · 3 específicas</p>
+</div>
 </section>
 
-<section class="block">
-  <h2 class="block-title">Vocabulario</h2>
-  <dl class="gloss"><div><dt>Eslora y manga</dt><dd>Largo y ancho máximos de la embarcación. Su producto, redondeado al alza, es la base de la G-5.</dd></div><div><dt>Lista 6.ª y 7.ª</dt><dd>Recreo con fines lucrativos (alquiler, chárter) y recreo de uso privado.</dd></div><div><dt>Plaza base</dt><dd>Amarre asignado de forma estable, liquidado por semestres.</dd></div><div><dt>Tránsito</dt><dd>Estancia de paso, liquidada por los días de estancia.</dd></div><div><dt>Abarloado</dt><dd>Barco amarrado al costado de otro barco, no al muelle.</dd></div><div><dt>Gestión directa</dt><dd>Instalación gestionada por la propia administración portuaria.</dd></div><div><dt>Concesionario</dt><dd>Quien explota una zona portuaria por concesión. En la G-5 paga como sustituto del usuario.</dd></div><div><dt>Vigencia</dt><dd>Periodo en que rige un precio. Una liquidación puede cruzar varias.</dd></div></dl>
-</section>
-<p class="disclaimer">Fuente: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1999-10811" rel="noopener">Ley 1/1999, de 31 de marzo, de Tarifas Portuarias (BOE)</a>.</p>
+<div class="dash-grid">
+  <section class="card span2" aria-labelledby="c1t">
+    <div class="card-head">
+<h2 id="c1t">Coste diario según cómo está amarrado</h2>
+<p class="card-sub" id="c1s">
+</p>
+</div>
+    <div class="hbars" id="c1" role="list">
+</div>
+    <details class="tview">
+<summary>Ver como tabla</summary>
+<div id="c1tab">
+</div>
+</details>
+  </section>
+
+  <section class="card" aria-labelledby="c2t">
+    <div class="card-head">
+<h2 id="c2t">De qué se compone el precio</h2>
+<p class="card-sub">Amarre en punta, por m² y día</p>
+</div>
+    <div class="segbar" id="c2" role="img">
+</div>
+    <ul class="legend" id="c2leg">
+</ul>
+    <p class="card-note" id="c2note">
+</p>
+  </section>
+
+  <section class="card" aria-labelledby="c3t">
+    <div class="card-head">
+<h2 id="c3t">Un semestre de plaza base según quién gestiona</h2>
+<p class="card-sub" id="c3s">
+</p>
+</div>
+    <div class="hbars" id="c3" role="list">
+</div>
+    <details class="tview">
+<summary>Ver como tabla</summary>
+<div id="c3tab">
+</div>
+</details>
+  </section>
+
+  <section class="card span2" aria-labelledby="c4t">
+    <div class="card-head">
+<h2 id="c4t">Las 7 tarifas y los procesos que tocan</h2>
+<p class="card-sub">Pulsa una tarifa para ver qué grava y con qué procesos se relaciona.</p>
+</div>
+    <div class="tx">
+      <div>
+        <div class="tx-tabs" role="group" aria-label="Filtrar tarifas">
+          <button type="button" data-f="todas" aria-pressed="true">Todas</button>
+          <button type="button" data-f="general" aria-pressed="false">Generales</button>
+          <button type="button" data-f="especifica" aria-pressed="false">Específicas</button>
+        </div>
+        <ul class="tx-list">
+<li>
+<button type="button" class="tx-card general" data-code="G-2" aria-pressed="false">
+<span class="tx-code">G-2</span> <span class="tx-name">Buques</span>
+</button>
+</li>
+<li>
+<button type="button" class="tx-card general" data-code="G-3" aria-pressed="false">
+<span class="tx-code">G-3</span> <span class="tx-name">Pasajeros y mercancías</span>
+</button>
+</li>
+<li>
+<button type="button" class="tx-card general" data-code="G-4" aria-pressed="false">
+<span class="tx-code">G-4</span> <span class="tx-name">Pesca fresca y acuicultura</span>
+</button>
+</li>
+<li>
+<button type="button" class="tx-card general" data-code="G-5" aria-pressed="false">
+<span class="tx-code">G-5</span> <span class="tx-name">Embarcaciones deportivas y de recreo</span>
+</button>
+</li>
+<li>
+<button type="button" class="tx-card especifica" data-code="E-1" aria-pressed="false">
+<span class="tx-code">E-1</span> <span class="tx-name">Equipos</span>
+</button>
+</li>
+<li>
+<button type="button" class="tx-card especifica" data-code="E-2" aria-pressed="false">
+<span class="tx-code">E-2</span> <span class="tx-name">Superficies y locales</span>
+</button>
+</li>
+<li>
+<button type="button" class="tx-card especifica" data-code="E-3" aria-pressed="false">
+<span class="tx-code">E-3</span> <span class="tx-name">Suministros</span>
+</button>
+</li>
+</ul>
+        <ul class="px-list" aria-label="Procesos">
+<li class="px" data-proc="escalas">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 21V4M6 4h11l-2.5 4L17 12H6"/>
+</svg> <span>Escalas y atraques</span>
+</li>
+<li class="px" data-proc="mercancias">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="12" cy="6" rx="7" ry="2.8"/>
+<path d="M5 6v12c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8V6M5 12c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8"/>
+</svg> <span>Mercancías y pasaje</span>
+</li>
+<li class="px" data-proc="pesca">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="4" y="4" width="16" height="16" rx="1"/>
+<path d="M8 9h8M8 12.5h8M8 16h5"/>
+</svg> <span>Pesca</span>
+</li>
+<li class="px" data-proc="amarres">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="9" cy="8" r="3.2"/>
+<path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6"/>
+<circle cx="17" cy="9" r="2.4"/>
+<path d="M15.5 14.2c3 .2 5.5 2.4 5.5 5.8"/>
+</svg> <span>Amarres deportivos</span>
+</li>
+<li class="px" data-proc="servicios">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3.5" y="3.5" width="7" height="7"/>
+<rect x="13.5" y="3.5" width="7" height="7"/>
+<rect x="3.5" y="13.5" width="7" height="7"/>
+<rect x="13.5" y="13.5" width="7" height="7"/>
+</svg> <span>Equipos, superficies y suministros</span>
+</li>
+<li class="px" data-proc="liquidaciones">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 3h8l4 4v14H6z"/>
+<path d="M14 3v4h4"/>
+<path d="M9 12h6M9 15.5h6M9 19h3.5"/>
+</svg> <span>Liquidaciones</span>
+</li>
+<li class="px" data-proc="dominio">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="5.5" cy="12" r="2.5"/>
+<circle cx="18.5" cy="6" r="2.5"/>
+<circle cx="18.5" cy="18" r="2.5"/>
+<path d="M8 11l8-4M8 13l8 4"/>
+</svg> <span>Dominio público</span>
+</li>
+<li class="px" data-proc="sanciones">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="8.5"/>
+<path d="M8 12.3l2.7 2.7L16.2 9.5"/>
+</svg> <span>Sanciones y recursos</span>
+</li>
+<li class="px" data-proc="eadmin">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M19 8.5A7.5 7.5 0 0 0 5.2 9M5 15.5a7.5 7.5 0 0 0 13.8-.5"/>
+<path d="M19.5 4v4.8h-4.8M4.5 20v-4.8h4.8"/>
+</svg> <span>Administración electrónica</span>
+</li>
+</ul>
+      </div>
+      <div class="tx-detail" id="txd" aria-live="polite">
+        <p class="tx-empty">Elige una tarifa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card span2" aria-labelledby="c5t">
+    <div class="card-head">
+<h2 id="c5t">Vocabulario</h2>
+      <label class="gsearch">
+<span class="visually-hidden">Buscar término</span>
+<input type="search" id="gq" placeholder="Buscar término">
+</label>
+    </div>
+    <dl class="gloss" id="gl">
+<div data-term="eslora y manga">
+<dt>Eslora y manga</dt> <dd>Largo y ancho máximos de la embarcación. Su producto, redondeado al alza, es la base de la G-5.</dd>
+</div>
+<div data-term="lista 6.ª y 7.ª">
+<dt>Lista 6.ª y 7.ª</dt> <dd>Recreo con fines lucrativos (alquiler, chárter) y recreo de uso privado. La 6.ª paga ×1,8.</dd>
+</div>
+<div data-term="plaza base">
+<dt>Plaza base</dt> <dd>Amarre asignado de forma estable, liquidado por semestres naturales.</dd>
+</div>
+<div data-term="tránsito">
+<dt>Tránsito</dt> <dd>Estancia de paso, liquidada por los días de estancia.</dd>
+</div>
+<div data-term="abarloado">
+<dt>Abarloado</dt> <dd>Barco amarrado al costado de otro barco, no al muelle.</dd>
+</div>
+<div data-term="fondeo">
+<dt>Fondeo</dt> <dd>Estancia en el espejo de agua, con o sin muerto o tren de amarre.</dd>
+</div>
+<div data-term="gestión directa">
+<dt>Gestión directa</dt> <dd>Instalación gestionada por la propia administración portuaria.</dd>
+</div>
+<div data-term="concesionario">
+<dt>Concesionario</dt> <dd>Quien explota una zona portuaria por concesión. En la G-5 paga como sustituto del usuario.</dd>
+</div>
+<div data-term="devengo">
+<dt>Devengo</dt> <dd>Momento en que nace la obligación de pagar la tasa.</dd>
+</div>
+<div data-term="vigencia">
+<dt>Vigencia</dt> <dd>Periodo en que rige un precio. Una liquidación puede cruzar varias.</dd>
+</div>
+<div data-term="tarifa general">
+<dt>Tarifa general</dt> <dd>Se devenga al realizar la actividad, sin solicitud previa.</dd>
+</div>
+<div data-term="tarifa específica">
+<dt>Tarifa específica</dt> <dd>Se devenga solo cuando se solicita el servicio.</dd>
+</div>
+</dl>
+    <p class="tx-empty" id="glEmpty" hidden>Ningún término coincide.</p>
+  </section>
+</div>
+
+<div class="tip" id="tip" role="status" hidden>
+</div>
+<p class="disclaimer">Importes orientativos, sin IVA, calculados con los precios vigentes de <a href="datos/tarifas-g5.csv">tarifas-g5.csv</a>. Fuente: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1999-10811" rel="noopener">Ley 1/1999 de Tarifas Portuarias (BOE)</a>. Más detalle en la <a href="calculadora-g5.html">calculadora</a> y en la <a href="muestras/especificacion-g5.html">especificación funcional</a>.</p>
+<script type="application/json" id="tarData">{"G-2": {"code": "G-2", "tipo": "general", "name": "Buques", "cap": "Capítulo II", "grava": "La estancia de los buques en el puerto: el uso de las aguas, las obras de acceso y el puesto de atraque, amarre o fondeo asignado.", "procesos": ["escalas", "liquidaciones"]}, "G-3": {"code": "G-3", "tipo": "general", "name": "Pasajeros y mercancías", "cap": "Capítulo III", "grava": "El paso de mercancías, pasajeros y vehículos embarcados en régimen de pasaje por las aguas, accesos y zonas de manipulación del puerto.", "procesos": ["mercancias", "liquidaciones"]}, "G-4": {"code": "G-4", "tipo": "general", "name": "Pesca fresca y acuicultura", "cap": "Capítulo IV", "grava": "La estancia de buques pesqueros o de acuicultura y la entrada de sus productos en las zonas de manipulación del puerto.", "procesos": ["pesca", "liquidaciones"]}, "G-5": {"code": "G-5", "tipo": "general", "name": "Embarcaciones deportivas y de recreo", "cap": "Capítulo V", "grava": "El uso de las aguas, instalaciones y servicios del puerto por embarcaciones deportivas y de recreo, incluida su estancia en atraque, amarre o fondeo.", "procesos": ["amarres", "liquidaciones"], "link": "calculadora-g5.html"}, "E-1": {"code": "E-1", "tipo": "especifica", "name": "Equipos", "cap": "Capítulo VI", "grava": "El uso de grúas, maquinaria de manipulación y transporte, básculas, carretillas y otro utillaje portuario.", "procesos": ["servicios", "liquidaciones"]}, "E-2": {"code": "E-2", "tipo": "especifica", "name": "Superficies y locales", "cap": "Capítulo VII", "grava": "La ocupación de explanadas, almacenes, locales y edificios de la zona portuaria que no estén en concesión o autorización.", "procesos": ["servicios", "liquidaciones"]}, "E-3": {"code": "E-3", "tipo": "especifica", "name": "Suministros", "cap": "Capítulo VIII", "grava": "El consumo de agua, energía eléctrica u otros suministros, y el uso de las instalaciones para prestarlos.", "procesos": ["servicios", "liquidaciones"]}}</script>
+<script src="assets/g5.js">
+</script>
+<script src="assets/sector.js" defer>
+</script>
 </div>
 </main>
 <footer class="page-foot">© 2026 Ernesto Lezcano. Valencia.</footer>

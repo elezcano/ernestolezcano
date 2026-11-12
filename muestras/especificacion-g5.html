@@ -15,15 +15,43 @@
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../assets/fonts/lora.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="../assets/style.css">
-<script src="../assets/site.js" defer></script>
+<script src="../assets/site.js" defer>
+</script>
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
 <nav class="sidebar" aria-label="Principal">
-  <a class="brand" href="../index.html"><strong>Ernesto Lezcano</strong><span>Analista funcional</span></a>
+  <a class="brand" href="../index.html">
+<strong>Ernesto Lezcano</strong>
+<span>Analista funcional</span>
+</a>
   <button class="menu-toggle" type="button" aria-expanded="false">Menú</button>
-  <ul class="menu"><li><a href="../index.html">Inicio</a></li><li><a href="../proyectos/">Proyectos</a></li><li><a href="../sector.html">Sector portuario</a></li><li><a href="../herramientas.html" aria-current="page">Herramientas</a></li><li><a href="../trayectoria.html">Trayectoria</a></li><li><a href="../blog/">Blog</a></li><li><a href="../contacto.html">Contacto</a></li></ul>
-  <div class="side-foot"><a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a></div>
+  <ul class="menu">
+<li>
+<a href="../index.html">Inicio</a>
+</li>
+<li>
+<a href="../proyectos/">Proyectos</a>
+</li>
+<li>
+<a href="../sector.html">Sector portuario</a>
+</li>
+<li>
+<a href="../herramientas.html" aria-current="page">Herramientas</a>
+</li>
+<li>
+<a href="../trayectoria.html">Trayectoria</a>
+</li>
+<li>
+<a href="../blog/">Blog</a>
+</li>
+<li>
+<a href="../contacto.html">Contacto</a>
+</li>
+</ul>
+  <div class="side-foot">
+<a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a>
+</div>
 </nav>
 <div class="main">
 <main id="contenido">
@@ -34,35 +62,364 @@
   <p class="spec-kind">Muestra de entregable · Especificación funcional</p>
   <h1 class="page-title">Calculadora de la tarifa G-5</h1>
   <dl class="spec-meta">
-    <div><dt>Autor</dt><dd>Ernesto Lezcano</dd></div>
-    <div><dt>Versión</dt><dd>1.0</dd></div>
-    <div><dt>Fecha</dt><dd>12/11/2026</dd></div>
-    <div><dt>Estado</dt><dd>Muestra pública</dd></div>
+    <div>
+<dt>Autor</dt>
+<dd>Ernesto Lezcano</dd>
+</div>
+    <div>
+<dt>Versión</dt>
+<dd>1.0</dd>
+</div>
+    <div>
+<dt>Fecha</dt>
+<dd>12/11/2026</dd>
+</div>
+    <div>
+<dt>Estado</dt>
+<dd>Muestra pública</dd>
+</div>
   </dl>
   <p class="page-intro">Documento de ejemplo de cómo especifico una funcionalidad de cálculo a partir de una norma. Corresponde a la <a href="../calculadora-g5.html">calculadora publicada en esta web</a> y usa solo normativa pública.</p>
   <button class="btn no-print" type="button" onclick="window.print()">Guardar como PDF</button>
 </header>
 
-<section class="spec-sec"><h2>1. Objetivo</h2>
-<p>Estimar el importe de la tarifa G-5 de una embarcación deportiva o de recreo en un puerto de la Generalitat Valenciana, con el desglose por tramos, para cualquier periodo desde 2014 y teniendo en cuenta los cambios de precio.</p></section>
+<section class="spec-sec">
+<h2>1. Objetivo</h2>
+<p>Estimar el importe de la tarifa G-5 de una embarcación deportiva o de recreo en un puerto de la Generalitat Valenciana, con el desglose por tramos, para cualquier periodo desde 2014 y teniendo en cuenta los cambios de precio.</p>
+</section>
 
-<section class="spec-sec"><h2>2. Alcance</h2>
-<ul><li>Incluye: tránsitos y plazas base, los tres tipos de instalación que pagan G-5, lista 6.ª, tarifa doble, bonificaciones y cambios de vigencia.</li>
-<li>No incluye: IVA, recargo del art. 35.Dos, emisión de la liquidación oficial ni repercusión al usuario final.</li></ul></section>
+<section class="spec-sec">
+<h2>2. Alcance</h2>
+<ul>
+<li>Incluye: tránsitos y plazas base, los tres tipos de instalación que pagan G-5, lista 6.ª, tarifa doble, bonificaciones y cambios de vigencia.</li>
+<li>No incluye: IVA, recargo del art. 35.Dos, emisión de la liquidación oficial ni repercusión al usuario final.</li>
+</ul>
+</section>
 
-<section class="spec-sec"><h2>3. Datos de entrada</h2><div class="tbl-wrap"><table class="spec-table "><thead><tr><th>Dato</th><th>Tipo</th><th>Valores</th><th>Obligatorio</th></tr></thead><tbody><tr><td>Tipo de instalación</td><td>Lista</td><td>Gestión directa · Zona en concesión · Construido por el concesionario · Concesión total</td><td>Sí</td></tr><tr><td>Tipo de puerto</td><td>Lista</td><td>No exclusivamente deportivo · Exclusivamente deportivo</td><td>Solo en gestión directa</td></tr><tr><td>Eslora y manga</td><td>Decimal (m)</td><td>&gt; 0</td><td>Sí</td></tr><tr><td>Lista</td><td>Lista</td><td>6.ª · 7.ª</td><td>Sí</td></tr><tr><td>Modalidad</td><td>Lista</td><td>Tránsito · Plaza base</td><td>Sí</td></tr><tr><td>Entrada y salida</td><td>Fecha y hora</td><td>Salida ≥ entrada</td><td>En tránsito</td></tr><tr><td>Año, semestre, fecha de alta</td><td>Número, lista, fecha</td><td>Alta dentro del semestre</td><td>En plaza base (alta opcional)</td></tr><tr><td>Situación de atraque</td><td>Lista</td><td>8 situaciones del tramo B</td><td>Solo en gestión directa</td></tr><tr><td>Servicios disponibles</td><td>Selección múltiple</td><td>Agua · Electricidad · Basura · Varada · Vigilancia</td><td>Solo en gestión directa</td></tr><tr><td>Domiciliación</td><td>Sí/No</td><td></td><td>Solo plaza base en gestión directa</td></tr><tr><td>Sin autorización</td><td>Sí/No</td><td></td><td>Solo tránsito</td></tr></tbody></table></div></section>
+<section class="spec-sec">
+<h2>3. Datos de entrada</h2>
+<div class="tbl-wrap">
+<table class="spec-table ">
+<thead>
+<tr>
+<th>Dato</th>
+<th>Tipo</th>
+<th>Valores</th>
+<th>Obligatorio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo de instalación</td>
+<td>Lista</td>
+<td>Gestión directa · Zona en concesión · Construido por el concesionario · Concesión total</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>Tipo de puerto</td>
+<td>Lista</td>
+<td>No exclusivamente deportivo · Exclusivamente deportivo</td>
+<td>Solo en gestión directa</td>
+</tr>
+<tr>
+<td>Eslora y manga</td>
+<td>Decimal (m)</td>
+<td>&gt; 0</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>Lista</td>
+<td>Lista</td>
+<td>6.ª · 7.ª</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>Modalidad</td>
+<td>Lista</td>
+<td>Tránsito · Plaza base</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td>Entrada y salida</td>
+<td>Fecha y hora</td>
+<td>Salida ≥ entrada</td>
+<td>En tránsito</td>
+</tr>
+<tr>
+<td>Año, semestre, fecha de alta</td>
+<td>Número, lista, fecha</td>
+<td>Alta dentro del semestre</td>
+<td>En plaza base (alta opcional)</td>
+</tr>
+<tr>
+<td>Situación de atraque</td>
+<td>Lista</td>
+<td>8 situaciones del tramo B</td>
+<td>Solo en gestión directa</td>
+</tr>
+<tr>
+<td>Servicios disponibles</td>
+<td>Selección múltiple</td>
+<td>Agua · Electricidad · Basura · Varada · Vigilancia</td>
+<td>Solo en gestión directa</td>
+</tr>
+<tr>
+<td>Domiciliación</td>
+<td>Sí/No</td>
+<td>
+</td>
+<td>Solo plaza base en gestión directa</td>
+</tr>
+<tr>
+<td>Sin autorización</td>
+<td>Sí/No</td>
+<td>
+</td>
+<td>Solo tránsito</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 
-<section class="spec-sec"><h2>4. Reglas de negocio</h2><div class="rns"><div class="rn"><span class="rn-id">RN-01</span><div><strong>Superficie</strong><p>m² = eslora × manga, redondeado por exceso al entero superior.</p><small>Art. 32.Uno</small></div></div><div class="rn"><span class="rn-id">RN-02</span><div><strong>Días de tránsito</strong><p>Se cobra cada día desde la entrada hasta la víspera de la salida. El día de salida se cobra si se sale después de la hora límite o si se entra y sale el mismo día.</p><small>Art. 37</small></div></div><div class="rn"><span class="rn-id">RN-03</span><div><strong>Días de plaza base</strong><p>Semestre natural completo, o desde la fecha de alta hasta el último día del semestre.</p><small>Art. 37</small></div></div><div class="rn"><span class="rn-id">RN-04</span><div><strong>Precio diario</strong><p>Tramo A + un único tramo B según la situación de atraque + un tramo C por cada servicio disponible.</p><small>Art. 33</small></div></div><div class="rn"><span class="rn-id">RN-05</span><div><strong>Concesiones</strong><p>En zona en concesión solo se cobra el tramo A. En puerto construido por el concesionario, el tramo A reducido.</p><small>Arts. 33 y 34.Tres</small></div></div><div class="rn"><span class="rn-id">RN-06</span><div><strong>Vigencias</strong><p>A cada día se le aplica el valor vigente ese día. Los días se agrupan por año y por combinación de precios; cada grupo es una liquidación.</p><small>Disposiciones de entrada en vigor</small></div></div><div class="rn"><span class="rn-id">RN-07</span><div><strong>Lista 6.ª</strong><p>El importe del grupo se multiplica por el coeficiente de lista 6.ª.</p><small>Art. 32.Dos y Tres</small></div></div><div class="rn"><span class="rn-id">RN-08</span><div><strong>Sin autorización</strong><p>En tránsito sin autorización, el importe se multiplica por el coeficiente de tarifa doble.</p><small>Art. 35.Uno</small></div></div><div class="rn"><span class="rn-id">RN-09</span><div><strong>Bonificaciones</strong><p>Gestión directa: −10 % si la plaza base está domiciliada. Concesión: −20 % base y −10 % tránsito. No son acumulables entre sí.</p><small>Arts. 34.Uno y 37</small></div></div><div class="rn"><span class="rn-id">RN-10</span><div><strong>Orden de cálculo</strong><p>Base → lista 6.ª → tarifa doble → bonificación → redondeo a céntimos por liquidación. El total es la suma de las liquidaciones.</p></div></div><div class="rn"><span class="rn-id">RN-11</span><div><strong>Concesión total</strong><p>No se calcula: la relación económica se rige por la concesión.</p><small>Art. 33</small></div></div><div class="rn"><span class="rn-id">RN-12</span><div><strong>Sin precio</strong><p>Si algún día no tiene precio vigente, o la combinación no existe (muelle fluvial en puerto deportivo), se muestra un error y no se calcula.</p></div></div></div></section>
+<section class="spec-sec">
+<h2>4. Reglas de negocio</h2>
+<div class="rns">
+<div class="rn">
+<span class="rn-id">RN-01</span>
+<div>
+<strong>Superficie</strong>
+<p>m² = eslora × manga, redondeado por exceso al entero superior.</p>
+<small>Art. 32.Uno</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-02</span>
+<div>
+<strong>Días de tránsito</strong>
+<p>Se cobra cada día desde la entrada hasta la víspera de la salida. El día de salida se cobra si se sale después de la hora límite o si se entra y sale el mismo día.</p>
+<small>Art. 37</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-03</span>
+<div>
+<strong>Días de plaza base</strong>
+<p>Semestre natural completo, o desde la fecha de alta hasta el último día del semestre.</p>
+<small>Art. 37</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-04</span>
+<div>
+<strong>Precio diario</strong>
+<p>Tramo A + un único tramo B según la situación de atraque + un tramo C por cada servicio disponible.</p>
+<small>Art. 33</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-05</span>
+<div>
+<strong>Concesiones</strong>
+<p>En zona en concesión solo se cobra el tramo A. En puerto construido por el concesionario, el tramo A reducido.</p>
+<small>Arts. 33 y 34.Tres</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-06</span>
+<div>
+<strong>Vigencias</strong>
+<p>A cada día se le aplica el valor vigente ese día. Los días se agrupan por año y por combinación de precios; cada grupo es una liquidación.</p>
+<small>Disposiciones de entrada en vigor</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-07</span>
+<div>
+<strong>Lista 6.ª</strong>
+<p>El importe del grupo se multiplica por el coeficiente de lista 6.ª.</p>
+<small>Art. 32.Dos y Tres</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-08</span>
+<div>
+<strong>Sin autorización</strong>
+<p>En tránsito sin autorización, el importe se multiplica por el coeficiente de tarifa doble.</p>
+<small>Art. 35.Uno</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-09</span>
+<div>
+<strong>Bonificaciones</strong>
+<p>Gestión directa: −10 % si la plaza base está domiciliada. Concesión: −20 % base y −10 % tránsito. No son acumulables entre sí.</p>
+<small>Arts. 34.Uno y 37</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-10</span>
+<div>
+<strong>Orden de cálculo</strong>
+<p>Base → lista 6.ª → tarifa doble → bonificación → redondeo a céntimos por liquidación. El total es la suma de las liquidaciones.</p>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-11</span>
+<div>
+<strong>Concesión total</strong>
+<p>No se calcula: la relación económica se rige por la concesión.</p>
+<small>Art. 33</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-12</span>
+<div>
+<strong>Sin precio</strong>
+<p>Si algún día no tiene precio vigente, o la combinación no existe (muelle fluvial en puerto deportivo), se muestra un error y no se calcula.</p>
+</div>
+</div>
+</div>
+</section>
 
-<section class="spec-sec"><h2>5. Fuente de precios</h2>
+<section class="spec-sec">
+<h2>5. Fuente de precios</h2>
 <p>Los precios, coeficientes y parámetros no se escriben en el código: se leen de un archivo de texto plano (<a href="../datos/tarifas-g5.csv">tarifas-g5.csv</a>) con una fila por valor y vigencia. Una actualización de tarifas es añadir filas, sin desarrollo.</p>
-<div class="tbl-wrap"><table class="spec-table "><thead><tr><th>Columna</th><th>Contenido</th></tr></thead><tbody><tr><td>clave</td><td>Identificador del concepto (aguas, punta, agua, coef_lista6…)</td></tr><tr><td>tramo</td><td>A, B, C, K (coeficientes) o P (parámetros)</td></tr><tr><td>escala</td><td>general, deportivo o todas</td></tr><tr><td>valor</td><td>€/m²/día, coeficiente, porcentaje o valor del parámetro</td></tr><tr><td>desde / hasta</td><td>Periodo de vigencia. «hasta» vacío = vigente</td></tr><tr><td>fuente</td><td>Norma que fija el valor</td></tr></tbody></table></div></section>
+<div class="tbl-wrap">
+<table class="spec-table ">
+<thead>
+<tr>
+<th>Columna</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clave</td>
+<td>Identificador del concepto (aguas, punta, agua, coef_lista6…)</td>
+</tr>
+<tr>
+<td>tramo</td>
+<td>A, B, C, K (coeficientes) o P (parámetros)</td>
+</tr>
+<tr>
+<td>escala</td>
+<td>general, deportivo o todas</td>
+</tr>
+<tr>
+<td>valor</td>
+<td>€/m²/día, coeficiente, porcentaje o valor del parámetro</td>
+</tr>
+<tr>
+<td>desde / hasta</td>
+<td>Periodo de vigencia. «hasta» vacío = vigente</td>
+</tr>
+<tr>
+<td>fuente</td>
+<td>Norma que fija el valor</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 
-<section class="spec-sec"><h2>6. Casos de prueba</h2><div class="tbl-wrap"><table class="spec-table "><thead><tr><th>Caso</th><th>Entrada</th><th>Resultado esperado</th><th>Regla</th></tr></thead><tbody><tr><td>CP-01</td><td>8 × 3 m, lista 7.ª, gestión directa, punta, agua y luz. Tránsito 10/11/2026 10:00 → 13/11/2026 11:00</td><td>24 m² · 3 días · 11,54 €</td><td>RN-01, 02, 04</td></tr><tr><td>CP-02</td><td>CP-01 con salida a las 13:00</td><td>4 días · 15,39 €</td><td>RN-02</td></tr><tr><td>CP-03</td><td>CP-01 en lista 6.ª</td><td>20,78 €</td><td>RN-07</td></tr><tr><td>CP-04</td><td>CP-01 sin autorización</td><td>23,09 €</td><td>RN-08</td></tr><tr><td>CP-05</td><td>Plaza base, 2.º semestre 2026, domiciliada</td><td>184 días · 637,24 €</td><td>RN-03, 09</td></tr><tr><td>CP-06</td><td>Zona en concesión, plaza base, 2.º semestre 2026</td><td>Solo tramo A · 188,81 €</td><td>RN-05, 09</td></tr><tr><td>CP-07</td><td>Construido por el concesionario, tránsito de 3 días</td><td>Tramo A reducido · 0,79 €</td><td>RN-05, 09</td></tr><tr><td>CP-08</td><td>Tránsito 30/05/2025 10:00 → 02/06/2025 13:00</td><td>2 liquidaciones (tabla anterior y vigente)</td><td>RN-06</td></tr><tr><td>CP-09</td><td>Tránsito 30/12/2025 → 02/01/2026</td><td>2 liquidaciones, una por año</td><td>RN-06</td></tr><tr><td>CP-10</td><td>Puerto exclusivamente deportivo, muelle fluvial</td><td>Error: combinación sin precio</td><td>RN-12</td></tr><tr><td>CP-11</td><td>6,40 × 2,30 m</td><td>14,72 m² → 15 m²</td><td>RN-01</td></tr><tr><td>CP-12</td><td>Concesión total</td><td>No calcula, muestra explicación</td><td>RN-11</td></tr></tbody></table></div></section>
+<section class="spec-sec">
+<h2>6. Casos de prueba</h2>
+<div class="tbl-wrap">
+<table class="spec-table ">
+<thead>
+<tr>
+<th>Caso</th>
+<th>Entrada</th>
+<th>Resultado esperado</th>
+<th>Regla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CP-01</td>
+<td>8 × 3 m, lista 7.ª, gestión directa, punta, agua y luz. Tránsito 10/11/2026 10:00 → 13/11/2026 11:00</td>
+<td>24 m² · 3 días · 11,54 €</td>
+<td>RN-01, 02, 04</td>
+</tr>
+<tr>
+<td>CP-02</td>
+<td>CP-01 con salida a las 13:00</td>
+<td>4 días · 15,39 €</td>
+<td>RN-02</td>
+</tr>
+<tr>
+<td>CP-03</td>
+<td>CP-01 en lista 6.ª</td>
+<td>20,78 €</td>
+<td>RN-07</td>
+</tr>
+<tr>
+<td>CP-04</td>
+<td>CP-01 sin autorización</td>
+<td>23,09 €</td>
+<td>RN-08</td>
+</tr>
+<tr>
+<td>CP-05</td>
+<td>Plaza base, 2.º semestre 2026, domiciliada</td>
+<td>184 días · 637,24 €</td>
+<td>RN-03, 09</td>
+</tr>
+<tr>
+<td>CP-06</td>
+<td>Zona en concesión, plaza base, 2.º semestre 2026</td>
+<td>Solo tramo A · 188,81 €</td>
+<td>RN-05, 09</td>
+</tr>
+<tr>
+<td>CP-07</td>
+<td>Construido por el concesionario, tránsito de 3 días</td>
+<td>Tramo A reducido · 0,79 €</td>
+<td>RN-05, 09</td>
+</tr>
+<tr>
+<td>CP-08</td>
+<td>Tránsito 30/05/2025 10:00 → 02/06/2025 13:00</td>
+<td>2 liquidaciones (tabla anterior y vigente)</td>
+<td>RN-06</td>
+</tr>
+<tr>
+<td>CP-09</td>
+<td>Tránsito 30/12/2025 → 02/01/2026</td>
+<td>2 liquidaciones, una por año</td>
+<td>RN-06</td>
+</tr>
+<tr>
+<td>CP-10</td>
+<td>Puerto exclusivamente deportivo, muelle fluvial</td>
+<td>Error: combinación sin precio</td>
+<td>RN-12</td>
+</tr>
+<tr>
+<td>CP-11</td>
+<td>6,40 × 2,30 m</td>
+<td>14,72 m² → 15 m²</td>
+<td>RN-01</td>
+</tr>
+<tr>
+<td>CP-12</td>
+<td>Concesión total</td>
+<td>No calcula, muestra explicación</td>
+<td>RN-11</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 
-<section class="spec-sec"><h2>7. Decisiones abiertas</h2>
-<ul><li>Verificar la tabla de precios 2014–2025 contra la redacción histórica del BOE.</li>
-<li>Confirmar el criterio de redondeo: por liquidación (actual) o por concepto.</li></ul></section>
+<section class="spec-sec">
+<h2>7. Decisiones abiertas</h2>
+<ul>
+<li>Verificar la tabla de precios 2014–2025 contra la redacción histórica del BOE.</li>
+<li>Confirmar el criterio de redondeo: por liquidación (actual) o por concepto.</li>
+</ul>
+</section>
 </div>
 </div>
 </main>

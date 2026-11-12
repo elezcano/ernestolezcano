@@ -90,13 +90,13 @@
     $('detalle').innerHTML = r.liquidaciones.map((l, i) => {
       const pendiente = l.lineas.some((x) => /pendiente/i.test(x.fuente));
       let h = `<div class="liq"><p class="liq-head">${varias ? `Liquidación ${i + 1} · ` : ''}${fecha(l.desde)} – ${fecha(l.hasta)} <span class="liq-tag${pendiente ? ' warn' : ''}">${pendiente ? 'Precios anteriores' : 'Ley 5/2025'}</span></p><table class="res-table"><tbody>`;
-      for (const x of l.lineas) h += `<tr><td><span class="tr">${x.tramo}</span>${x.concepto}</td><td>${pu(x.valor)}</td></tr>`;
-      h += `<tr class="sub"><td>Precio por m² y día</td><td>${pu(l.precioDia)}</td></tr>`;
-      for (const p of l.pasos) h += `<tr class="${p.tipo || 'sub'}"><td>${p.concepto}</td><td>${p.tipo === 'bonificacion' ? '−' : p.tipo === 'recargo' ? '+' : ''}${eur(Math.abs(p.importe))}</td></tr>`;
-      h += `<tr class="tot"><td>Importe</td><td>${eur(l.importe)}</td></tr></tbody></table></div>`;
+      for (const x of l.lineas) h += `\n<tr><td><span class="tr">${x.tramo}</span> ${x.concepto}</td><td>${pu(x.valor)}</td></tr>`;
+      h += `\n<tr class="sub"><td>Precio por m² y día</td><td>${pu(l.precioDia)}</td></tr>`;
+      for (const p of l.pasos) h += `\n<tr class="${p.tipo || 'sub'}"><td>${p.concepto}</td><td>${p.tipo === 'bonificacion' ? '−' : p.tipo === 'recargo' ? '+' : ''}${eur(Math.abs(p.importe))}</td></tr>`;
+      h += `\n<tr class="tot"><td>Importe</td><td>${eur(l.importe)}</td></tr></tbody></table></div>`;
       return h;
-    }).join('');
-    $('notas').innerHTML = r.notas.length ? '<ul class="res-notes">' + r.notas.map((n) => `<li>${n}</li>`).join('') + '</ul>' : '';
+    }).join('\n');
+    $('notas').innerHTML = r.notas.length ? '<ul class="res-notes">' + r.notas.map((n) => `<li>${n}</li>`).join('\n') + '</ul>' : '';
   }
 
   form.addEventListener('input', render);

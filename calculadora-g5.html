@@ -15,15 +15,43 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/lora.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
-<script src="assets/site.js" defer></script>
+<script src="assets/site.js" defer>
+</script>
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
 <nav class="sidebar" aria-label="Principal">
-  <a class="brand" href="index.html"><strong>Ernesto Lezcano</strong><span>Analista funcional</span></a>
+  <a class="brand" href="index.html">
+<strong>Ernesto Lezcano</strong>
+<span>Analista funcional</span>
+</a>
   <button class="menu-toggle" type="button" aria-expanded="false">Menú</button>
-  <ul class="menu"><li><a href="index.html">Inicio</a></li><li><a href="proyectos/">Proyectos</a></li><li><a href="sector.html">Sector portuario</a></li><li><a href="herramientas.html" aria-current="page">Herramientas</a></li><li><a href="trayectoria.html">Trayectoria</a></li><li><a href="blog/">Blog</a></li><li><a href="contacto.html">Contacto</a></li></ul>
-  <div class="side-foot"><a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a></div>
+  <ul class="menu">
+<li>
+<a href="index.html">Inicio</a>
+</li>
+<li>
+<a href="proyectos/">Proyectos</a>
+</li>
+<li>
+<a href="sector.html">Sector portuario</a>
+</li>
+<li>
+<a href="herramientas.html" aria-current="page">Herramientas</a>
+</li>
+<li>
+<a href="trayectoria.html">Trayectoria</a>
+</li>
+<li>
+<a href="blog/">Blog</a>
+</li>
+<li>
+<a href="contacto.html">Contacto</a>
+</li>
+</ul>
+  <div class="side-foot">
+<a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a>
+</div>
 </nav>
 <div class="main">
 <main id="contenido">
@@ -46,72 +74,128 @@
 <div class="calc">
   <form class="calc-form" id="g5" autocomplete="off" novalidate>
     <fieldset>
-      <legend><span class="n">1</span>Dónde está</legend>
+      <legend>
+<span class="n">1</span> Dónde está</legend>
       <div class="seg-group" role="radiogroup" aria-label="Tipo de instalación">
-        <label><input type="radio" name="tipo" value="directa" checked><span>Gestión directa</span></label>
-        <label><input type="radio" name="tipo" value="concesion"><span>Zona deportiva en concesión</span></label>
-        <label><input type="radio" name="tipo" value="reducida"><span>Puerto construido por el concesionario</span></label>
-        <label><input type="radio" name="tipo" value="concesion_total"><span>Puerto en concesión total</span></label>
+        <label>
+<input type="radio" name="tipo" value="directa" checked>
+<span>Gestión directa</span>
+</label>
+        <label>
+<input type="radio" name="tipo" value="concesion">
+<span>Zona deportiva en concesión</span>
+</label>
+        <label>
+<input type="radio" name="tipo" value="reducida">
+<span>Puerto construido por el concesionario</span>
+</label>
+        <label>
+<input type="radio" name="tipo" value="concesion_total">
+<span>Puerto en concesión total</span>
+</label>
       </div>
       <label data-tipo="directa">Tipo de puerto
-        <select name="escala"><option value="general" selected>No exclusivamente deportivo</option><option value="deportivo">Exclusivamente deportivo</option></select>
+        <select name="escala">
+<option value="general" selected>No exclusivamente deportivo</option>
+<option value="deportivo">Exclusivamente deportivo</option>
+</select>
       </label>
-      <p class="hint" id="tipoHint"></p>
+      <p class="hint" id="tipoHint">
+</p>
     </fieldset>
 
     <fieldset>
-      <legend><span class="n">2</span>El barco</legend>
+      <legend>
+<span class="n">2</span> El barco</legend>
       <div class="row3">
-        <label>Eslora máxima (m)<input type="number" name="eslora" value="8" min="0.1" step="0.01"></label>
-        <label>Manga máxima (m)<input type="number" name="manga" value="3" min="0.1" step="0.01"></label>
+        <label>Eslora máxima (m)<input type="number" name="eslora" value="8" min="0.1" step="0.01">
+</label>
+        <label>Manga máxima (m)<input type="number" name="manga" value="3" min="0.1" step="0.01">
+</label>
         <label>Lista
-          <select name="lista"><option value="7" selected>7.ª, recreo privado</option><option value="6">6.ª, fines lucrativos</option></select>
+          <select name="lista">
+<option value="7" selected>7.ª, recreo privado</option>
+<option value="6">6.ª, fines lucrativos</option>
+</select>
         </label>
       </div>
-      <p class="hint" id="m2Hint"></p>
+      <p class="hint" id="m2Hint">
+</p>
     </fieldset>
 
     <fieldset>
-      <legend><span class="n">3</span>Cuánto tiempo</legend>
+      <legend>
+<span class="n">3</span> Cuánto tiempo</legend>
       <div class="seg-group" role="radiogroup" aria-label="Modalidad">
-        <label><input type="radio" name="estancia" value="transito" checked><span>Tránsito</span></label>
-        <label><input type="radio" name="estancia" value="base"><span>Plaza base</span></label>
+        <label>
+<input type="radio" name="estancia" value="transito" checked>
+<span>Tránsito</span>
+</label>
+        <label>
+<input type="radio" name="estancia" value="base">
+<span>Plaza base</span>
+</label>
       </div>
       <div class="row2" data-estancia="transito">
-        <label>Entrada<input type="datetime-local" name="entrada"></label>
-        <label>Salida<input type="datetime-local" name="salida"></label>
+        <label>Entrada<input type="datetime-local" name="entrada">
+</label>
+        <label>Salida<input type="datetime-local" name="salida">
+</label>
       </div>
       <div class="row3" data-estancia="base">
-        <label>Año<input type="number" name="anio" min="2014" max="2100"></label>
-        <label>Semestre<select name="semestre"><option value="1">1.º (enero–junio)</option><option value="2" selected>2.º (julio–diciembre)</option></select></label>
-        <label>Fecha de alta (opcional)<input type="date" name="alta"></label>
+        <label>Año<input type="number" name="anio" min="2014" max="2100">
+</label>
+        <label>Semestre<select name="semestre">
+<option value="1">1.º (enero–junio)</option>
+<option value="2" selected>2.º (julio–diciembre)</option>
+</select>
+</label>
+        <label>Fecha de alta (opcional)<input type="date" name="alta">
+</label>
       </div>
-      <p class="hint" id="tHint"></p>
+      <p class="hint" id="tHint">
+</p>
     </fieldset>
 
     <fieldset data-tipo="directa">
-      <legend><span class="n">4</span>Cómo está amarrado y qué servicios tiene</legend>
+      <legend>
+<span class="n">4</span> Cómo está amarrado y qué servicios tiene</legend>
       <label>Situación de atraque (tramo B)
         <select name="atraque">
-          <option value="punta" selected>Atraque en punta</option><option value="costado">Atraque de costado</option><option value="fondeo_con_muerto">Fondeo a muerto, boya o punto fijo</option><option value="fondeo_sin_muerto">Fondeo con medios propios</option><option value="seco">En seco en zona habilitada</option><option value="abarloada">Abarloado a otra embarcación</option><option value="banqueta">Atraque a banqueta o escollera</option><option value="fluvial">Costado en muelle fluvial</option>
+          <option value="punta" selected>Atraque en punta</option>
+<option value="costado">Atraque de costado</option>
+<option value="fondeo_con_muerto">Fondeo a muerto, boya o punto fijo</option>
+<option value="fondeo_sin_muerto">Fondeo con medios propios</option>
+<option value="seco">En seco en zona habilitada</option>
+<option value="abarloada">Abarloado a otra embarcación</option>
+<option value="banqueta">Atraque a banqueta o escollera</option>
+<option value="fluvial">Costado en muelle fluvial</option>
         </select>
       </label>
       <p class="label">Servicios disponibles (tramo C, uno por servicio)</p>
       <div class="checks">
-        <label class="check"><input type="checkbox" name="servicios" value="agua" checked> Toma de agua</label>
-        <label class="check"><input type="checkbox" name="servicios" value="electricidad" checked> Toma de electricidad</label>
-        <label class="check"><input type="checkbox" name="servicios" value="basura"> Recipiente de basura</label>
-        <label class="check"><input type="checkbox" name="servicios" value="varada"> Varada y botadura</label>
-        <label class="check"><input type="checkbox" name="servicios" value="vigilancia"> Vigilancia general</label>
+        <label class="check">
+<input type="checkbox" name="servicios" value="agua" checked> Toma de agua</label>
+        <label class="check">
+<input type="checkbox" name="servicios" value="electricidad" checked> Toma de electricidad</label>
+        <label class="check">
+<input type="checkbox" name="servicios" value="basura"> Recipiente de basura</label>
+        <label class="check">
+<input type="checkbox" name="servicios" value="varada"> Varada y botadura</label>
+        <label class="check">
+<input type="checkbox" name="servicios" value="vigilancia"> Vigilancia general</label>
       </div>
     </fieldset>
     <p class="hint calc-skip" data-tipo-not="directa">En las zonas en concesión el atraque y los servicios los cobra el concesionario: no se pagan los tramos B ni C.</p>
 
     <fieldset>
-      <legend><span class="n">5</span>Ajustes</legend>
+      <legend>
+<span class="n">5</span> Ajustes</legend>
       <div class="checks">
-        <label class="check" id="domWrap"><input type="checkbox" name="domiciliado"> Plaza base domiciliada</label>
-        <label class="check" id="noautWrap"><input type="checkbox" name="sinAutorizacion"> Tránsito sin autorización (tarifa doble)</label>
+        <label class="check" id="domWrap">
+<input type="checkbox" name="domiciliado"> Plaza base domiciliada</label>
+        <label class="check" id="noautWrap">
+<input type="checkbox" name="sinAutorizacion"> Tránsito sin autorización (tarifa doble)</label>
       </div>
     </fieldset>
   </form>
@@ -119,9 +203,12 @@
   <aside class="calc-result" aria-live="polite">
     <p class="res-label">Liquidación estimada</p>
     <p class="res-total" id="total">—</p>
-    <p class="res-meta" id="meta"></p>
-    <div id="detalle"></div>
-    <div id="notas"></div>
+    <p class="res-meta" id="meta">
+</p>
+    <div id="detalle">
+</div>
+    <div id="notas">
+</div>
   </aside>
 </div>
 
@@ -130,8 +217,10 @@
   <p class="block-intro">Todos los importes, coeficientes y bonificaciones, y la hora límite de salida, están en un archivo de texto plano con la fecha de vigencia de cada valor: <a href="datos/tarifas-g5.csv">tarifas-g5.csv</a>. Cuando cambia una tarifa, se añade una fila y la calculadora la aplica a partir de su fecha. Las reglas y los casos de prueba están en la <a href="muestras/especificacion-g5.html">especificación funcional</a>.</p>
   <p class="disclaimer">Cálculo orientativo, sin valor oficial, hecho a partir de la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1999-10811" rel="noopener">Ley 1/1999 de Tarifas Portuarias (texto consolidado en el BOE)</a>. Los precios vigentes desde el 01/06/2025 están comprobados contra el BOE; los anteriores, pendientes de verificar. No incluye el IVA ni el recargo del art. 35.Dos.</p>
 </section>
-<script src="assets/g5.js"></script>
-<script src="assets/g5-ui.js" defer></script>
+<script src="assets/g5.js">
+</script>
+<script src="assets/g5-ui.js" defer>
+</script>
 </div>
 </main>
 <footer class="page-foot">© 2026 Ernesto Lezcano. Valencia.</footer>

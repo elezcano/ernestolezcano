@@ -15,15 +15,43 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/lora.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
-<script src="assets/site.js" defer></script>
+<script src="assets/site.js" defer>
+</script>
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
 <nav class="sidebar" aria-label="Principal">
-  <a class="brand" href="index.html"><strong>Ernesto Lezcano</strong><span>Analista funcional</span></a>
+  <a class="brand" href="index.html">
+<strong>Ernesto Lezcano</strong>
+<span>Analista funcional</span>
+</a>
   <button class="menu-toggle" type="button" aria-expanded="false">Menú</button>
-  <ul class="menu"><li><a href="index.html">Inicio</a></li><li><a href="proyectos/">Proyectos</a></li><li><a href="sector.html">Sector portuario</a></li><li><a href="herramientas.html" aria-current="page">Herramientas</a></li><li><a href="trayectoria.html">Trayectoria</a></li><li><a href="blog/">Blog</a></li><li><a href="contacto.html">Contacto</a></li></ul>
-  <div class="side-foot"><a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a></div>
+  <ul class="menu">
+<li>
+<a href="index.html">Inicio</a>
+</li>
+<li>
+<a href="proyectos/">Proyectos</a>
+</li>
+<li>
+<a href="sector.html">Sector portuario</a>
+</li>
+<li>
+<a href="herramientas.html" aria-current="page">Herramientas</a>
+</li>
+<li>
+<a href="trayectoria.html">Trayectoria</a>
+</li>
+<li>
+<a href="blog/">Blog</a>
+</li>
+<li>
+<a href="contacto.html">Contacto</a>
+</li>
+</ul>
+  <div class="side-foot">
+<a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a>
+</div>
 </nav>
 <div class="main">
 <main id="contenido">
@@ -44,9 +72,105 @@
 </section>
 <h2 class="block-title" style="margin-top:3rem">Mi día a día</h2>
 <p class="page-intro" style="margin-bottom:1.5rem">Elige un proyecto para ver qué tecnologías se usaron en él.</p>
-<div class="filter" role="group" aria-label="Filtrar por proyecto"><span>Proyecto</span><button type="button" data-project="todas" aria-pressed="true">Todas</button><button type="button" data-project="navale" aria-pressed="false">GVA Navale</button></div>
-<p class="filter-status visually-hidden" aria-live="polite"></p>
-<div class="tool-area"><section class="tool-group"><h2>Gestión y documentación</h2><ul class="tools"><li class="tool" data-projects=""><span class="mono" aria-hidden="true">Ji</span><span><strong>Jira</strong><small>Seguimiento de tareas</small></span></li><li class="tool" data-projects=""><span class="mono" aria-hidden="true">Co</span><span><strong>Confluence</strong><small>Documentación</small></span></li><li class="tool" data-projects=""><span class="mono" aria-hidden="true">No</span><span><strong>Notion</strong><small>Notas y documentación</small></span></li><li class="tool" data-projects=""><span class="mono" aria-hidden="true">Ex</span><span><strong>Office / Excel</strong><small>Informes y análisis</small></span></li></ul></section><section class="tool-group"><h2>Diseño</h2><ul class="tools"><li class="tool" data-projects=""><span class="mono" aria-hidden="true">Fi</span><span><strong>Figma</strong><small>Maquetas y pantallas</small></span></li></ul></section><section class="tool-group"><h2>Datos y pruebas</h2><ul class="tools"><li class="tool" data-projects=""><span class="mono" aria-hidden="true">SQ</span><span><strong>SQL</strong><small>Consultas y validación de datos</small></span></li><li class="tool" data-projects="navale"><span class="mono" aria-hidden="true">Or</span><span><strong>Oracle</strong><small>Base de datos</small></span></li><li class="tool" data-projects="navale"><span class="mono" aria-hidden="true">Pg</span><span><strong>PostgreSQL / PostGIS</strong><small>Base de datos y datos geográficos</small></span></li><li class="tool" data-projects=""><span class="mono" aria-hidden="true">Po</span><span><strong>Postman</strong><small>Pruebas de APIs</small></span></li></ul></section><section class="tool-group"><h2>Desarrollo</h2><ul class="tools"><li class="tool" data-projects="navale"><span class="mono" aria-hidden="true">Jv</span><span><strong>Java / Spring</strong><small>Doce años programando</small></span></li></ul></section></div>
+<div class="filter" role="group" aria-label="Filtrar por proyecto">
+<span>Proyecto</span>
+<button type="button" data-project="todas" aria-pressed="true">Todas</button>
+<button type="button" data-project="navale" aria-pressed="false">GVA Navale</button>
+</div>
+<p class="filter-status visually-hidden" aria-live="polite">
+</p>
+<div class="tool-area">
+<section class="tool-group">
+<h2>Gestión y documentación</h2>
+<ul class="tools">
+<li class="tool" data-projects="">
+<span class="mono" aria-hidden="true">Ji</span>
+<span>
+<strong>Jira</strong>
+<small>Seguimiento de tareas</small>
+</span>
+</li>
+<li class="tool" data-projects="">
+<span class="mono" aria-hidden="true">Co</span>
+<span>
+<strong>Confluence</strong>
+<small>Documentación</small>
+</span>
+</li>
+<li class="tool" data-projects="">
+<span class="mono" aria-hidden="true">No</span>
+<span>
+<strong>Notion</strong>
+<small>Notas y documentación</small>
+</span>
+</li>
+<li class="tool" data-projects="">
+<span class="mono" aria-hidden="true">Ex</span>
+<span>
+<strong>Office / Excel</strong>
+<small>Informes y análisis</small>
+</span>
+</li>
+</ul>
+</section>
+<section class="tool-group">
+<h2>Diseño</h2>
+<ul class="tools">
+<li class="tool" data-projects="">
+<span class="mono" aria-hidden="true">Fi</span>
+<span>
+<strong>Figma</strong>
+<small>Maquetas y pantallas</small>
+</span>
+</li>
+</ul>
+</section>
+<section class="tool-group">
+<h2>Datos y pruebas</h2>
+<ul class="tools">
+<li class="tool" data-projects="">
+<span class="mono" aria-hidden="true">SQ</span>
+<span>
+<strong>SQL</strong>
+<small>Consultas y validación de datos</small>
+</span>
+</li>
+<li class="tool" data-projects="navale">
+<span class="mono" aria-hidden="true">Or</span>
+<span>
+<strong>Oracle</strong>
+<small>Base de datos</small>
+</span>
+</li>
+<li class="tool" data-projects="navale">
+<span class="mono" aria-hidden="true">Pg</span>
+<span>
+<strong>PostgreSQL / PostGIS</strong>
+<small>Base de datos y datos geográficos</small>
+</span>
+</li>
+<li class="tool" data-projects="">
+<span class="mono" aria-hidden="true">Po</span>
+<span>
+<strong>Postman</strong>
+<small>Pruebas de APIs</small>
+</span>
+</li>
+</ul>
+</section>
+<section class="tool-group">
+<h2>Desarrollo</h2>
+<ul class="tools">
+<li class="tool" data-projects="navale">
+<span class="mono" aria-hidden="true">Jv</span>
+<span>
+<strong>Java / Spring</strong>
+<small>Doce años programando</small>
+</span>
+</li>
+</ul>
+</section>
+</div>
 </div>
 </main>
 <footer class="page-foot">© 2026 Ernesto Lezcano. Valencia.</footer>
