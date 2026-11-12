@@ -29,93 +29,106 @@
 <main id="contenido">
 <div class="content">
 <a class="back" href="herramientas.html">Volver a herramientas</a>
-<h1 class="page-title">Calculadora de la tarifa G-5</h1>
-<p class="page-intro">Lo que paga una embarcación deportiva o de recreo por amarrar en un puerto de la Generalitat Valenciana. Precios vigentes desde el 1 de junio de 2025, sin IVA.</p>
+<header class="calc-head">
+  <div>
+    <h1 class="page-title">Calculadora de la tarifa G-5</h1>
+    <p class="page-intro">Lo que paga una embarcación deportiva o de recreo en los puertos de la Generalitat Valenciana. Cada día se cobra con el precio vigente ese día. Importes sin IVA.</p>
+  </div>
+  <div class="presets" role="group" aria-label="Ejemplos rápidos">
+    <span>Ejemplos</span>
+    <button type="button" data-p="gdt">Tránsito en gestión directa</button>
+    <button type="button" data-p="gdb">Plaza base en gestión directa</button>
+    <button type="button" data-p="cn">Club náutico en concesión</button>
+    <button type="button" data-p="mo">Tarifa reducida</button>
+  </div>
+</header>
 
 <div class="calc">
-  <form class="calc-form" id="g5" novalidate>
+  <form class="calc-form" id="g5" autocomplete="off" novalidate>
     <fieldset>
-      <legend>Embarcación</legend>
-      <div class="row2">
-        <label>Eslora (m)<input type="number" name="eslora" value="8" min="1" step="0.01" required></label>
-        <label>Manga (m)<input type="number" name="manga" value="3" min="0.5" step="0.01" required></label>
-      </div>
-      <label class="check"><input type="checkbox" name="lista6"> Lista 6.ª (alquiler o chárter) o uso comercial temporal</label>
-    </fieldset>
-
-    <fieldset>
-      <legend>Instalación</legend>
+      <legend><span class="n">1</span>Dónde está</legend>
       <div class="seg-group" role="radiogroup" aria-label="Tipo de instalación">
-        <label><input type="radio" name="instalacion" value="directa" checked><span>Gestión directa</span></label>
-        <label><input type="radio" name="instalacion" value="concesion"><span>Zona en concesión</span></label>
-        <label><input type="radio" name="instalacion" value="reducida"><span>Construido por el concesionario</span></label>
+        <label><input type="radio" name="tipo" value="directa" checked><span>Gestión directa</span></label>
+        <label><input type="radio" name="tipo" value="concesion"><span>Zona deportiva en concesión</span></label>
+        <label><input type="radio" name="tipo" value="reducida"><span>Puerto construido por el concesionario</span></label>
+        <label><input type="radio" name="tipo" value="concesion_total"><span>Puerto en concesión total</span></label>
       </div>
-      <label data-only="directa">Tipo de puerto
+      <label data-tipo="directa">Tipo de puerto
         <select name="escala"><option value="general" selected>No exclusivamente deportivo</option><option value="deportivo">Exclusivamente deportivo</option></select>
       </label>
+      <p class="hint" id="tipoHint"></p>
     </fieldset>
 
     <fieldset>
-      <legend>Estancia</legend>
-      <div class="seg-group" role="radiogroup" aria-label="Tipo de estancia">
+      <legend><span class="n">2</span>El barco</legend>
+      <div class="row3">
+        <label>Eslora máxima (m)<input type="number" name="eslora" value="8" min="0.1" step="0.01"></label>
+        <label>Manga máxima (m)<input type="number" name="manga" value="3" min="0.1" step="0.01"></label>
+        <label>Lista
+          <select name="lista"><option value="7" selected>7.ª, recreo privado</option><option value="6">6.ª, fines lucrativos</option></select>
+        </label>
+      </div>
+      <p class="hint" id="m2Hint"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend><span class="n">3</span>Cuánto tiempo</legend>
+      <div class="seg-group" role="radiogroup" aria-label="Modalidad">
         <label><input type="radio" name="estancia" value="transito" checked><span>Tránsito</span></label>
         <label><input type="radio" name="estancia" value="base"><span>Plaza base</span></label>
       </div>
-      <div data-only-estancia="transito">
-        <div class="row2">
-          <label>Entrada<input type="date" name="entrada" min="2025-06-01" required></label>
-          <label>Salida<input type="date" name="salida" min="2025-06-01" required></label>
-        </div>
-        <label class="check"><input type="checkbox" name="salidaTarde"> Sale después de la hora límite</label>
+      <div class="row2" data-estancia="transito">
+        <label>Entrada<input type="datetime-local" name="entrada"></label>
+        <label>Salida<input type="datetime-local" name="salida"></label>
       </div>
-      <div data-only-estancia="base">
-        <div class="row2">
-          <label>Año<input type="number" name="anio" min="2025" max="2100" value="2026"></label>
-          <label>Semestre<select name="semestre"><option value="1">1.º (enero–junio)</option><option value="2" selected>2.º (julio–diciembre)</option></select></label>
-        </div>
-        <label>Fecha de alta (si empieza a mitad de semestre)<input type="date" name="alta" min="2025-06-01"></label>
-        <label class="check" data-only="directa"><input type="checkbox" name="domiciliado"> Pago domiciliado</label>
+      <div class="row3" data-estancia="base">
+        <label>Año<input type="number" name="anio" min="2014" max="2100"></label>
+        <label>Semestre<select name="semestre"><option value="1">1.º (enero–junio)</option><option value="2" selected>2.º (julio–diciembre)</option></select></label>
+        <label>Fecha de alta (opcional)<input type="date" name="alta"></label>
       </div>
+      <p class="hint" id="tHint"></p>
     </fieldset>
 
-    <fieldset data-only="directa">
-      <legend>Atraque y servicios</legend>
+    <fieldset data-tipo="directa">
+      <legend><span class="n">4</span>Cómo está amarrado y qué servicios tiene</legend>
       <label>Situación de atraque (tramo B)
         <select name="atraque">
-          <option value="punta" selected>Atraque en punta</option><option value="costado">Atraque de costado</option><option value="fondeo_sin_muerto">Fondeo sin muerto o tren</option><option value="fondeo_con_muerto">Fondeo con muerto o tren</option><option value="abarloada">Abarloada a otra embarcación</option><option value="banqueta">A banqueta o escollera</option><option value="seco">En seco en zona habilitada</option><option value="fluvial">De costado en muelle fluvial</option>
+          <option value="punta" selected>Atraque en punta</option><option value="costado">Atraque de costado</option><option value="fondeo_con_muerto">Fondeo a muerto, boya o punto fijo</option><option value="fondeo_sin_muerto">Fondeo con medios propios</option><option value="seco">En seco en zona habilitada</option><option value="abarloada">Abarloado a otra embarcación</option><option value="banqueta">Atraque a banqueta o escollera</option><option value="fluvial">Costado en muelle fluvial</option>
         </select>
       </label>
-      <p class="label">Servicios disponibles (tramo C)</p>
+      <p class="label">Servicios disponibles (tramo C, uno por servicio)</p>
       <div class="checks">
-        <label class="check"><input type="checkbox" name="servicios" value="agua" checked> Agua</label>
-        <label class="check"><input type="checkbox" name="servicios" value="electricidad" checked> Electricidad</label>
-        <label class="check"><input type="checkbox" name="servicios" value="basura"> Basura</label>
+        <label class="check"><input type="checkbox" name="servicios" value="agua" checked> Toma de agua</label>
+        <label class="check"><input type="checkbox" name="servicios" value="electricidad" checked> Toma de electricidad</label>
+        <label class="check"><input type="checkbox" name="servicios" value="basura"> Recipiente de basura</label>
         <label class="check"><input type="checkbox" name="servicios" value="varada"> Varada y botadura</label>
-        <label class="check"><input type="checkbox" name="servicios" value="vigilancia"> Vigilancia</label>
+        <label class="check"><input type="checkbox" name="servicios" value="vigilancia"> Vigilancia general</label>
+      </div>
+    </fieldset>
+    <p class="hint calc-skip" data-tipo-not="directa">En las zonas en concesión el atraque y los servicios los cobra el concesionario: no se pagan los tramos B ni C.</p>
+
+    <fieldset>
+      <legend><span class="n">5</span>Ajustes</legend>
+      <div class="checks">
+        <label class="check" id="domWrap"><input type="checkbox" name="domiciliado"> Plaza base domiciliada</label>
+        <label class="check" id="noautWrap"><input type="checkbox" name="sinAutorizacion"> Tránsito sin autorización (tarifa doble)</label>
       </div>
     </fieldset>
   </form>
 
   <aside class="calc-result" aria-live="polite">
-    <p class="res-label">Importe estimado</p>
+    <p class="res-label">Liquidación estimada</p>
     <p class="res-total" id="total">—</p>
     <p class="res-meta" id="meta"></p>
     <div id="detalle"></div>
-    <p class="res-error" id="error" hidden></p>
+    <div id="notas"></div>
   </aside>
 </div>
 
 <section class="block" style="margin-top:3rem">
-  <h2 class="block-title">Cómo calcula</h2>
-  <ul class="notes">
-    <li>Superficie: eslora × manga, redondeada al metro cuadrado superior.</li>
-    <li>Tránsito: cuenta el día de entrada y no el de salida, salvo que se salga pasada la hora límite.</li>
-    <li>Plaza base: semestre natural completo, o desde la fecha de alta hasta el final del semestre.</li>
-    <li>En concesión solo se cobra el tramo A. El atraque y los servicios los cobra el concesionario.</li>
-    <li>No incluye los recargos del art. 35 (por ejemplo, embarcaciones sin autorización) ni el IVA.</li>
-    <li>Cada precio se aplica a los días en que estuvo vigente. Los precios salen de un archivo de texto con la fecha de vigencia de cada valor: <a href="datos/tarifas-g5.csv">tarifas-g5.csv</a>.</li>
-  </ul>
-  <p class="disclaimer">Calculadora orientativa hecha a partir de la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1999-10811" rel="noopener">Ley 1/1999 de Tarifas Portuarias (texto consolidado en el BOE)</a>. No sustituye una liquidación oficial.</p>
+  <h2 class="block-title">De dónde salen los precios</h2>
+  <p class="block-intro">Todos los importes, coeficientes y bonificaciones, y la hora límite de salida, están en un archivo de texto plano con la fecha de vigencia de cada valor: <a href="datos/tarifas-g5.csv">tarifas-g5.csv</a>. Cuando cambia una tarifa, se añade una fila y la calculadora la aplica a partir de su fecha.</p>
+  <p class="disclaimer">Cálculo orientativo, sin valor oficial, hecho a partir de la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1999-10811" rel="noopener">Ley 1/1999 de Tarifas Portuarias (texto consolidado en el BOE)</a>. Los precios vigentes desde el 01/06/2025 están comprobados contra el BOE; los anteriores, pendientes de verificar. No incluye el IVA ni el recargo del art. 35.Dos.</p>
 </section>
 <script src="assets/g5.js"></script>
 <script src="assets/g5-ui.js" defer></script>

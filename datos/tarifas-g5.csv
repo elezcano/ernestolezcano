@@ -1,52 +1,89 @@
 # Fuente de precios de la tarifa G-5 (embarcaciones deportivas y de recreo) - Puertos de la Generalitat Valenciana
-# Ley 1/1999, de 31 de marzo, de Tarifas Portuarias, arts. 30-37. Texto consolidado BOE-A-1999-10811.
-# Importes en euros por m2 (o fraccion) y dia natural, sin IVA.
+# Ley 1/1999, de 31 de marzo, de Tarifas Portuarias, arts. 30-37. Texto consolidado: BOE-A-1999-10811.
+# Importes en euros por m2 (o fracción) y día natural, sin IVA.
 #
-# Columnas:
-#   clave        identificador que usa la calculadora
-#   tramo        A, B, C o K (coeficientes y bonificaciones)
-#   escala       general = puertos no exclusivamente deportivos
-#                deportivo = puertos exclusivamente deportivos de gestion directa
-#                todas = se aplica en cualquier caso
-#   concepto     texto que se muestra
-#   valor        importe en euros/m2/dia, o coeficiente/porcentaje para el tramo K
-#   desde        primer dia de vigencia (AAAA-MM-DD)
-#   hasta        ultimo dia de vigencia (vacio = vigente)
-#   norma        norma que fija el valor
+# Columnas
+#   clave     identificador que usa la calculadora
+#   tramo     A, B, C = tramos de la tarifa; K = coeficientes y bonificaciones; P = parámetros de cálculo
+#   escala    general   = puertos no exclusivamente deportivos
+#             deportivo = puertos exclusivamente deportivos de gestión directa
+#             todas     = se aplica en cualquier caso
+#   concepto  texto que muestra la calculadora
+#   valor     euros/m2/día (tramos), multiplicador o porcentaje (K) o valor del parámetro (P)
+#   desde     primer día de vigencia (AAAA-MM-DD)
+#   hasta     último día de vigencia (vacío = vigente hoy)
+#   fuente    norma o procedencia del valor
 #
-# Para anadir una actualizacion: cerrar la fila antigua rellenando "hasta" y anadir una fila nueva con su "desde".
-# La calculadora aplica a cada dia el valor vigente ese dia.
-# Esta fuente cubre desde el 01/06/2025. En los valores que no cambiaron entonces, "desde" marca el inicio de la cobertura, no la fecha de la norma.
-# Comprobado contra el texto consolidado del BOE (ultima actualizacion publicada el 31/05/2025) el 12/11/2026.
-clave;tramo;escala;concepto;valor;desde;hasta;norma
-aguas;A;todas;Utilización de las aguas del puerto;0.0534457;2025-06-01;;Ley 5/2025, art. 43 (art. 33 Ley 1/1999)
-aguas_reducida;A;todas;Aguas, puerto construido por el concesionario;0.0122;2025-06-01;;Ley 10/2012, art. 60 (art. 34.Tres Ley 1/1999)
+# Cómo actualizar: rellena 'hasta' en la fila antigua y añade otra fila con el nuevo valor y su 'desde'.
+# La calculadora aplica a cada día el valor vigente ese día y emite una liquidación por cada año y cada tabla de precios.
+# Cobertura: desde el 01/01/2014. En valores que no cambian, 'desde' marca el inicio de la cobertura, no la fecha de la norma.
+# Tabla vigente comprobada contra el texto consolidado del BOE (última actualización publicada el 31/05/2025) el 12/11/2026.
+# Tabla 2014-2025 tomada de la calculadora base: PENDIENTE DE VERIFICAR contra la redacción histórica del BOE.
+clave;tramo;escala;concepto;valor;desde;hasta;fuente
+# --- Tabla vigente desde el 01/06/2025 (Ley 5/2025, art. 43, que da nueva redacción al art. 33)
+aguas;A;todas;Utilización de las aguas del puerto;0.0534457;2025-06-01;;Ley 5/2025, art. 43
 punta;B;general;Atraque en punta;0.07479978;2025-06-01;;Ley 5/2025, art. 43
 punta;B;deportivo;Atraque en punta;0.07479978;2025-06-01;;Ley 5/2025, art. 43
 costado;B;general;Atraque de costado;0.21366059;2025-06-01;;Ley 5/2025, art. 43
 costado;B;deportivo;Atraque de costado;0.21366059;2025-06-01;;Ley 5/2025, art. 43
-fondeo_sin_muerto;B;general;Fondeo sin muerto o tren;0.0534457;2025-06-01;;Ley 5/2025, art. 43
-fondeo_sin_muerto;B;deportivo;Fondeo sin muerto o tren;0.32042978;2025-06-01;;Ley 5/2025, art. 43
-fondeo_con_muerto;B;general;Fondeo con muerto o tren;0.07479978;2025-06-01;;Ley 5/2025, art. 43
-fondeo_con_muerto;B;deportivo;Fondeo con muerto o tren;0.0534457;2025-06-01;;Ley 5/2025, art. 43
-abarloada;B;general;Embarcación abarloada;0.06406103;2025-06-01;;Ley 5/2025, art. 43
-abarloada;B;deportivo;Embarcación abarloada;0.06406103;2025-06-01;;Ley 5/2025, art. 43
+fondeo_sin_muerto;B;general;Fondeo con medios propios (sin muerto);0.0534457;2025-06-01;;Ley 5/2025, art. 43
+fondeo_sin_muerto;B;deportivo;Fondeo con medios propios (sin muerto);0.32042978;2025-06-01;;Ley 5/2025, art. 43
+fondeo_con_muerto;B;general;Fondeo a muerto, boya o punto fijo;0.07479978;2025-06-01;;Ley 5/2025, art. 43
+fondeo_con_muerto;B;deportivo;Fondeo a muerto, boya o punto fijo;0.0534457;2025-06-01;;Ley 5/2025, art. 43
+abarloada;B;general;Abarloada;0.06406103;2025-06-01;;Ley 5/2025, art. 43
+abarloada;B;deportivo;Abarloada;0.06406103;2025-06-01;;Ley 5/2025, art. 43
 banqueta;B;general;Atraque a banqueta o escollera;0.06406103;2025-06-01;;Ley 5/2025, art. 43
 banqueta;B;deportivo;Atraque a banqueta o escollera;0.06406103;2025-06-01;;Ley 5/2025, art. 43
 seco;B;general;En seco en zona habilitada;0.02135408;2025-06-01;;Ley 5/2025, art. 43
 seco;B;deportivo;En seco en zona habilitada;0.02135408;2025-06-01;;Ley 5/2025, art. 43
-fluvial;B;general;Atraque de costado en muelle fluvial;0.09615386;2025-06-01;;Ley 5/2025, art. 43
+fluvial;B;general;Costado en muelle fluvial;0.09615386;2025-06-01;;Ley 5/2025, art. 43
 agua;C;general;Toma de agua;0.01604581;2025-06-01;;Ley 5/2025, art. 43
 agua;C;deportivo;Toma de agua;0.02135408;2025-06-01;;Ley 5/2025, art. 43
-electricidad;C;general;Toma de energía eléctrica;0.01604581;2025-06-01;;Ley 5/2025, art. 43
-electricidad;C;deportivo;Toma de energía eléctrica;0.02135408;2025-06-01;;Ley 5/2025, art. 43
+electricidad;C;general;Toma de electricidad;0.01604581;2025-06-01;;Ley 5/2025, art. 43
+electricidad;C;deportivo;Toma de electricidad;0.02135408;2025-06-01;;Ley 5/2025, art. 43
 basura;C;general;Recipiente de basura;0.01604581;2025-06-01;;Ley 5/2025, art. 43
 basura;C;deportivo;Recipiente de basura;0.02135408;2025-06-01;;Ley 5/2025, art. 43
 varada;C;general;Varada y botadura;0.01604581;2025-06-01;;Ley 5/2025, art. 43
 varada;C;deportivo;Varada y botadura;0.02135408;2025-06-01;;Ley 5/2025, art. 43
-vigilancia;C;general;Vigilancia general de la zona;0.02666114;2025-06-01;;Ley 5/2025, art. 43
-vigilancia;C;deportivo;Vigilancia general de la zona;0.03209283;2025-06-01;;Ley 5/2025, art. 43
-coef_lista6;K;todas;Lista 6.ª o uso comercial temporal;1.8;2025-06-01;;Ley 5/2025, art. 42 (art. 32 Ley 1/1999)
-bonif_concesion_base;K;todas;Estimación simplificada: embarcaciones base;0.20;2025-06-01;;Art. 34.Uno Ley 1/1999
-bonif_concesion_transito;K;todas;Estimación simplificada: tránsitos;0.10;2025-06-01;;Art. 34.Uno Ley 1/1999
-bonif_domiciliacion;K;todas;Domiciliación bancaria (embarcaciones base);0.10;2025-06-01;;Art. 37.Dos.b Ley 1/1999
+vigilancia;C;general;Vigilancia general;0.02666114;2025-06-01;;Ley 5/2025, art. 43
+vigilancia;C;deportivo;Vigilancia general;0.03209283;2025-06-01;;Ley 5/2025, art. 43
+# --- Tabla anterior (pendiente de verificar)
+aguas;A;todas;Utilización de las aguas del puerto;0.04417;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+punta;B;general;Atraque en punta;0.061818;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+punta;B;deportivo;Atraque en punta;0.061818;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+costado;B;general;Atraque de costado;0.176579;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+costado;B;deportivo;Atraque de costado;0.176579;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+fondeo_sin_muerto;B;general;Fondeo con medios propios (sin muerto);0.04417;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+fondeo_sin_muerto;B;deportivo;Fondeo con medios propios (sin muerto);0.264818;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+fondeo_con_muerto;B;general;Fondeo a muerto, boya o punto fijo;0.061818;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+fondeo_con_muerto;B;deportivo;Fondeo a muerto, boya o punto fijo;0.04417;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+abarloada;B;general;Abarloada;0.052943;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+abarloada;B;deportivo;Abarloada;0.052943;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+banqueta;B;general;Atraque a banqueta o escollera;0.052943;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+banqueta;B;deportivo;Atraque a banqueta o escollera;0.052943;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+seco;B;general;En seco en zona habilitada;0.017648;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+seco;B;deportivo;En seco en zona habilitada;0.017648;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+fluvial;B;general;Costado en muelle fluvial;0.079466;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+agua;C;general;Toma de agua;0.013261;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+agua;C;deportivo;Toma de agua;0.017648;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+electricidad;C;general;Toma de electricidad;0.013261;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+electricidad;C;deportivo;Toma de electricidad;0.017648;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+basura;C;general;Recipiente de basura;0.013261;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+basura;C;deportivo;Recipiente de basura;0.017648;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+varada;C;general;Varada y botadura;0.013261;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+varada;C;deportivo;Varada y botadura;0.017648;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+vigilancia;C;general;Vigilancia general;0.022034;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+vigilancia;C;deportivo;Vigilancia general;0.026523;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+# --- Tarifa reducida del tramo A (art. 34.Tres, redacción de la Ley 10/2012, vigente desde 01/01/2013)
+aguas_reducida;A;todas;Aguas, puerto construido por el concesionario;0.0122;2014-01-01;;Ley 10/2012, art. 60
+# --- Coeficientes y bonificaciones
+coef_lista6;K;todas;Lista 6.ª o uso comercial temporal;1.8;2025-06-01;;Ley 5/2025, art. 42 (art. 32.Dos)
+coef_lista6;K;todas;Lista 6.ª;1.8;2014-01-01;2025-05-31;Calculadora base, pendiente de verificar
+coef_sin_autorizacion;K;todas;Servicio sin autorización, tarifa doble;2;2014-01-01;;Art. 35.Uno
+bonif_concesion_base;K;todas;Estimación simplificada: embarcaciones base;0.20;2014-01-01;;Art. 34.Uno
+bonif_concesion_transito;K;todas;Estimación simplificada: tránsitos;0.10;2014-01-01;;Art. 34.Uno
+bonif_domiciliacion;K;todas;Domiciliación bancaria (embarcaciones base);0.10;2014-01-01;;Art. 37.Dos.b
+repercusion_base;K;todas;Repercusión máxima al usuario: base;0.90;2014-01-01;;Art. 34.Dos
+repercusion_transito;K;todas;Repercusión máxima al usuario: tránsitos;1.00;2014-01-01;;Art. 34.Dos
+# --- Parámetros de cálculo
+hora_limite_salida;P;todas;Hora límite de salida en tránsitos (horas);12;2014-01-01;;Art. 37

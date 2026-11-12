@@ -1,80 +1,110 @@
-// Interfaz de la calculadora G-5
+// Interfaz de la calculadora G-5. Los precios se leen de datos/tarifas-g5.csv.
 (function () {
   const form = document.getElementById('g5');
   if (!form) return;
   const $ = (id) => document.getElementById(id);
-  const eur = (n) => n.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
-  const num = (n, d = 6) => n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: d });
-  const csvUrl = new URL('datos/tarifas-g5.csv', document.querySelector('link[rel=stylesheet]').href.replace(/assets\/style\.css.*$/, ''));
-
-  // Fechas por defecto: una estancia de 3 días a partir de mañana
-  const iso = (d) => d.toISOString().slice(0, 10);
-  const today = new Date(); today.setUTCHours(0, 0, 0, 0);
-  const plus = (n) => { const d = new Date(today); d.setUTCDate(d.getUTCDate() + n); return iso(d); };
-  form.entrada.value = plus(1); form.salida.value = plus(4);
-  form.anio.value = today.getUTCFullYear();
-
+  const F = form.elements;
+  const eur = (n) => n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+  const pu = (n) => n.toLocaleString('es-ES', { minimumFractionDigits: 6, maximumFractionDigits: 8 });
+  const fecha = (s) => s.split('-').reverse().join('/');
+  const base = document.querySelector('link[rel=stylesheet]').href.replace(/assets\/style\.css.*$/, '');
   let rows = null;
 
-  function toggle() {
-    const inst = form.instalacion.value, est = form.estancia.value;
-    form.querySelectorAll('[data-only]').forEach((el) => { el.hidden = el.dataset.only !== inst; });
-    form.querySelectorAll('[data-only-estancia]').forEach((el) => { el.hidden = el.dataset.onlyEstancia !== est; });
-    const fluvial = form.atraque.querySelector('option[value=fluvial]');
-    fluvial.disabled = form.escala.value === 'deportivo';
-    if (fluvial.disabled && form.atraque.value === 'fluvial') form.atraque.value = 'punta';
+  const TIPO_HINT = {
+    directa: 'La administración portuaria gestiona el amarre: paga el titular del barco, con los tramos A, B y C.',
+    concesion: 'Club náutico, marina o varadero en concesión: solo tramo A, que paga el concesionario como sustituto, con bonificación en base y en tránsito (art. 34).',
+    reducida: 'Zona en concesión de un puerto construido íntegramente por el concesionario actual: solo tramo A, a precio reducido (art. 34.Tres), con las mismas bonificaciones.',
+    concesion_total: 'Puerto deportivo en concesión total: la administración no presta allí los servicios de la tarifa.',
+  };
+
+  // Valores iniciales: tránsito de tres noches desde hoy
+  const hoy = new Date(); const iso = (d) => d.toISOString().slice(0, 10);
+  const mas = (n) => { const d = new Date(Date.UTC(hoy.getFullYear(), hoy.getMonth(), hoy.getDate() + n)); return iso(d); };
+  F.entrada.value = mas(0) + 'T10:00'; F.salida.value = mas(3) + 'T11:00'; F.anio.value = hoy.getFullYear();
+
+  const PRESETS = {
+    gdt: { tipo: 'directa', escala: 'general', eslora: 8, manga: 3, lista: '7', estancia: 'transito', entrada: '2026-11-10T10:00', salida: '2026-11-13T11:00', atraque: 'punta', servicios: ['agua', 'electricidad'], domiciliado: false, sinAutorizacion: false },
+    gdb: { tipo: 'directa', escala: 'general', eslora: 8, manga: 3, lista: '7', estancia: 'base', anio: 2026, semestre: '2', alta: '', atraque: 'punta', servicios: ['agua', 'electricidad'], domiciliado: true, sinAutorizacion: false },
+    cn: { tipo: 'concesion', escala: 'general', eslora: 8, manga: 3, lista: '7', estancia: 'base', anio: 2026, semestre: '2', alta: '', atraque: 'punta', servicios: [], domiciliado: false, sinAutorizacion: false },
+    mo: { tipo: 'reducida', escala: 'general', eslora: 8, manga: 3, lista: '7', estancia: 'transito', entrada: '2026-08-10T10:00', salida: '2026-08-13T11:00', atraque: 'punta', servicios: [], domiciliado: false, sinAutorizacion: false },
+  };
+  function applyPreset(k) {
+    const p = PRESETS[k];
+    F.tipo.value = p.tipo; F.estancia.value = p.estancia; F.escala.value = p.escala;
+    F.eslora.value = p.eslora; F.manga.value = p.manga; F.lista.value = p.lista; F.atraque.value = p.atraque;
+    if (p.entrada) { F.entrada.value = p.entrada; F.salida.value = p.salida; }
+    if (p.anio) { F.anio.value = p.anio; F.semestre.value = p.semestre; F.alta.value = p.alta; }
+    form.querySelectorAll('input[name=servicios]').forEach((c) => { c.checked = p.servicios.includes(c.value); });
+    F.domiciliado.checked = p.domiciliado; F.sinAutorizacion.checked = p.sinAutorizacion;
+    render();
+  }
+  document.querySelectorAll('.presets button').forEach((b) => b.addEventListener('click', () => applyPreset(b.dataset.p)));
+
+  function setDisabled(el, off) {
+    el.classList.toggle('dis', off);
+    el.querySelectorAll('input,select').forEach((i) => { i.disabled = off; });
+  }
+
+  function ui() {
+    const tipo = F.tipo.value, est = F.estancia.value;
+    form.querySelectorAll('[data-tipo]').forEach((el) => setDisabled(el, el.dataset.tipo !== tipo));
+    form.querySelectorAll('[data-tipo-not]').forEach((el) => { el.hidden = tipo === el.dataset.tipoNot || tipo === 'concesion_total'; });
+    form.querySelectorAll('[data-estancia]').forEach((el) => { el.hidden = el.dataset.estancia !== est; });
+    setDisabled($('domWrap'), !(tipo === 'directa' && est === 'base'));
+    setDisabled($('noautWrap'), est !== 'transito' || tipo === 'concesion_total');
+    $('tipoHint').textContent = TIPO_HINT[tipo];
+    const e = parseFloat(F.eslora.value), m = parseFloat(F.manga.value);
+    $('m2Hint').textContent = e > 0 && m > 0
+      ? `${String(e).replace('.', ',')} × ${String(m).replace('.', ',')} = ${(e * m).toLocaleString('es-ES', { maximumFractionDigits: 4 })} m², redondeado al alza: ${Math.ceil(e * m - 1e-9)} m².`
+      : 'Indica la eslora y la manga.';
   }
 
   function read() {
     return {
-      eslora: parseFloat(form.eslora.value), manga: parseFloat(form.manga.value),
-      lista6: form.lista6.checked, instalacion: form.instalacion.value, escala: form.escala.value,
-      estancia: form.estancia.value, entrada: form.entrada.value, salida: form.salida.value,
-      salidaTarde: form.salidaTarde.checked, anio: form.anio.value, semestre: Number(form.semestre.value),
-      alta: form.alta.value || null, domiciliado: form.domiciliado.checked && form.instalacion.value === 'directa',
-      atraque: form.atraque.value,
+      tipo: F.tipo.value, escala: F.escala.value, eslora: parseFloat(F.eslora.value), manga: parseFloat(F.manga.value),
+      lista6: F.lista.value === '6', estancia: F.estancia.value, entrada: F.entrada.value, salida: F.salida.value,
+      anio: F.anio.value, semestre: Number(F.semestre.value), alta: F.alta.value || null, atraque: F.atraque.value,
       servicios: [...form.querySelectorAll('input[name=servicios]:checked')].map((c) => c.value),
+      domiciliado: F.domiciliado.checked && !F.domiciliado.disabled,
+      sinAutorizacion: F.sinAutorizacion.checked && !F.sinAutorizacion.disabled,
     };
   }
 
   function render() {
-    toggle();
+    ui();
     if (!rows) return;
-    const input = read();
-    $('error').hidden = true;
-    try {
-      if (!(input.eslora > 0) || !(input.manga > 0)) throw new Error('Indica la eslora y la manga.');
-      if (input.estancia === 'transito' && (!input.entrada || !input.salida)) throw new Error('Indica las fechas de entrada y salida.');
-      const r = G5.calcular(input, rows);
-      $('total').textContent = eur(r.total);
-      $('meta').textContent = `${r.m2} m² × ${r.dias} ${r.dias === 1 ? 'día' : 'días'}`;
-      let html = '';
-      for (const t of r.tramos) {
-        if (r.tramos.length > 1) html += `<p class="res-period">Del ${t.desde} al ${t.hasta} (${t.dias} días)</p>`;
-        html += '<table class="res-table"><tbody>';
-        for (const l of t.lineas) html += `<tr><td><span class="tr">${l.tramo}</span>${l.concepto}</td><td>${num(l.valor, 8)}</td></tr>`;
-        html += `<tr class="sub"><td>Precio por m² y día</td><td>${num(t.precioDia, 8)}</td></tr>`;
-        html += `<tr class="sub"><td>× ${r.m2} m² × ${t.dias} días</td><td>${eur(t.importe)}</td></tr>`;
-        html += '</tbody></table>';
-      }
-      if (r.ajustes.length) {
-        html += '<table class="res-table"><tbody>';
-        for (const a of r.ajustes) html += `<tr><td>${a.concepto}</td><td>${a.importe >= 0 ? '+' : '−'}${eur(Math.abs(a.importe))}</td></tr>`;
-        html += '</tbody></table>';
-      }
-      html += r.avisos.map((a) => `<p class="res-note">${a}</p>`).join('');
-      html += '<p class="res-note">Sin IVA. Importe orientativo.</p>';
-      $('detalle').innerHTML = html;
-    } catch (e) {
-      $('total').textContent = '—'; $('meta').textContent = ''; $('detalle').innerHTML = '';
-      $('error').textContent = e.message; $('error').hidden = false;
+    const r = G5.calcular(read(), rows);
+    $('tHint').textContent = r.info || '';
+    if (r.excluido) {
+      $('total').textContent = '—'; $('meta').textContent = 'Fuera del cálculo';
+      $('detalle').innerHTML = '<p class="res-box">En un puerto deportivo en concesión total, los servicios los presta el concesionario y la relación económica se rige por la concesión. Esta calculadora no estima la G-5 en ese caso.</p>';
+      $('notas').innerHTML = ''; return;
     }
+    if (r.error) {
+      $('total').textContent = '—'; $('meta').textContent = '';
+      $('detalle').innerHTML = `<p class="res-error">${r.error}</p>`; $('notas').innerHTML = ''; return;
+    }
+    $('total').textContent = eur(r.total);
+    $('meta').textContent = `${r.m2} m² · ${r.dias} ${r.dias === 1 ? 'día' : 'días'} · ${r.pagador}`;
+    const varias = r.liquidaciones.length > 1;
+    $('detalle').innerHTML = r.liquidaciones.map((l, i) => {
+      const pendiente = l.lineas.some((x) => /pendiente/i.test(x.fuente));
+      let h = `<div class="liq"><p class="liq-head">${varias ? `Liquidación ${i + 1} · ` : ''}${fecha(l.desde)} – ${fecha(l.hasta)} <span class="liq-tag${pendiente ? ' warn' : ''}">${pendiente ? 'Precios anteriores' : 'Ley 5/2025'}</span></p><table class="res-table"><tbody>`;
+      for (const x of l.lineas) h += `<tr><td><span class="tr">${x.tramo}</span>${x.concepto}</td><td>${pu(x.valor)}</td></tr>`;
+      h += `<tr class="sub"><td>Precio por m² y día</td><td>${pu(l.precioDia)}</td></tr>`;
+      for (const p of l.pasos) h += `<tr class="${p.tipo || 'sub'}"><td>${p.concepto}</td><td>${p.tipo === 'bonificacion' ? '−' : p.tipo === 'recargo' ? '+' : ''}${eur(Math.abs(p.importe))}</td></tr>`;
+      h += `<tr class="tot"><td>Importe</td><td>${eur(l.importe)}</td></tr></tbody></table></div>`;
+      return h;
+    }).join('');
+    $('notas').innerHTML = r.notas.length ? '<ul class="res-notes">' + r.notas.map((n) => `<li>${n}</li>`).join('') + '</ul>' : '';
   }
 
   form.addEventListener('input', render);
   form.addEventListener('change', render);
-  toggle();
-  fetch(csvUrl).then((r) => { if (!r.ok) throw new Error(); return r.text(); })
+  form.addEventListener('submit', (e) => e.preventDefault());
+  ui();
+  fetch(base + 'datos/tarifas-g5.csv')
+    .then((res) => { if (!res.ok) throw new Error(); return res.text(); })
     .then((t) => { rows = G5.parseCSV(t); render(); })
-    .catch(() => { $('error').textContent = 'No se han podido cargar los precios. Recarga la página.'; $('error').hidden = false; });
+    .catch(() => { $('detalle').innerHTML = '<p class="res-error">No se han podido cargar los precios. Recarga la página.</p>'; });
 })();
