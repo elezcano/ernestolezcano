@@ -1,0 +1,6 @@
+Tipografías incluidas en esta web, distribuidas bajo la SIL Open Font License 1.1 (https://openfontlicense.org):
+
+- Lora — Copyright The Lora Project Authors (https://github.com/cyrealtype/Lora-Cyrillic)
+- Inter — Copyright The Inter Project Authors (https://github.com/rsms/inter)
+
+Los archivos se han recortado al juego de caracteres latino para que la web cargue más rápido.
