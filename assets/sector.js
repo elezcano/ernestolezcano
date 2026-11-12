@@ -99,13 +99,13 @@
     const parts = [['A', 'Aguas (tramo A)', A, 's1'], ['B', 'Atraque en punta (tramo B)', punta, 's2'], ['C', 'Servicios (tramo C)', C, 's3']].filter((p) => p[2] > 0);
     const tot = parts.reduce((a, p) => a + p[2], 0);
     const seg = $('c2');
-    seg.setAttribute('aria-label', parts.map((p) => `${p[1]}: ${Math.round(p[2] / tot * 100)} %`).join('; '));
+    seg.setAttribute('aria-label', parts.map((p) => `${p[1]}: ${Math.round(p[2] / tot * 100)}\u00a0%`).join('; '));
     seg.replaceChildren(...parts.map((p) => {
       const pct = p[2] / tot * 100;
       const b = el('span', 'sgm ' + p[3]); b.style.flexGrow = (p[2] / tot * 1000).toFixed(0); b.style.flexBasis = "0";
       b.tabIndex = 0;
-      if (pct >= 12) b.textContent = Math.round(pct) + ' %';
-      const on = () => showTip(b, [[Math.round(pct) + ' %', p[1]], [pu(p[2]), '€ por m² y día']]);
+      if (pct >= 12) b.textContent = Math.round(pct) + '\u00a0%';
+      const on = () => showTip(b, [[Math.round(pct) + '\u00a0%', p[1]], [pu(p[2]), '€ por m² y día']]);
       b.addEventListener('pointerenter', on); b.addEventListener('focus', on);
       b.addEventListener('pointerleave', hideTip); b.addEventListener('blur', hideTip);
       return b;
@@ -119,9 +119,9 @@
     const bc = v('bonif_concesion_base', 'todas');
     const d3 = [
       { label: 'Gestión directa', value: dia * SEMESTRE, hl: true, tip: [[eur(dia * SEMESTRE), 'Gestión directa'], ['A + B + C', 'paga el titular']] },
-      { label: 'Gestión directa, domiciliada', value: dia * SEMESTRE * (1 - dom), tip: [[eur(dia * SEMESTRE * (1 - dom)), 'Domiciliada'], [`−${Math.round(dom * 100)} %`, 'art. 37']] },
-      { label: 'Zona en concesión', value: conc, tip: [[eur(conc), 'Zona en concesión'], ['Solo tramo A, −20 %', 'paga el concesionario']] },
-      { label: 'Construido por el concesionario', value: red * s.m2 * SEMESTRE * (1 - bc), tip: [[eur(red * s.m2 * SEMESTRE * (1 - bc)), 'Puerto del concesionario'], ['Tramo A reducido, −20 %', 'art. 34.Tres']] },
+      { label: 'Gestión directa, domiciliada', value: dia * SEMESTRE * (1 - dom), tip: [[eur(dia * SEMESTRE * (1 - dom)), 'Domiciliada'], [`−${Math.round(dom * 100)}\u00a0%`, 'art. 37']] },
+      { label: 'Zona en concesión', value: conc, tip: [[eur(conc), 'Zona en concesión'], ['Solo tramo A, −20\u00a0%', 'paga el concesionario']] },
+      { label: 'Construido por el concesionario', value: red * s.m2 * SEMESTRE * (1 - bc), tip: [[eur(red * s.m2 * SEMESTRE * (1 - bc)), 'Puerto del concesionario'], ['Tramo A reducido, −20\u00a0%', 'art. 34.Tres']] },
     ];
     hbars($('c3'), d3, (n) => eur(n, 0));
     $('c3s').textContent = `Barco de ${s.m2} m², ${SEMESTRE} días, amarre en punta.`;

@@ -120,7 +120,7 @@
       if (bon) {
         const pct = Math.round(bon.valor * 100);
         const label = directa ? 'Domiciliación (art. 37)' : 'Bonificación concesión (art. 34)';
-        pasos.push({ concepto: `${label} −${pct} %`, importe: -imp * bon.valor, tipo: 'bonificacion' });
+        pasos.push({ concepto: `${label} −${pct}\u00a0%`, importe: -imp * bon.valor, tipo: 'bonificacion' });
         imp *= 1 - bon.valor;
       }
       imp = r2(imp);
@@ -145,7 +145,7 @@
     if (!directa) {
       const ref = D.list[0];
       const rb = lookup(rows, 'repercusion_base', 'todas', ref), rt = lookup(rows, 'repercusion_transito', 'todas', ref);
-      if (rb && rt) out.notas.push(`El concesionario puede repercutir al usuario hasta el ${Math.round(rb.valor * 100)} % de la cuota de las embarcaciones base y hasta el ${Math.round(rt.valor * 100)} % de la de los tránsitos (art. 34.Dos).`);
+      if (rb && rt) out.notas.push(`El concesionario puede repercutir al usuario hasta el ${Math.round(rb.valor * 100)}\u00a0% de la cuota de las embarcaciones base y hasta el ${Math.round(rt.valor * 100)}\u00a0% de la de los tránsitos (art. 34.Dos).`);
     }
     return out;
   }

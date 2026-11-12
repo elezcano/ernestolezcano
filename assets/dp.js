@@ -87,7 +87,7 @@
       let tipoOcup = ci;
       if (input.subsuelo) { const b = req('bonif_subsuelo'); tipoOcup = ci * (1 - b.valor); }
       ocupacion = r2(tipoOcup * input.m2);
-      out.lineas.push({ grupo: 'Ocupación', concepto: `${fmtN(input.m2, 2)} m² × ${fmtN(tipoOcup, 4)} €/m²${input.subsuelo ? ' (subsuelo, 50 %)' : ''}`, importe: ocupacion, fuente: ciRow.fuente,
+      out.lineas.push({ grupo: 'Ocupación', concepto: `${fmtN(input.m2, 2)} m² × ${fmtN(tipoOcup, 4)} €/m²${input.subsuelo ? ' (subsuelo, 50\u00a0%)' : ''}`, importe: ocupacion, fuente: ciRow.fuente,
         detalle: { tipo: tipoOcup, m2: input.m2 } });
 
       // Actividad (arts. 68-71)
@@ -129,7 +129,7 @@
     if (input.planEstrategico && input.tipo === 'general' && anual > 0) {
       const b = req('bonif_plan_estrategico');
       const d = r2((ocupacion + actividad) * b.valor);
-      out.ajustes.push({ concepto: `Plan estratégico −${Math.round(b.valor * 100)} % (art. 82.3)`, importe: -d });
+      out.ajustes.push({ concepto: `Plan estratégico −${Math.round(b.valor * 100)}\u00a0% (art. 82.3)`, importe: -d });
       anual -= d;
     }
     // Exenciones (art. 83)
@@ -142,7 +142,7 @@
     if (input.sinTitulo && anual > 0) {
       const k = req('recargo_sin_titulo');
       const d = r2(anual * k.valor);
-      out.ajustes.push({ concepto: `Sin título +${Math.round(k.valor * 100)} % (art. 85 bis)`, importe: d });
+      out.ajustes.push({ concepto: `Sin título +${Math.round(k.valor * 100)}\u00a0% (art. 85 bis)`, importe: d });
       anual += d;
     }
     out.anual = r2(anual);
@@ -164,7 +164,7 @@
   }
 
   function fmtN(n, d) { return Number(n).toLocaleString('es-ES', { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: 'always' }); }
-  function fmtPct(x) { return x < 0.01 ? fmtN(x * 1000, 0) + ' ‰' : fmtN(x * 100, x * 100 % 1 ? 1 : 0) + ' %'; }
+  function fmtPct(x) { return x < 0.01 ? fmtN(x * 1000, 0) + '\u00a0‰' : fmtN(x * 100, (x * 100) % 1 ? 1 : 0) + '\u00a0%'; }
 
   const api = { parseCSV, calcular, lookup, NATURALEZAS };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
