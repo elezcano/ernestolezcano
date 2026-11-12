@@ -177,7 +177,7 @@
   <main id="contenido">
 <div class="content">
 <h1 class="page-title">Herramientas</h1>
-<p class="page-intro">Calculadoras que he construido a partir de normativa pública y las herramientas que uso en mi día a día.</p>
+<p class="page-intro">Calculadoras construidas a partir de normativa pública, cómo uso la IA en el análisis funcional y las herramientas de mi día a día.</p>
 <section class="calc-cards">
   <a class="calc-card" href="calculadora-g5.html">
     <span class="calc-tag">Calculadora</span>
@@ -200,12 +200,85 @@
     <span>14 reglas de negocio, 12 casos de prueba y las decisiones que la norma deja abiertas.</span>
   </a>
 </section>
+<h2 class="block-title">IA aplicada al análisis funcional</h2>
+<p class="page-intro">Uso un asistente de IA como parte del trabajo diario: no para sustituir el criterio, sino para llegar antes a los datos, a la norma y a la prueba.</p>
+<ul class="usecases">
+<li class="usecase">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 3h8l4 4v14H6z"/>
+<path d="M14 3v4h4"/>
+<path d="M9 12h6M9 15.5h6M9 19h3.5"/>
+</svg>
+<div>
+<strong>Gestión de tickets</strong>
+<p>Leo, redacto y actualizo historias, comentarios y prioridades en Jira, y la documentación en Confluence, con un asistente de IA conectado.</p>
+<span class="calc-tag">Jira · Confluence</span>
+</div>
+</li>
+<li class="usecase">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="8.5"/>
+<path d="M8 12.3l2.7 2.7L16.2 9.5"/>
+</svg>
+<div>
+<strong>Pruebas funcionales</strong>
+<p>Automatizo en el navegador recorridos de prueba en preproducción: alta de casos, liquidaciones y comprobación de listados.</p>
+<span class="calc-tag">Navegador automatizado</span>
+</div>
+</li>
+<li class="usecase">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="5" y="3" width="14" height="18" rx="2"/>
+<path d="M8 7h8"/>
+<path d="M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 15.5h.01M12 15.5h.01M15.5 15.5h.01M8.5 19h.01M12 19h3.5"/>
+</svg>
+<div>
+<strong>Verificación de importes</strong>
+<p>Recalculo con código los importes que da el sistema y los contrasto con la norma antes de dar una funcionalidad por buena.</p>
+<span class="calc-tag">Python · Node.js</span>
+</div>
+</li>
+<li class="usecase">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="10.5" cy="10.5" r="6"/>
+<path d="M15 15l5.5 5.5"/>
+</svg>
+<div>
+<strong>Normativa al día</strong>
+<p>Busco y contrasto la redacción vigente en el BOE y el DOGV antes de especificar, y detecto erratas en los textos consolidados.</p>
+<span class="calc-tag">BOE · DOGV</span>
+</div>
+</li>
+<li class="usecase">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 3h8l4 4v14H6z"/>
+<path d="M14 3v4h4"/>
+<path d="M9 13h6M9 17h4"/>
+</svg>
+<div>
+<strong>Documentación y formación</strong>
+<p>Publico informes de pruebas, guías y herramientas interactivas, y preparo guiones de vídeos formativos con flujos reutilizables.</p>
+<span class="calc-tag">Docs · Skills</span>
+</div>
+</li>
+<li class="usecase">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M8.5 7L3.5 12l5 5M15.5 7l5 5-5 5"/>
+</svg>
+<div>
+<strong>Herramientas probadas</strong>
+<p>Las calculadoras de esta web se prueban automáticamente en escritorio y móvil antes de publicarse.</p>
+<span class="calc-tag">Playwright</span>
+</div>
+</li>
+</ul>
 <h2 class="block-title">Mi día a día</h2>
-<p class="page-intro">Elige un proyecto para ver qué tecnologías se usaron en él.</p>
+<p class="page-intro">Filtra por proyecto para ver qué se usó en cada uno.</p>
 <div class="filter" role="group" aria-label="Filtrar por proyecto">
 <span>Proyecto</span>
 <button type="button" data-project="todas" aria-pressed="true">Todas</button>
 <button type="button" data-project="navale" aria-pressed="false">GVA Navale</button>
+<button type="button" data-project="web" aria-pressed="false">Esta web</button>
 </div>
 <p class="filter-status visually-hidden" aria-live="polite">
 </p>
@@ -213,18 +286,18 @@
 <section class="tool-group">
 <h2>Gestión y documentación</h2>
 <ul class="tools">
-<li class="tool" data-projects="">
+<li class="tool" data-projects="navale">
 <span class="mono" aria-hidden="true">Ji</span>
 <span>
 <strong>Jira</strong>
-<small>Seguimiento de tareas</small>
+<small>Historias, tareas y sprints</small>
 </span>
 </li>
-<li class="tool" data-projects="">
+<li class="tool" data-projects="navale">
 <span class="mono" aria-hidden="true">Co</span>
 <span>
 <strong>Confluence</strong>
-<small>Documentación</small>
+<small>Documentación funcional</small>
 </span>
 </li>
 <li class="tool" data-projects="">
@@ -286,16 +359,84 @@
 <small>Pruebas de APIs</small>
 </span>
 </li>
+<li class="tool" data-projects="web">
+<span class="mono" aria-hidden="true">Pw</span>
+<span>
+<strong>Playwright</strong>
+<small>Pruebas automatizadas en el navegador</small>
+</span>
+</li>
 </ul>
 </section>
 <section class="tool-group">
-<h2>Desarrollo</h2>
+<h2>Desarrollo y automatización</h2>
 <ul class="tools">
 <li class="tool" data-projects="navale">
 <span class="mono" aria-hidden="true">Jv</span>
 <span>
 <strong>Java / Spring</strong>
 <small>Doce años programando</small>
+</span>
+</li>
+<li class="tool" data-projects="navale web">
+<span class="mono" aria-hidden="true">Py</span>
+<span>
+<strong>Python</strong>
+<small>Cálculo y verificación de importes</small>
+</span>
+</li>
+<li class="tool" data-projects="navale web">
+<span class="mono" aria-hidden="true">Nd</span>
+<span>
+<strong>Node.js</strong>
+<small>Scripts y pruebas de cálculo</small>
+</span>
+</li>
+<li class="tool" data-projects="web">
+<span class="mono" aria-hidden="true">Sh</span>
+<span>
+<strong>Bash</strong>
+<small>Automatización de tareas</small>
+</span>
+</li>
+<li class="tool" data-projects="web">
+<span class="mono" aria-hidden="true">Gi</span>
+<span>
+<strong>Git y GitHub</strong>
+<small>Versiones y publicación</small>
+</span>
+</li>
+</ul>
+</section>
+<section class="tool-group">
+<h2>Inteligencia artificial</h2>
+<ul class="tools">
+<li class="tool" data-projects="navale web">
+<span class="mono" aria-hidden="true">Cl</span>
+<span>
+<strong>Claude</strong>
+<small>Asistente de análisis, pruebas y documentación</small>
+</span>
+</li>
+<li class="tool" data-projects="navale">
+<span class="mono" aria-hidden="true">Cn</span>
+<span>
+<strong>Conectores</strong>
+<small>IA conectada a Jira y Confluence</small>
+</span>
+</li>
+<li class="tool" data-projects="navale">
+<span class="mono" aria-hidden="true">Na</span>
+<span>
+<strong>Navegador automatizado</strong>
+<small>Pruebas funcionales guiadas por IA</small>
+</span>
+</li>
+<li class="tool" data-projects="navale">
+<span class="mono" aria-hidden="true">Sk</span>
+<span>
+<strong>Skills</strong>
+<small>Flujos de trabajo reutilizables</small>
 </span>
 </li>
 </ul>
