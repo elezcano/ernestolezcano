@@ -176,121 +176,139 @@
   </header>
   <main id="contenido">
 <div class="content">
+<header class="tools-head">
 <h1 class="page-title">Herramientas</h1>
-<p class="page-intro">Calculadoras construidas a partir de normativa pública, cómo uso la IA en el análisis funcional y las herramientas de mi día a día.</p>
-<section class="calc-cards">
-  <a class="calc-card" href="calculadora-g5.html">
-    <span class="calc-tag">Calculadora</span>
-    <strong>Tarifa G-5 de embarcaciones deportivas</strong>
-    <span>Cuánto paga un barco por amarrar en un puerto de la Generalitat Valenciana, con el desglose por tramos.</span>
-  </a>
-  <a class="calc-card" href="muestras/especificacion-g5.html">
-    <span class="calc-tag">Muestra de entregable</span>
-    <strong>Especificación funcional de la calculadora</strong>
-    <span>Reglas de negocio, fuente de precios y casos de prueba, como los entregaría en un proyecto.</span>
-  </a>
-  <a class="calc-card" href="calculadora-dominio-publico.html">
-    <span class="calc-tag">Calculadora</span>
-    <strong>Tasas del dominio público portuario</strong>
-    <span>Ocupación, actividad, lonjas y marinas: lo que paga al año una concesión o autorización en un puerto de la Generalitat.</span>
-  </a>
-  <a class="calc-card" href="muestras/especificacion-dominio-publico.html">
-    <span class="calc-tag">Muestra de entregable</span>
-    <strong>Especificación de las tasas de dominio público</strong>
-    <span>14 reglas de negocio, 12 casos de prueba y las decisiones que la norma deja abiertas.</span>
-  </a>
-</section>
-<h2 class="block-title">IA aplicada al análisis funcional</h2>
-<p class="page-intro">Uso un asistente de IA como parte del trabajo diario: no para sustituir el criterio, sino para llegar antes a los datos, a la norma y a la prueba.</p>
-<ul class="usecases">
-<li class="usecase">
-<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<path d="M6 3h8l4 4v14H6z"/>
-<path d="M14 3v4h4"/>
-<path d="M9 12h6M9 15.5h6M9 19h3.5"/>
-</svg>
+<p class="page-intro">Calculadoras propias, cómo uso la IA y las herramientas de mi día a día.</p>
+</header>
+<section class="sec" aria-labelledby="s-calc">
+  <div class="sec-head">
 <div>
-<strong>Gestión de tickets</strong>
-<p>Leo, redacto y actualizo historias, comentarios y prioridades en Jira, y la documentación en Confluence, con un asistente de IA conectado.</p>
-<span class="calc-tag">Jira · Confluence</span>
+<h2 id="s-calc">Calculadoras</h2>
+<p>Construidas a partir de la normativa pública, cada una con su especificación funcional.</p>
 </div>
-</li>
-<li class="usecase">
-<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<circle cx="12" cy="12" r="8.5"/>
-<path d="M8 12.3l2.7 2.7L16.2 9.5"/>
-</svg>
-<div>
-<strong>Pruebas funcionales</strong>
-<p>Automatizo en el navegador recorridos de prueba en preproducción: alta de casos, liquidaciones y comprobación de listados.</p>
-<span class="calc-tag">Navegador automatizado</span>
 </div>
-</li>
-<li class="usecase">
+  <div class="tcards">
+<article class="tcard">
+  <div class="tcard-top">
+<span class="tcard-icon">
 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 <rect x="5" y="3" width="14" height="18" rx="2"/>
 <path d="M8 7h8"/>
 <path d="M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 15.5h.01M12 15.5h.01M15.5 15.5h.01M8.5 19h.01M12 19h3.5"/>
 </svg>
-<div>
-<strong>Verificación de importes</strong>
-<p>Recalculo con código los importes que da el sistema y los contrasto con la norma antes de dar una funcionalidad por buena.</p>
-<span class="calc-tag">Python · Node.js</span>
+</span>
+<span class="calc-tag">Ley 1/1999</span>
 </div>
+  <h3>Tarifa G-5 de embarcaciones deportivas</h3>
+  <p>Lo que paga un barco por amarrar en un puerto de la Generalitat, con el desglose por tramos.</p>
+  <div class="tcard-actions">
+<a class="btn btn-primary btn-sm" href="calculadora-g5.html">Abrir calculadora</a>
+<a class="btn btn-sm" href="muestras/especificacion-g5.html">Ver especificación</a>
+</div>
+</article>
+<article class="tcard">
+  <div class="tcard-top">
+<span class="tcard-icon">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 21V8l8-5 8 5v13"/>
+<path d="M9 21v-5h6v5"/>
+<path d="M8 11h.01M12 11h.01M16 11h.01"/>
+</svg>
+</span>
+<span class="calc-tag">Ley 2/2014</span>
+</div>
+  <h3>Tasas del dominio público portuario</h3>
+  <p>Lo que paga al año una concesión o autorización: ocupación, actividad, lonjas y marinas.</p>
+  <div class="tcard-actions">
+<a class="btn btn-primary btn-sm" href="calculadora-dominio-publico.html">Abrir calculadora</a>
+<a class="btn btn-sm" href="muestras/especificacion-dominio-publico.html">Ver especificación</a>
+</div>
+</article>
+</div>
+</section>
+<section class="sec" aria-labelledby="s-ia">
+  <div class="sec-head">
+<div>
+<h2 id="s-ia">IA aplicada al análisis funcional</h2>
+<p>No sustituye el criterio: acorta el camino a los datos, la norma y la prueba.</p>
+</div>
+</div>
+  <ul class="usegrid">
+<li>
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 3h8l4 4v14H6z"/>
+<path d="M14 3v4h4"/>
+<path d="M9 12h6M9 15.5h6M9 19h3.5"/>
+</svg>
+<strong>Tickets</strong>
+<p>Redacto y actualizo historias, comentarios y prioridades en Jira y Confluence.</p>
 </li>
-<li class="usecase">
+<li>
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="8.5"/>
+<path d="M8 12.3l2.7 2.7L16.2 9.5"/>
+</svg>
+<strong>Pruebas funcionales</strong>
+<p>Recorro los casos de prueba en preproducción con un navegador automatizado.</p>
+</li>
+<li>
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="5" y="3" width="14" height="18" rx="2"/>
+<path d="M8 7h8"/>
+<path d="M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 15.5h.01M12 15.5h.01M15.5 15.5h.01M8.5 19h.01M12 19h3.5"/>
+</svg>
+<strong>Importes verificados</strong>
+<p>Recalculo cada importe con código y lo contrasto con la norma.</p>
+</li>
+<li>
 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 <circle cx="10.5" cy="10.5" r="6"/>
 <path d="M15 15l5.5 5.5"/>
 </svg>
-<div>
-<strong>Normativa al día</strong>
-<p>Busco y contrasto la redacción vigente en el BOE y el DOGV antes de especificar, y detecto erratas en los textos consolidados.</p>
-<span class="calc-tag">BOE · DOGV</span>
-</div>
+<strong>Normativa vigente</strong>
+<p>Compruebo la redacción en vigor en el BOE y el DOGV antes de especificar.</p>
 </li>
-<li class="usecase">
+<li>
 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 <path d="M6 3h8l4 4v14H6z"/>
 <path d="M14 3v4h4"/>
 <path d="M9 13h6M9 17h4"/>
 </svg>
-<div>
-<strong>Documentación y formación</strong>
-<p>Publico informes de pruebas, guías y herramientas interactivas, y preparo guiones de vídeos formativos con flujos reutilizables.</p>
-<span class="calc-tag">Docs · Skills</span>
-</div>
+<strong>Documentación</strong>
+<p>Informes de pruebas, guías de usuario y guiones de vídeos formativos.</p>
 </li>
-<li class="usecase">
+<li>
 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 <path d="M8.5 7L3.5 12l5 5M15.5 7l5 5-5 5"/>
 </svg>
-<div>
-<strong>Herramientas probadas</strong>
-<p>Las calculadoras de esta web se prueban automáticamente en escritorio y móvil antes de publicarse.</p>
-<span class="calc-tag">Playwright</span>
-</div>
+<strong>Calidad de esta web</strong>
+<p>Cada calculadora pasa pruebas automáticas en escritorio y móvil.</p>
 </li>
 </ul>
-<h2 class="block-title">Mi día a día</h2>
-<p class="page-intro">Filtra por proyecto para ver qué se usó en cada uno.</p>
-<div class="filter" role="group" aria-label="Filtrar por proyecto">
-<span>Proyecto</span>
+</section>
+<section class="sec" aria-labelledby="s-stack">
+  <div class="sec-head">
+<div>
+<h2 id="s-stack">Stack</h2>
+<p>Filtra por proyecto para ver qué se usó en cada uno.</p>
+</div>
+  <div class="filter" role="group" aria-label="Filtrar por proyecto">
 <button type="button" data-project="todas" aria-pressed="true">Todas</button>
 <button type="button" data-project="navale" aria-pressed="false">GVA Navale</button>
 <button type="button" data-project="web" aria-pressed="false">Esta web</button>
 </div>
-<p class="filter-status visually-hidden" aria-live="polite">
+</div>
+  <p class="filter-status visually-hidden" aria-live="polite">
 </p>
-<div class="tool-area">
-<section class="tool-group">
-<h2>Gestión y documentación</h2>
+  <div class="tool-area">
+<section class="stack-row">
+<h3>Gestión y documentación</h3>
 <ul class="tools">
 <li class="tool" data-projects="navale">
 <span class="mono" aria-hidden="true">Ji</span>
 <span>
 <strong>Jira</strong>
-<small>Historias, tareas y sprints</small>
+<small>Historias y sprints</small>
 </span>
 </li>
 <li class="tool" data-projects="navale">
@@ -304,7 +322,7 @@
 <span class="mono" aria-hidden="true">No</span>
 <span>
 <strong>Notion</strong>
-<small>Notas y documentación</small>
+<small>Notas de trabajo</small>
 </span>
 </li>
 <li class="tool" data-projects="">
@@ -316,26 +334,26 @@
 </li>
 </ul>
 </section>
-<section class="tool-group">
-<h2>Diseño</h2>
+<section class="stack-row">
+<h3>Diseño</h3>
 <ul class="tools">
 <li class="tool" data-projects="">
 <span class="mono" aria-hidden="true">Fi</span>
 <span>
 <strong>Figma</strong>
-<small>Maquetas y pantallas</small>
+<small>Maquetas de pantallas</small>
 </span>
 </li>
 </ul>
 </section>
-<section class="tool-group">
-<h2>Datos y pruebas</h2>
+<section class="stack-row">
+<h3>Datos y pruebas</h3>
 <ul class="tools">
 <li class="tool" data-projects="">
 <span class="mono" aria-hidden="true">SQ</span>
 <span>
 <strong>SQL</strong>
-<small>Consultas y validación de datos</small>
+<small>Validación de datos</small>
 </span>
 </li>
 <li class="tool" data-projects="navale">
@@ -349,7 +367,7 @@
 <span class="mono" aria-hidden="true">Pg</span>
 <span>
 <strong>PostgreSQL / PostGIS</strong>
-<small>Base de datos y datos geográficos</small>
+<small>Datos geográficos</small>
 </span>
 </li>
 <li class="tool" data-projects="">
@@ -363,40 +381,40 @@
 <span class="mono" aria-hidden="true">Pw</span>
 <span>
 <strong>Playwright</strong>
-<small>Pruebas automatizadas en el navegador</small>
+<small>Pruebas en navegador</small>
 </span>
 </li>
 </ul>
 </section>
-<section class="tool-group">
-<h2>Desarrollo y automatización</h2>
+<section class="stack-row">
+<h3>Desarrollo y automatización</h3>
 <ul class="tools">
 <li class="tool" data-projects="navale">
 <span class="mono" aria-hidden="true">Jv</span>
 <span>
 <strong>Java / Spring</strong>
-<small>Doce años programando</small>
+<small>12 años de desarrollo</small>
 </span>
 </li>
 <li class="tool" data-projects="navale web">
 <span class="mono" aria-hidden="true">Py</span>
 <span>
 <strong>Python</strong>
-<small>Cálculo y verificación de importes</small>
+<small>Verificación de importes</small>
 </span>
 </li>
 <li class="tool" data-projects="navale web">
 <span class="mono" aria-hidden="true">Nd</span>
 <span>
 <strong>Node.js</strong>
-<small>Scripts y pruebas de cálculo</small>
+<small>Scripts de cálculo</small>
 </span>
 </li>
 <li class="tool" data-projects="web">
 <span class="mono" aria-hidden="true">Sh</span>
 <span>
 <strong>Bash</strong>
-<small>Automatización de tareas</small>
+<small>Automatización</small>
 </span>
 </li>
 <li class="tool" data-projects="web">
@@ -408,40 +426,41 @@
 </li>
 </ul>
 </section>
-<section class="tool-group">
-<h2>Inteligencia artificial</h2>
+<section class="stack-row">
+<h3>Inteligencia artificial</h3>
 <ul class="tools">
 <li class="tool" data-projects="navale web">
 <span class="mono" aria-hidden="true">Cl</span>
 <span>
 <strong>Claude</strong>
-<small>Asistente de análisis, pruebas y documentación</small>
+<small>Análisis y documentación</small>
 </span>
 </li>
 <li class="tool" data-projects="navale">
 <span class="mono" aria-hidden="true">Cn</span>
 <span>
 <strong>Conectores</strong>
-<small>IA conectada a Jira y Confluence</small>
+<small>Jira y Confluence con IA</small>
 </span>
 </li>
 <li class="tool" data-projects="navale">
 <span class="mono" aria-hidden="true">Na</span>
 <span>
-<strong>Navegador automatizado</strong>
-<small>Pruebas funcionales guiadas por IA</small>
+<strong>Navegador con IA</strong>
+<small>Pruebas funcionales</small>
 </span>
 </li>
 <li class="tool" data-projects="navale">
 <span class="mono" aria-hidden="true">Sk</span>
 <span>
 <strong>Skills</strong>
-<small>Flujos de trabajo reutilizables</small>
+<small>Flujos reutilizables</small>
 </span>
 </li>
 </ul>
 </section>
 </div>
+</section>
 </div>
   </main>
 <footer class="page-foot">© 2026 Ernesto Lezcano. Valencia.</footer>
