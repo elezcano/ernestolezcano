@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de la tarifa G-5 — Ernesto Lezcano</title>
+<meta name="description" content="Calcula la tarifa portuaria G-5 de embarcaciones deportivas y de recreo en los puertos de la Generalitat Valenciana, con el desglose por tramos.">
+<meta name="author" content="Ernesto Lezcano">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de la tarifa G-5 — Ernesto Lezcano">
+<meta property="og:description" content="Calcula la tarifa portuaria G-5 de embarcaciones deportivas y de recreo en los puertos de la Generalitat Valenciana, con el desglose por tramos.">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#0D1A28">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/lora.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<nav class="sidebar" aria-label="Principal">
+  <a class="brand" href="index.html"><strong>Ernesto Lezcano</strong><span>Analista funcional</span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false">Menú</button>
+  <ul class="menu"><li><a href="index.html">Inicio</a></li><li><a href="proyectos/">Proyectos</a></li><li><a href="herramientas.html" aria-current="page">Herramientas</a></li><li><a href="trayectoria.html">Trayectoria</a></li><li><a href="blog/">Blog</a></li><li><a href="contacto.html">Contacto</a></li></ul>
+  <div class="side-foot"><a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a></div>
+</nav>
+<div class="main">
+<main id="contenido">
+<div class="content">
+<a class="back" href="herramientas.html">Volver a herramientas</a>
+<h1 class="page-title">Calculadora de la tarifa G-5</h1>
+<p class="page-intro">Lo que paga una embarcación deportiva o de recreo por amarrar en un puerto de la Generalitat Valenciana. Precios vigentes desde el 1 de junio de 2025, sin IVA.</p>
+
+<div class="calc">
+  <form class="calc-form" id="g5" novalidate>
+    <fieldset>
+      <legend>Embarcación</legend>
+      <div class="row2">
+        <label>Eslora (m)<input type="number" name="eslora" value="8" min="1" step="0.01" required></label>
+        <label>Manga (m)<input type="number" name="manga" value="3" min="0.5" step="0.01" required></label>
+      </div>
+      <label class="check"><input type="checkbox" name="lista6"> Lista 6.ª (alquiler o chárter) o uso comercial temporal</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Instalación</legend>
+      <div class="seg-group" role="radiogroup" aria-label="Tipo de instalación">
+        <label><input type="radio" name="instalacion" value="directa" checked><span>Gestión directa</span></label>
+        <label><input type="radio" name="instalacion" value="concesion"><span>Zona en concesión</span></label>
+        <label><input type="radio" name="instalacion" value="reducida"><span>Construido por el concesionario</span></label>
+      </div>
+      <label data-only="directa">Tipo de puerto
+        <select name="escala"><option value="general" selected>No exclusivamente deportivo</option><option value="deportivo">Exclusivamente deportivo</option></select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Estancia</legend>
+      <div class="seg-group" role="radiogroup" aria-label="Tipo de estancia">
+        <label><input type="radio" name="estancia" value="transito" checked><span>Tránsito</span></label>
+        <label><input type="radio" name="estancia" value="base"><span>Plaza base</span></label>
+      </div>
+      <div data-only-estancia="transito">
+        <div class="row2">
+          <label>Entrada<input type="date" name="entrada" min="2025-06-01" required></label>
+          <label>Salida<input type="date" name="salida" min="2025-06-01" required></label>
+        </div>
+        <label class="check"><input type="checkbox" name="salidaTarde"> Sale después de la hora límite</label>
+      </div>
+      <div data-only-estancia="base">
+        <div class="row2">
+          <label>Año<input type="number" name="anio" min="2025" max="2100" value="2026"></label>
+          <label>Semestre<select name="semestre"><option value="1">1.º (enero–junio)</option><option value="2" selected>2.º (julio–diciembre)</option></select></label>
+        </div>
+        <label>Fecha de alta (si empieza a mitad de semestre)<input type="date" name="alta" min="2025-06-01"></label>
+        <label class="check" data-only="directa"><input type="checkbox" name="domiciliado"> Pago domiciliado</label>
+      </div>
+    </fieldset>
+
+    <fieldset data-only="directa">
+      <legend>Atraque y servicios</legend>
+      <label>Situación de atraque (tramo B)
+        <select name="atraque">
+          <option value="punta" selected>Atraque en punta</option><option value="costado">Atraque de costado</option><option value="fondeo_sin_muerto">Fondeo sin muerto o tren</option><option value="fondeo_con_muerto">Fondeo con muerto o tren</option><option value="abarloada">Abarloada a otra embarcación</option><option value="banqueta">A banqueta o escollera</option><option value="seco">En seco en zona habilitada</option><option value="fluvial">De costado en muelle fluvial</option>
+        </select>
+      </label>
+      <p class="label">Servicios disponibles (tramo C)</p>
+      <div class="checks">
+        <label class="check"><input type="checkbox" name="servicios" value="agua" checked> Agua</label>
+        <label class="check"><input type="checkbox" name="servicios" value="electricidad" checked> Electricidad</label>
+        <label class="check"><input type="checkbox" name="servicios" value="basura"> Basura</label>
+        <label class="check"><input type="checkbox" name="servicios" value="varada"> Varada y botadura</label>
+        <label class="check"><input type="checkbox" name="servicios" value="vigilancia"> Vigilancia</label>
+      </div>
+    </fieldset>
+  </form>
+
+  <aside class="calc-result" aria-live="polite">
+    <p class="res-label">Importe estimado</p>
+    <p class="res-total" id="total">—</p>
+    <p class="res-meta" id="meta"></p>
+    <div id="detalle"></div>
+    <p class="res-error" id="error" hidden></p>
+  </aside>
+</div>
+
+<section class="block" style="margin-top:3rem">
+  <h2 class="block-title">Cómo calcula</h2>
+  <ul class="notes">
+    <li>Superficie: eslora × manga, redondeada al metro cuadrado superior.</li>
+    <li>Tránsito: cuenta el día de entrada y no el de salida, salvo que se salga pasada la hora límite.</li>
+    <li>Plaza base: semestre natural completo, o desde la fecha de alta hasta el final del semestre.</li>
+    <li>En concesión solo se cobra el tramo A. El atraque y los servicios los cobra el concesionario.</li>
+    <li>No incluye los recargos del art. 35 (por ejemplo, embarcaciones sin autorización) ni el IVA.</li>
+    <li>Cada precio se aplica a los días en que estuvo vigente. Los precios salen de un archivo de texto con la fecha de vigencia de cada valor: <a href="datos/tarifas-g5.csv">tarifas-g5.csv</a>.</li>
+  </ul>
+  <p class="disclaimer">Calculadora orientativa hecha a partir de la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1999-10811" rel="noopener">Ley 1/1999 de Tarifas Portuarias (texto consolidado en el BOE)</a>. No sustituye una liquidación oficial.</p>
+</section>
+<script src="assets/g5.js"></script>
+<script src="assets/g5-ui.js" defer></script>
+</div>
+</main>
+<footer class="page-foot">© 2026 Ernesto Lezcano. Valencia.</footer>
+</div>
+</body>
+</html>

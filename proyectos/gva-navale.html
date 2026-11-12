@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GVA Navale — Ernesto Lezcano</title>
+<meta name="description" content="GVA Navale: reingeniería de Espigón para Ports de la Generalitat Valenciana. Papel de Ernesto Lezcano como analista funcional.">
+<meta name="author" content="Ernesto Lezcano">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GVA Navale — Ernesto Lezcano">
+<meta property="og:description" content="GVA Navale: reingeniería de Espigón para Ports de la Generalitat Valenciana. Papel de Ernesto Lezcano como analista funcional.">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#0D1A28">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/lora.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<nav class="sidebar" aria-label="Principal">
+  <a class="brand" href="../index.html"><strong>Ernesto Lezcano</strong><span>Analista funcional</span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false">Menú</button>
+  <ul class="menu"><li><a href="../index.html">Inicio</a></li><li><a href="../proyectos/" aria-current="page">Proyectos</a></li><li><a href="../herramientas.html">Herramientas</a></li><li><a href="../trayectoria.html">Trayectoria</a></li><li><a href="../blog/">Blog</a></li><li><a href="../contacto.html">Contacto</a></li></ul>
+  <div class="side-foot"><a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a></div>
+</nav>
+<div class="main">
+<main id="contenido">
+<div class="content">
+<a class="back" href="../proyectos/">Volver a proyectos</a>
+<h1 class="page-title">GVA Navale</h1>
+<p class="page-intro">Reingeniería de Espigón, el sistema de gestión portuaria de los puertos de la Generalitat.</p>
+<dl class="facts">
+  <div><dt>Cliente</dt><dd>Ports de la Generalitat Valenciana</dd></div>
+  <div><dt>Empresa</dt><dd>Prodevelop SL</dd></div>
+  <div><dt>Mi papel</dt><dd>Analista funcional</dd></div>
+  <div><dt>Tipo</dt><dd>Reingeniería de sistema</dd></div>
+</dl>
+
+<section class="block" style="margin-top:2.5rem">
+  <h2 class="block-title">La transformación</h2>
+  <div class="shift">
+    <div class="shift-box shift-from"><strong>Espigón</strong><span>El sistema actual de gestión portuaria</span></div>
+    <div class="shift-mid"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5.5 5.5"/></svg><span>Análisis funcional</span></div>
+    <div class="shift-box shift-to"><strong>GVA Navale</strong><span>Todo lo que hacía, con tecnología actual y sin parar la operativa</span></div>
+  </div>
+</section>
+
+<section class="block">
+  <h2 class="block-title">Mi papel</h2>
+  <ul class="chips"><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg><span>Requisitos con usuarios</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="12" r="2.5"/><circle cx="18.5" cy="6" r="2.5"/><circle cx="18.5" cy="18" r="2.5"/><path d="M8 11l8-4M8 13l8 4"/></svg><span>Modelado de procesos</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 15.5h6M9 19h3.5"/></svg><span>Especificación funcional</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 7L3.5 12l5 5M15.5 7l5 5-5 5"/></svg><span>Soporte a desarrollo</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8 12.3l2.7 2.7L16.2 9.5"/></svg><span>Pruebas de aceptación</span></li></ul>
+</section>
+
+<section class="block">
+  <h2 class="block-title">Módulo G5: amarres deportivos</h2>
+  <p class="block-intro">Gestiona los barcos de recreo que amarran en los puertos de la Generalitat y calcula lo que pagan según la tarifa G-5 de la Ley 1/1999 de Tarifas Portuarias.</p>
+
+  <div class="formula" aria-label="Importe igual a metros cuadrados por días por precio diario, más o menos ajustes">
+    <div><b>m²</b><span>eslora × manga, redondeado al alza</span></div>
+    <i>×</i>
+    <div><b>días</b><span>de estancia o del semestre</span></div>
+    <i>×</i>
+    <div class="sum"><b>A + B + C</b><span>aguas + atraque + servicios</span></div>
+    <i>±</i>
+    <div><b>ajustes</b><span>lista 6.ª, bonificaciones</span></div>
+  </div>
+
+  <div class="g5-grid">
+    <div class="g5-col">
+      <h3>Dos formas de estar en el puerto</h3>
+      <ul class="g5-list">
+        <li><strong>Plaza base</strong><span>Amarre estable. Se liquida por semestres naturales, por adelantado.</span></li>
+        <li><strong>Tránsito</strong><span>Estancia de paso. Se liquida por los días de estancia.</span></li>
+      </ul>
+    </div>
+    <div class="g5-col">
+      <h3>Tres tipos de instalación</h3>
+      <ul class="g5-list">
+        <li><strong>Gestión directa</strong><span>Paga el titular. Tramos A + B + C.</span></li>
+        <li><strong>Zona en concesión</strong><span>Paga el concesionario. Solo tramo A, con bonificación.</span></li>
+        <li><strong>Puerto construido por el concesionario</strong><span>Solo tramo A, a precio reducido.</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="actions" style="margin-top:2rem">
+    <a class="btn btn-primary" href="../calculadora-g5.html">Probar la calculadora G-5</a>
+    <a class="btn" href="../blog/tarifa-g5-explicada.html">Leer la tarifa explicada</a>
+  </div>
+</section>
+
+<section class="block">
+  <h2 class="block-title">Fases</h2>
+  <ol class="flow"><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M8 9h8M8 12.5h8M8 16h5"/></svg><strong>Inventario</strong><span>Qué hace hoy el sistema</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="12" r="2.5"/><circle cx="18.5" cy="6" r="2.5"/><circle cx="18.5" cy="18" r="2.5"/><path d="M8 11l8-4M8 13l8 4"/></svg><strong>Modelo</strong><span>Cómo trabajan los usuarios</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7"/><rect x="13.5" y="3.5" width="7" height="7"/><rect x="3.5" y="13.5" width="7" height="7"/><rect x="13.5" y="13.5" width="7" height="7"/></svg><strong>Especificación</strong><span>Módulo a módulo</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 8.5A7.5 7.5 0 0 0 5.2 9M5 15.5a7.5 7.5 0 0 0 13.8-.5"/><path d="M19.5 4v4.8h-4.8M4.5 20v-4.8h4.8"/></svg><strong>Validación</strong><span>Revisión continua con usuarios</span></li><li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4M6 4h11l-2.5 4L17 12H6"/></svg><strong>Puesta en marcha</strong><span>Casos reales y migración</span></li></ol>
+</section>
+
+<section class="block">
+  <h2 class="block-title">Tecnologías</h2>
+  <ul class="tags"><li>Java / Spring</li><li>Oracle</li><li>PostgreSQL</li></ul>
+  <p style="margin-top:1rem"><a href="../herramientas.html">Ver todas mis herramientas</a></p>
+</section>
+
+<section class="block">
+  <blockquote class="pull">Vengo de programar: sé qué especificaciones generan dudas en desarrollo y qué decisiones salen caras de cambiar.</blockquote>
+</section>
+</div>
+</main>
+<footer class="page-foot">© 2026 Ernesto Lezcano. Valencia.</footer>
+</div>
+</body>
+</html>

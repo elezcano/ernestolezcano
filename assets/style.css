@@ -237,3 +237,78 @@ p { margin: 0 0 1em; }
   .career-legend .yrs, .career-legend strong { grid-column: 2; }
 }
 @media (max-width: 520px) { .facts, .stats { grid-template-columns: 1fr; } }
+
+/* ===== Calculadoras ===== */
+.calc-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); gap: 1rem; }
+.calc-card { display: flex; flex-direction: column; gap: .5rem; padding: 1.5rem; border-radius: 10px; text-decoration: none; color: var(--texto); background: linear-gradient(160deg, #173A4E, var(--mar-alto)); border: 1px solid var(--acento-hondo); }
+.calc-card:hover { border-color: var(--acento); color: var(--texto); }
+.calc-card strong { font-family: var(--serif); font-weight: 500; font-size: var(--step-1); }
+.calc-card span:last-child { color: var(--sonda); font-size: .9375rem; }
+.calc-tag { align-self: start; font-size: .75rem; padding: .2rem .6rem; border-radius: 999px; background: rgba(124,207,216,.12); color: var(--acento); }
+
+.calc { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+.calc-form fieldset { border: 1px solid var(--linea); border-radius: 10px; background: var(--mar-alto); padding: 1.25rem 1.25rem .5rem; margin: 0 0 1rem; min-width: 0; }
+.calc-form fieldset[hidden], .calc-form [hidden] { display: none; }
+.calc-form legend { font-family: var(--serif); font-size: 1.0625rem; padding: 0 .4rem; margin-left: -.4rem; }
+.calc-form label { display: block; font-size: .875rem; color: var(--sonda); margin-bottom: 1rem; }
+.calc-form input[type=number], .calc-form input[type=date], .calc-form select {
+  display: block; width: 100%; margin-top: .35rem; font: inherit; font-size: 1rem; color: var(--texto);
+  background: var(--mar); border: 1px solid var(--linea); border-radius: 6px; padding: .6rem .7rem; color-scheme: dark; }
+.calc-form input:focus, .calc-form select:focus { border-color: var(--acento); outline: none; box-shadow: 0 0 0 3px rgba(124,207,216,.18); }
+.calc-form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+.calc-form .check { display: flex; align-items: center; gap: .55rem; color: var(--texto); font-size: .9375rem; cursor: pointer; }
+.calc-form .check input { width: 1.05rem; height: 1.05rem; accent-color: var(--acento); }
+.calc-form .checks { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+.calc-form .label { font-size: .875rem; color: var(--sonda); margin: 0 0 .6rem; }
+.seg-group { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+.seg-group label { margin: 0; }
+.seg-group input { position: absolute; opacity: 0; pointer-events: none; }
+.seg-group span { display: inline-block; padding: .5rem .9rem; border-radius: 999px; border: 1px solid var(--linea); background: var(--mar); color: var(--sonda); font-size: .875rem; cursor: pointer; }
+.seg-group input:checked + span { background: var(--acento); border-color: var(--acento); color: var(--mar); }
+.seg-group input:focus-visible + span { outline: 2px solid var(--baliza); outline-offset: 2px; }
+
+.calc-result { position: sticky; top: 1.5rem; padding: 1.5rem; border-radius: 10px; background: var(--mar-panel); border: 1px solid var(--acento-hondo); }
+.res-label { font-size: .875rem; color: var(--sonda); margin: 0; }
+.res-total { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 3.25rem); line-height: 1.1; margin: .25rem 0 .25rem; color: var(--texto); font-variant-numeric: tabular-nums; }
+.res-meta { color: var(--acento); font-size: .9375rem; margin-bottom: 1.25rem; }
+.res-period { font-size: .8125rem; color: var(--sonda); margin: 1rem 0 .4rem; }
+.res-table { width: 100%; border-collapse: collapse; font-size: .875rem; margin-bottom: .75rem; }
+.res-table td { padding: .45rem 0; border-top: 1px solid var(--linea); vertical-align: top; }
+.res-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; padding-left: 1rem; }
+.res-table .sub td { color: var(--texto); font-weight: 500; }
+.res-table .tr { display: inline-grid; place-items: center; width: 1.3rem; height: 1.3rem; margin-right: .5rem; border-radius: 4px; background: rgba(124,207,216,.12); color: var(--acento); font-size: .6875rem; font-weight: 600; }
+.res-note { font-size: .8125rem; color: var(--sonda); margin: .5rem 0 0; }
+.res-error { color: #F2A65A; font-size: .9375rem; margin: 0; }
+.notes { margin: 0; padding-left: 1.1rem; color: var(--sonda); max-width: 60ch; }
+.notes li { margin-bottom: .5rem; }
+.disclaimer { font-size: .8125rem; color: var(--sonda); margin-top: 1.5rem; }
+
+/* Módulo G5 en el proyecto */
+.block-intro { color: var(--sonda); max-width: 60ch; margin-bottom: 1.75rem; }
+.formula { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-bottom: 2rem; }
+.formula div { display: flex; flex-direction: column; gap: .2rem; padding: 1rem 1.2rem; border: 1px solid var(--linea); border-radius: 10px; background: var(--mar-alto); }
+.formula div.sum { border-color: var(--acento-hondo); background: rgba(46,127,138,.18); }
+.formula b { font-family: var(--serif); font-weight: 500; font-size: 1.375rem; }
+.formula span { font-size: .75rem; color: var(--sonda); }
+.formula i { font-style: normal; font-size: 1.5rem; color: var(--acento); }
+.g5-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.g5-col { padding: 1.5rem; border: 1px solid var(--linea); border-radius: 10px; background: var(--mar-alto); }
+.g5-col h3 { font-size: 1.0625rem; margin-bottom: 1rem; }
+.g5-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .85rem; }
+.g5-list li { display: grid; gap: .15rem; padding-left: .9rem; border-left: 2px solid var(--acento-hondo); }
+.g5-list strong { font-weight: 500; }
+.g5-list span { color: var(--sonda); font-size: .875rem; }
+
+/* Tablas en artículos */
+.prose table { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: .9375rem; margin: 1.25rem 0 1.5rem; }
+.prose th { text-align: left; font-weight: 500; color: var(--sonda); font-size: .8125rem; padding: .5rem .75rem .5rem 0; border-bottom: 1px solid var(--acento-hondo); }
+.prose td { padding: .6rem .75rem .6rem 0; border-bottom: 1px solid var(--linea); vertical-align: top; }
+.prose table.num td:last-child, .prose table.num th:last-child { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.prose .formula-line { font-family: var(--sans); font-size: 1.0625rem; padding: 1rem 1.25rem; border-radius: 8px; background: var(--mar-alto); border: 1px solid var(--acento-hondo); color: var(--texto); }
+.prose .disclaimer { font-family: var(--sans); }
+
+@media (max-width: 900px) {
+  .calc { grid-template-columns: 1fr; }
+  .calc-result { position: static; order: -1; }
+  .g5-grid { grid-template-columns: 1fr; }
+}

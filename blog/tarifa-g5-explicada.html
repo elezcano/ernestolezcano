@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La tarifa G-5 explicada: qué paga un barco por amarrar — Ernesto Lezcano</title>
+<meta name="description" content="Cómo se calcula la tasa de las embarcaciones deportivas en los puertos de la Generalitat Valenciana, con ejemplos.">
+<meta name="author" content="Ernesto Lezcano">
+<meta property="og:type" content="website">
+<meta property="og:title" content="La tarifa G-5 explicada: qué paga un barco por amarrar — Ernesto Lezcano">
+<meta property="og:description" content="Cómo se calcula la tasa de las embarcaciones deportivas en los puertos de la Generalitat Valenciana, con ejemplos.">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#0D1A28">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/lora.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<nav class="sidebar" aria-label="Principal">
+  <a class="brand" href="../index.html"><strong>Ernesto Lezcano</strong><span>Analista funcional</span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false">Menú</button>
+  <ul class="menu"><li><a href="../index.html">Inicio</a></li><li><a href="../proyectos/">Proyectos</a></li><li><a href="../herramientas.html">Herramientas</a></li><li><a href="../trayectoria.html">Trayectoria</a></li><li><a href="../blog/" aria-current="page">Blog</a></li><li><a href="../contacto.html">Contacto</a></li></ul>
+  <div class="side-foot"><a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a></div>
+</nav>
+<div class="main">
+<main id="contenido">
+<div class="content">
+<a class="back" href="../blog/">Volver al blog</a>
+<header class="article-head">
+  <p class="post-meta"><time datetime="2026-11-12">12 de noviembre de 2026</time></p>
+  <h1>La tarifa G-5 explicada: qué paga un barco por amarrar</h1>
+  <p class="lede">Cómo se calcula la tasa de las embarcaciones deportivas en los puertos de la Generalitat Valenciana, con ejemplos.</p>
+</header>
+<article class="prose">
+  <p>La G-5 es la tasa que pagan las embarcaciones deportivas y de recreo por usar los puertos de la Generalitat Valenciana: las aguas del puerto, el puesto de atraque o fondeo y los servicios que tengan disponibles. Está regulada en los artículos 30 a 37 de la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1999-10811" rel="noopener">Ley 1/1999 de Tarifas Portuarias</a>, y sus importes actuales están en vigor desde el 1 de junio de 2025.</p>
+  <p>Detrás de una tasa así hay un buen ejercicio de análisis funcional: convertir un texto legal en reglas que un sistema pueda aplicar sin ambigüedad. Así funciona.</p>
+
+  <h2>La fórmula</h2>
+  <p class="formula-line">Importe = m² × días × precio por m² y día ± ajustes</p>
+  <ul>
+    <li><strong>m²</strong>: eslora por manga, redondeado al alza. Un barco de 6,40 × 2,30 m (14,72 m²) cuenta como 15.</li>
+    <li><strong>Días</strong>: los de estancia, o los del semestre si es una plaza base.</li>
+    <li><strong>Ajustes</strong>: las embarcaciones de lista 6.ª, las que se explotan con fines lucrativos como el alquiler o el chárter, pagan la base multiplicada por 1,8.</li>
+  </ul>
+
+  <h2>El precio diario: tres tramos</h2>
+  <p>El precio por m² y día es la suma de tres tramos. Funciona como la factura de un hotel: tasa de estancia, tipo de habitación y extras.</p>
+  <table>
+    <thead><tr><th>Tramo</th><th>Qué paga</th><th>Cuándo</th></tr></thead>
+    <tbody>
+      <tr><td>A</td><td>El uso de las aguas del puerto</td><td>Siempre</td></tr>
+      <tr><td>B</td><td>El atraque, según cómo está amarrado el barco</td><td>Uno solo</td></tr>
+      <tr><td>C</td><td>Agua, electricidad, basura, varada y vigilancia</td><td>Uno por servicio disponible</td></tr>
+    </tbody>
+  </table>
+  <p>En las zonas deportivas en concesión solo se cobra el tramo A. El atraque y los servicios los presta y los cobra el concesionario.</p>
+
+  <h2>Quién paga y cómo</h2>
+  <table>
+    <thead><tr><th>Instalación</th><th>Quién paga</th><th>Tramos</th></tr></thead>
+    <tbody>
+      <tr><td>Gestión directa</td><td>El titular de la embarcación</td><td>A + B + C</td></tr>
+      <tr><td>Zona deportiva en concesión</td><td>El concesionario, que lo repercute</td><td>Solo A, con bonificación</td></tr>
+      <tr><td>Puerto construido por el concesionario</td><td>El concesionario</td><td>Solo A, reducido a 0,0122 €/m²/día</td></tr>
+    </tbody>
+  </table>
+  <p>Hay bonificaciones: un 10 % por domiciliar el pago de una plaza base en gestión directa y, en concesión, un 20 % para las embarcaciones base y un 10 % para los tránsitos.</p>
+
+  <h2>Plaza base y tránsito</h2>
+  <p>Una <strong>plaza base</strong> es un amarre estable y se liquida por semestres naturales, por adelantado; un alta a mitad de semestre paga desde la fecha de alta. Un <strong>tránsito</strong> es una estancia de paso: se cuenta el día de entrada y el de salida solo si se sale pasada la hora límite, como en un hotel.</p>
+
+  <h2>Un ejemplo</h2>
+  <p>Un velero de 8 × 3 m (24 m²), de lista 7.ª, amarrado en punta con agua y electricidad, en un puerto no exclusivamente deportivo:</p>
+  <table class="num">
+    <thead><tr><th>Caso</th><th>Importe</th></tr></thead>
+    <tbody>
+      <tr><td>Gestión directa, tránsito de 3 días</td><td>11,54 €</td></tr>
+      <tr><td>El mismo tránsito en lista 6.ª</td><td>20,78 €</td></tr>
+      <tr><td>Gestión directa, plaza base del 2.º semestre (184 días), domiciliada</td><td>637,24 €</td></tr>
+      <tr><td>Club náutico en concesión, tránsito de 3 días</td><td>3,46 €</td></tr>
+      <tr><td>Club náutico en concesión, plaza base del 2.º semestre</td><td>188,81 €</td></tr>
+    </tbody>
+  </table>
+  <p>Precio diario en gestión directa: 0,0534457 (A) + 0,07479978 (punta) + 2 × 0,01604581 (agua y luz) = 0,1603371 €/m²/día. Importes sin IVA.</p>
+
+  <blockquote>Lo difícil no es la multiplicación: es decidir qué días cuentan, qué precio rige cada día y qué bonificación es compatible con cuál.</blockquote>
+
+  <p>Puedes probar cualquier combinación en la <a href="../calculadora-g5.html">calculadora de la tarifa G-5</a>.</p>
+  <p class="disclaimer">Artículo divulgativo. No es asesoramiento jurídico ni fiscal: para una liquidación real, consulta el texto legal vigente.</p>
+</article>
+</div>
+</main>
+<footer class="page-foot">© 2026 Ernesto Lezcano. Valencia.</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+# Fuente de precios de la tarifa G-5 (embarcaciones deportivas y de recreo) - Puertos de la Generalitat Valenciana
+# Ley 1/1999, de 31 de marzo, de Tarifas Portuarias, arts. 30-37. Texto consolidado BOE-A-1999-10811.
+# Importes en euros por m2 (o fraccion) y dia natural, sin IVA.
+#
+# Columnas:
+#   clave        identificador que usa la calculadora
+#   tramo        A, B, C o K (coeficientes y bonificaciones)
+#   escala       general = puertos no exclusivamente deportivos
+#                deportivo = puertos exclusivamente deportivos de gestion directa
+#                todas = se aplica en cualquier caso
+#   concepto     texto que se muestra
+#   valor        importe en euros/m2/dia, o coeficiente/porcentaje para el tramo K
+#   desde        primer dia de vigencia (AAAA-MM-DD)
+#   hasta        ultimo dia de vigencia (vacio = vigente)
+#   norma        norma que fija el valor
+#
+# Para anadir una actualizacion: cerrar la fila antigua rellenando "hasta" y anadir una fila nueva con su "desde".
+# La calculadora aplica a cada dia el valor vigente ese dia.
+# Esta fuente cubre desde el 01/06/2025. En los valores que no cambiaron entonces, "desde" marca el inicio de la cobertura, no la fecha de la norma.
+# Comprobado contra el texto consolidado del BOE (ultima actualizacion publicada el 31/05/2025) el 12/11/2026.
+clave;tramo;escala;concepto;valor;desde;hasta;norma
+aguas;A;todas;Utilización de las aguas del puerto;0.0534457;2025-06-01;;Ley 5/2025, art. 43 (art. 33 Ley 1/1999)
+aguas_reducida;A;todas;Aguas, puerto construido por el concesionario;0.0122;2025-06-01;;Ley 10/2012, art. 60 (art. 34.Tres Ley 1/1999)
+punta;B;general;Atraque en punta;0.07479978;2025-06-01;;Ley 5/2025, art. 43
+punta;B;deportivo;Atraque en punta;0.07479978;2025-06-01;;Ley 5/2025, art. 43
+costado;B;general;Atraque de costado;0.21366059;2025-06-01;;Ley 5/2025, art. 43
+costado;B;deportivo;Atraque de costado;0.21366059;2025-06-01;;Ley 5/2025, art. 43
+fondeo_sin_muerto;B;general;Fondeo sin muerto o tren;0.0534457;2025-06-01;;Ley 5/2025, art. 43
+fondeo_sin_muerto;B;deportivo;Fondeo sin muerto o tren;0.32042978;2025-06-01;;Ley 5/2025, art. 43
+fondeo_con_muerto;B;general;Fondeo con muerto o tren;0.07479978;2025-06-01;;Ley 5/2025, art. 43
+fondeo_con_muerto;B;deportivo;Fondeo con muerto o tren;0.0534457;2025-06-01;;Ley 5/2025, art. 43
+abarloada;B;general;Embarcación abarloada;0.06406103;2025-06-01;;Ley 5/2025, art. 43
+abarloada;B;deportivo;Embarcación abarloada;0.06406103;2025-06-01;;Ley 5/2025, art. 43
+banqueta;B;general;Atraque a banqueta o escollera;0.06406103;2025-06-01;;Ley 5/2025, art. 43
+banqueta;B;deportivo;Atraque a banqueta o escollera;0.06406103;2025-06-01;;Ley 5/2025, art. 43
+seco;B;general;En seco en zona habilitada;0.02135408;2025-06-01;;Ley 5/2025, art. 43
+seco;B;deportivo;En seco en zona habilitada;0.02135408;2025-06-01;;Ley 5/2025, art. 43
+fluvial;B;general;Atraque de costado en muelle fluvial;0.09615386;2025-06-01;;Ley 5/2025, art. 43
+agua;C;general;Toma de agua;0.01604581;2025-06-01;;Ley 5/2025, art. 43
+agua;C;deportivo;Toma de agua;0.02135408;2025-06-01;;Ley 5/2025, art. 43
+electricidad;C;general;Toma de energía eléctrica;0.01604581;2025-06-01;;Ley 5/2025, art. 43
+electricidad;C;deportivo;Toma de energía eléctrica;0.02135408;2025-06-01;;Ley 5/2025, art. 43
+basura;C;general;Recipiente de basura;0.01604581;2025-06-01;;Ley 5/2025, art. 43
+basura;C;deportivo;Recipiente de basura;0.02135408;2025-06-01;;Ley 5/2025, art. 43
+varada;C;general;Varada y botadura;0.01604581;2025-06-01;;Ley 5/2025, art. 43
+varada;C;deportivo;Varada y botadura;0.02135408;2025-06-01;;Ley 5/2025, art. 43
+vigilancia;C;general;Vigilancia general de la zona;0.02666114;2025-06-01;;Ley 5/2025, art. 43
+vigilancia;C;deportivo;Vigilancia general de la zona;0.03209283;2025-06-01;;Ley 5/2025, art. 43
+coef_lista6;K;todas;Lista 6.ª o uso comercial temporal;1.8;2025-06-01;;Ley 5/2025, art. 42 (art. 32 Ley 1/1999)
+bonif_concesion_base;K;todas;Estimación simplificada: embarcaciones base;0.20;2025-06-01;;Art. 34.Uno Ley 1/1999
+bonif_concesion_transito;K;todas;Estimación simplificada: tránsitos;0.10;2025-06-01;;Art. 34.Uno Ley 1/1999
+bonif_domiciliacion;K;todas;Domiciliación bancaria (embarcaciones base);0.10;2025-06-01;;Art. 37.Dos.b Ley 1/1999
