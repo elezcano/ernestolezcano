@@ -5,77 +5,52 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reingeniería sin parar la operativa — Ernesto Lezcano</title>
-<meta name="description" content="Cinco principios de análisis funcional para renovar un sistema que la gente usa cada día sin que nadie note el cambio, salvo para bien.">
+<meta name="description" content="Cinco principios de análisis funcional para renovar un sistema que la gente usa cada día.">
 <meta name="author" content="Ernesto Lezcano">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Reingeniería sin parar la operativa — Ernesto Lezcano">
-<meta property="og:description" content="Cinco principios de análisis funcional para renovar un sistema que la gente usa cada día sin que nadie note el cambio, salvo para bien.">
+<meta property="og:description" content="Cinco principios de análisis funcional para renovar un sistema que la gente usa cada día.">
 <meta property="og:locale" content="es_ES">
-<meta name="theme-color" content="#EEF2F1">
+<meta name="theme-color" content="#0D1A28">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../assets/fonts/lora.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="../index.html">Ernesto Lezcano</a>
-    <nav class="site-nav" aria-label="Principal"><ul><li><a href="../proyectos/espigon-gva.html">Proyectos</a></li><li><a href="../blog/" aria-current="page">Blog</a></li><li><a href="../index.html#contacto">Contacto</a></li></ul></nav>
-  </div>
-</header>
+<nav class="sidebar" aria-label="Principal">
+  <a class="brand" href="../index.html"><strong>Ernesto Lezcano</strong><span>Analista funcional</span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false">Menú</button>
+  <ul class="menu"><li><a href="../index.html">Inicio</a></li><li><a href="../proyectos/">Proyectos</a></li><li><a href="../herramientas.html">Herramientas</a></li><li><a href="../trayectoria.html">Trayectoria</a></li><li><a href="../blog/" aria-current="page">Blog</a></li><li><a href="../contacto.html">Contacto</a></li></ul>
+  <div class="side-foot"><a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a></div>
+</nav>
+<div class="main">
 <main id="contenido">
-
-<div class="wrap">
-  <header class="page-head">
-    <a class="back" href="../blog/">Volver al blog</a>
-    <h1>Reingeniería sin parar la operativa</h1>
-    <p class="lede">Cinco principios de análisis funcional para renovar un sistema que la gente usa cada día sin que nadie note el cambio, salvo para bien.</p>
-    <p class="post-meta"><time datetime="2026-11-12">12 de noviembre de 2026</time></p>
-  </header>
-  <div class="prose-layout">
-    <aside aria-label="En este artículo">
-      <ol>
-        <li><a href="#p1">Lo que hace, no lo que dice</a></li>
-        <li><a href="#p2">Los usuarios veteranos</a></li>
-        <li><a href="#p3">Primero igualar</a></li>
-        <li><a href="#p4">Los datos</a></li>
-        <li><a href="#p5">Casos reales</a></li>
-      </ol>
-    </aside>
-    <article class="prose">
-      <p>Renovar un sistema que nadie usa es fácil. Lo difícil es renovar uno del que depende el trabajo diario de mucha gente: no se puede parar, no se puede perder nada de lo que hace y, aun así, tiene que salir mejor de lo que entró. Estos son los principios que intento aplicar como analista funcional cuando me toca un proyecto así.</p>
-
-      <h2 id="p1">Documentar lo que el sistema hace, no lo que dice el manual</h2>
-      <p>La documentación de un sistema antiguo describe cómo se diseñó. El sistema real es lo que ha quedado después de años de cambios, parches y peticiones urgentes. Por eso el análisis empieza por la aplicación en funcionamiento: recorrerla, probar los casos raros y preguntar por qué cada cosa está donde está.</p>
-      <p>Cada regla que se descubre ahí, y no después, es un problema menos en la puesta en marcha.</p>
-
-      <h2 id="p2">Los usuarios veteranos son la especificación</h2>
-      <p>Las personas que llevan años usando una herramienta saben cosas que no están escritas en ningún sitio: qué casilla se rellena siempre igual, qué listado se revisa antes de cerrar el mes, qué error aparece y cómo se esquiva. Sentarse con ellas, verlas trabajar y tomar nota es la parte más valiosa del análisis.</p>
-      <p>También son quienes mejor van a validar el sistema nuevo, así que conviene que formen parte del proyecto desde el principio y no solo al final.</p>
-
-      <h2 id="p3">Primero igualar, después mejorar</h2>
-      <p>En una reingeniería es tentador aprovechar para cambiarlo todo. El riesgo es que el proyecto crezca sin control y que el usuario pierda cosas que daba por hechas. Funciona mejor separar dos listas: lo que el sistema nuevo tiene que hacer igual que el antiguo y las mejoras. La primera es innegociable; la segunda se prioriza.</p>
-
-      <h2 id="p4">Los datos son un proyecto dentro del proyecto</h2>
-      <p>Migrar la información histórica casi nunca es copiar tablas. Hay datos incompletos, campos que se usaron para otra cosa y códigos que cambiaron de significado con los años. Analizar los datos con el mismo cuidado que las pantallas evita sorpresas cuando ya no hay vuelta atrás.</p>
-
-      <h2 id="p5">Validar con casos reales</h2>
-      <p>Las pruebas de aceptación más útiles no se inventan: se sacan del trabajo de verdad. Un expediente complicado del año pasado, un mes con mucha actividad, esa excepción que solo pasa dos veces al año. Si el sistema nuevo resuelve esos casos, resolverá el resto.</p>
-
-      <blockquote>Una reingeniería sale bien cuando, al día siguiente de la puesta en marcha, los usuarios siguen trabajando y solo comentan lo que ahora es más fácil.</blockquote>
-
-      <p>Si estás preparando un proyecto de este tipo y quieres comentarlo, escríbeme a <a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a>.</p>
-    </article>
-  </div>
+<div class="content">
+<a class="back" href="../blog/">Volver al blog</a>
+<header class="article-head">
+  <p class="post-meta"><time datetime="2026-11-12">12 de noviembre de 2026</time></p>
+  <h1>Reingeniería sin parar la operativa</h1>
+  <p class="lede">Cinco principios de análisis funcional para renovar un sistema que la gente usa cada día.</p>
+</header>
+<article class="prose">
+  <p>Renovar un sistema que nadie usa es fácil. Lo difícil es renovar uno del que depende el trabajo diario de mucha gente: no se puede parar, no se puede perder nada de lo que hace y, aun así, tiene que salir mejor de lo que entró. Estos son los principios que intento aplicar como analista funcional en un proyecto así.</p>
+  <h2>Documentar lo que el sistema hace, no lo que dice el manual</h2>
+  <p>La documentación de un sistema antiguo describe cómo se diseñó. El sistema real es lo que ha quedado después de años de cambios y peticiones urgentes. Por eso el análisis empieza por la aplicación en funcionamiento: recorrerla, probar los casos raros y preguntar por qué cada cosa está donde está.</p>
+  <h2>Los usuarios veteranos son la especificación</h2>
+  <p>Quien lleva años usando una herramienta sabe cosas que no están escritas en ningún sitio. Sentarse con esas personas, verlas trabajar y tomar nota es la parte más valiosa del análisis. También son quienes mejor van a validar el sistema nuevo.</p>
+  <h2>Primero igualar, después mejorar</h2>
+  <p>Funciona mejor separar dos listas: lo que el sistema nuevo tiene que hacer igual que el antiguo y las mejoras. La primera es innegociable; la segunda se prioriza.</p>
+  <h2>Los datos son un proyecto dentro del proyecto</h2>
+  <p>Migrar la información histórica casi nunca es copiar tablas. Hay datos incompletos, campos que se usaron para otra cosa y códigos que cambiaron de significado. Analizar los datos con el mismo cuidado que las pantallas evita sorpresas cuando ya no hay vuelta atrás.</p>
+  <h2>Validar con casos reales</h2>
+  <p>Las pruebas de aceptación más útiles se sacan del trabajo de verdad: un expediente complicado, un mes con mucha actividad, esa excepción que pasa dos veces al año. Si el sistema nuevo resuelve esos casos, resolverá el resto.</p>
+  <blockquote>Una reingeniería sale bien cuando, al día siguiente de la puesta en marcha, los usuarios siguen trabajando y solo comentan lo que ahora es más fácil.</blockquote>
+</article>
 </div>
-
 </main>
-<footer class="site-footer">
-  <div class="wrap">
-    <span>© 2026 Ernesto Lezcano. Valencia.</span>
-    <a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a>
-  </div>
-</footer>
+<footer class="page-foot">© 2026 Ernesto Lezcano. Valencia.</footer>
+</div>
 </body>
 </html>
