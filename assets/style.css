@@ -343,3 +343,63 @@ p { margin: 0 0 1em; }
 .calc-form [hidden], .calc [hidden] { display: none !important; }
 .calc-form, .calc-result { min-width: 0; } @media (max-width: 900px) { .calc { grid-template-columns: minmax(0, 1fr); } }
 .calc-form input, .calc-form select { min-width: 0; max-width: 100%; } @media (max-width: 560px) { .calc-form .row2, .calc-form .row3 { grid-template-columns: minmax(0, 1fr); } }
+
+/* ===== Sector portuario ===== */
+.tar-groups { display: grid; grid-template-columns: 4fr 3fr; gap: 1.5rem; }
+.tar-groups h3 { font-family: var(--sans); font-size: .875rem; font-weight: 500; color: var(--sonda); margin-bottom: .9rem; letter-spacing: 0; }
+.tars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: .75rem; }
+.tar { display: flex; flex-direction: column; gap: .3rem; padding: 1.1rem 1.15rem; border-radius: 10px; background: var(--mar-alto); border: 1px solid var(--linea); }
+.tar-code { font-family: var(--serif); font-size: 1.75rem; line-height: 1; color: var(--acento); }
+.tar.e .tar-code { color: var(--baliza); }
+.tar strong { font-weight: 500; }
+.tar span:not(.tar-code) { font-size: .8125rem; color: var(--sonda); }
+.tar a { margin-top: .35rem; font-size: .8125rem; }
+.proc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(14.5rem, 1fr)); gap: .75rem; }
+.proc li { display: grid; grid-template-columns: auto 1fr; column-gap: .85rem; row-gap: .15rem; padding: 1rem; border-radius: 10px; border: 1px solid var(--linea); }
+.proc .icon { grid-row: span 2; width: 1.4rem; height: 1.4rem; color: var(--acento); margin-top: .1rem; }
+.proc strong { font-weight: 500; font-size: .9375rem; }
+.proc span { font-size: .8125rem; color: var(--sonda); }
+.gloss { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2rem; margin: 0; }
+.gloss div { padding: .85rem 0; border-bottom: 1px solid var(--linea); }
+.gloss dt { font-family: var(--serif); font-weight: 500; margin-bottom: .2rem; }
+.gloss dd { margin: 0; color: var(--sonda); font-size: .9375rem; }
+
+/* ===== Especificación ===== */
+.spec { max-width: 52rem; }
+.spec-kind { font-size: .8125rem; color: var(--acento); margin-bottom: .5rem; }
+.spec-meta { display: flex; flex-wrap: wrap; gap: .5rem 2rem; margin: 1rem 0 1.5rem; font-size: .875rem; }
+.spec-meta dt { color: var(--sonda); font-size: .75rem; }
+.spec-meta dd { margin: 0; }
+.spec-sec { padding-block: 2rem; border-top: 1px solid var(--linea); }
+.spec-sec h2 { font-size: var(--step-1); margin-bottom: 1rem; }
+.spec-sec p, .spec-sec li { color: #D6E1E8; max-width: 65ch; }
+.tbl-wrap { overflow-x: auto; }
+.spec-table { width: 100%; border-collapse: collapse; font-size: .875rem; min-width: 36rem; }
+.spec-table th { text-align: left; font-weight: 500; color: var(--sonda); font-size: .8125rem; padding: .55rem .75rem .55rem 0; border-bottom: 1px solid var(--acento-hondo); }
+.spec-table td { padding: .6rem .75rem .6rem 0; border-bottom: 1px solid var(--linea); vertical-align: top; }
+.spec-table td:first-child { white-space: nowrap; color: var(--acento); }
+.rns { display: grid; gap: .75rem; }
+.rn { display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem; padding: 1rem; border-radius: 10px; background: var(--mar-alto); border: 1px solid var(--linea); }
+.rn-id { font-weight: 600; font-size: .8125rem; color: var(--acento); padding-top: .15rem; }
+.rn strong { font-weight: 500; }
+.rn p { margin: .25rem 0; font-size: .9375rem; }
+.rn small { color: var(--sonda); font-size: .75rem; }
+
+@media (max-width: 900px) {
+  .tar-groups { grid-template-columns: 1fr; }
+  .gloss { grid-template-columns: 1fr; }
+  .rn { grid-template-columns: 1fr; gap: .25rem; }
+}
+
+@media print {
+  .sidebar, .page-foot, .no-print, .skip { display: none !important; }
+  .main { margin-left: 0; }
+  body { background: #fff; color: #111; }
+  .content { padding: 0; max-width: none; }
+  .page-title, .spec-sec h2, .rn strong, .spec-meta dd { color: #111; }
+  .spec-sec p, .spec-sec li, .spec-table td, .rn p, .page-intro { color: #222; }
+  .rn { background: none; border-color: #ccc; break-inside: avoid; }
+  .spec-table th, .spec-table td { border-color: #ccc; }
+  .spec-table td:first-child, .rn-id, .spec-kind, a { color: #0f5b78; }
+  .spec-sec { border-color: #ccc; }
+}
