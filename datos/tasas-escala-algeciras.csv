@@ -1,0 +1,111 @@
+# Fuente de precios de la calculadora de escala portuaria (Puerto Bahía de Algeciras).
+# Una fila por valor y vigencia. Separador ;. Decimales con punto. hasta vacío = vigente.
+# Cuantías básicas y coeficientes: TRLPEMM (RDL 2/2011), texto consolidado del BOE; coeficientes correctores: Ley 31/2022 (PGE 2023, prorrogada).
+# Tarifas de servicios: tarifas MÁXIMAS de los pliegos publicados en el BOE; las vigentes pueden ser menores o estar actualizadas.
+clave;concepto;valor;desde;hasta;fuente
+B;Cuantía básica T-1 (general);1.43;2023-01-01;;TRLPEMM art. 202
+S;Cuantía básica T-1 (corta distancia);1.20;2023-01-01;;TRLPEMM art. 202
+P;Cuantía básica T-2;3.23;2023-01-01;;TRLPEMM art. 210
+M;Cuantía básica T-3;2.65;2023-01-01;;TRLPEMM art. 217
+A;Cuantía básica A ayudas a la navegación;0.29;2023-01-01;;TRLPEMM art. 240.2
+C;Cuantía básica C ayudas a la navegación;0.28;2023-01-01;;TRLPEMM art. 240.2
+cc_t1;Coeficiente corrector T-1 Bahía de Algeciras;1.00;2023-01-01;;Ley 31/2022 art. 89
+cc_t2;Coeficiente corrector T-2 Bahía de Algeciras;1.00;2023-01-01;;Ley 31/2022 art. 89
+cc_t3;Coeficiente corrector T-3 Bahía de Algeciras;1.00;2023-01-01;;Ley 31/2022 art. 89
+cc_marpol;Coeficiente corrector tarifa fija de desechos;1.00;2023-01-01;;Ley 31/2022 art. 90
+gt_minimo;GT mínimo;100;2023-01-01;;TRLPEMM art. 197
+horas_minimo;Estancia mínima (h);3;2023-01-01;;TRLPEMM art. 197
+horas_max_dia;Horas máximas por cada 24;15;2023-01-01;;TRLPEMM art. 197
+atr_nc_costado;Atraque no concesionado de costado;1.00;2023-01-01;;TRLPEMM art. 197
+atr_nc_punta;Atraque no concesionado de punta, abarloado, boya o fondeado;0.80;2023-01-01;;TRLPEMM art. 197
+atr_csa_costado;Concesionado sin agua suficiente, de costado;0.70;2023-01-01;;TRLPEMM art. 197
+atr_csa_punta;Concesionado sin agua suficiente, de punta;0.60;2023-01-01;;TRLPEMM art. 197
+atr_cca_costado;Concesionado con agua, de costado;0.60;2023-01-01;;TRLPEMM art. 197
+atr_cca_punta;Concesionado con agua, de punta;0.50;2023-01-01;;TRLPEMM art. 197
+atr_regimen;Puerto en régimen concesional;0.30;2023-01-01;;TRLPEMM art. 197
+rodada_general;Ro-ro, ro-pax, con-ro y ferri (con S);0.90;2023-01-01;;TRLPEMM art. 197.h
+rodada_regular;Ro-ro, ro-pax, con-ro y ferri en servicio regular (con S);0.60;2023-01-01;;TRLPEMM art. 197.h
+crucero_general;Crucero general;0.70;2023-01-01;;TRLPEMM art. 197.g
+crucero_base;Crucero en puerto base;0.56;2023-01-01;;TRLPEMM art. 197.g
+crucero_compania;Compañía con 12 o más escalas como puerto base;0.50;2023-01-01;;TRLPEMM art. 197.g
+comb_alternativo;Combustible alternativo o electricidad en puerto;0.50;2023-01-01;;TRLPEMM art. 197.j
+zona_ii;Atraque en Zona II;0.30;2023-01-01;;TRLPEMM art. 198
+dique_exento;Dique exento;0.50;2023-01-01;;TRLPEMM art. 198
+fondeo_ii;Fondeo en Zona II (por días);0.80;2023-01-01;;TRLPEMM art. 199
+e201_12;Escalas sucesivas 1-12;1.00;2023-01-01;;TRLPEMM art. 201
+e201_26;Escalas sucesivas 13-26;0.95;2023-01-01;;TRLPEMM art. 201
+e201_52;Escalas sucesivas 27-52;0.85;2023-01-01;;TRLPEMM art. 201
+e201_104;Escalas sucesivas 53-104;0.75;2023-01-01;;TRLPEMM art. 201
+e201_156;Escalas sucesivas 105-156;0.65;2023-01-01;;TRLPEMM art. 201
+e201_312;Escalas sucesivas 157-312;0.55;2023-01-01;;TRLPEMM art. 201
+e201_365;Escalas sucesivas 313-365;0.45;2023-01-01;;TRLPEMM art. 201
+e201_mas;Escalas sucesivas 366 en adelante;0.35;2023-01-01;;TRLPEMM art. 201
+e201_regular;Reducción por servicio regular;0.05;2023-01-01;;TRLPEMM art. 201
+an_factor;Factor ayudas a la navegación (mercantes);0.035;2023-01-01;;TRLPEMM art. 241.a
+an_escalas;Escalas del año que pagan ayudas a la navegación;3;2023-01-01;;TRLPEMM art. 240.1.a
+t2_pax_schengen;Pasajero en tráfico Schengen;0.75;2023-01-01;;TRLPEMM art. 208
+t2_pax_no_schengen;Pasajero en tráfico no Schengen;1.00;2023-01-01;;TRLPEMM art. 208
+t2_crucero_inicio;Crucero: embarque o desembarque en puerto de inicio o fin;1.20;2023-01-01;;TRLPEMM art. 208
+t2_crucero_transito;Crucero en tránsito (por día);0.75;2023-01-01;;TRLPEMM art. 208
+t2_moto;Moto o vehículo de dos ruedas;1.30;2023-01-01;;TRLPEMM art. 208
+t2_turismo5;Turismo de hasta 5 m;2.90;2023-01-01;;TRLPEMM art. 208
+t2_turismo_mas5;Turismo de más de 5 m;5.80;2023-01-01;;TRLPEMM art. 208
+t2_autocar;Autocar;15.60;2023-01-01;;TRLPEMM art. 208
+t2_conc_ambos;Estación y atraque concesionados;0.50;2023-01-01;;TRLPEMM art. 208.b
+t2_conc_estacion;Solo estación concesionada;0.75;2023-01-01;;TRLPEMM art. 208.c
+t2_regular;Servicio marítimo regular;0.80;2023-01-01;;TRLPEMM art. 208.d
+t3_u10;Contenedor hasta 20' o rígido hasta 6,10 m;10.00;2023-01-01;;TRLPEMM art. 214
+t3_u15;Contenedor de más de 20', semirremolque, remolque o articulado;15.00;2023-01-01;;TRLPEMM art. 214
+t3_u25;Tren de carretera;25.00;2023-01-01;;TRLPEMM art. 214
+t3_v05;Vehículo mercancía hasta 2.500 kg;0.50;2023-01-01;;TRLPEMM art. 214
+t3_v2;Vehículo mercancía de más de 2.500 kg;2.00;2023-01-01;;TRLPEMM art. 214
+t3_op_tr;Tránsito marítimo;0.25;2023-01-01;;TRLPEMM arts. 214.b y 216.a
+t3_op_tba;Trasbordo entre buques atracados;0.50;2023-01-01;;TRLPEMM art. 214.c
+t3_op_tbb;Trasbordo abarloado o fondeado;0.30;2023-01-01;;TRLPEMM art. 214.c
+t3_ca_es;Terminal y atraque concesionados: entrada o salida;0.50;2023-01-01;;TRLPEMM art. 215.a
+t3_ca_tr;Terminal y atraque concesionados: tránsito;0.25;2023-01-01;;TRLPEMM art. 215.a
+t3_ca_tb;Terminal y atraque concesionados: trasbordo;0.20;2023-01-01;;TRLPEMM art. 215.a
+t3_cs;Terminal concesionada sin atraque concesionado;0.80;2023-01-01;;TRLPEMM art. 215.b
+t3_tmcd_general;Corta distancia regular: mercancía general;0.80;2023-01-01;;TRLPEMM art. 216.b
+t3_tmcd_rodada;Corta distancia regular: rodadura;0.60;2023-01-01;;TRLPEMM art. 216.b
+R1;Tarifa fija de desechos R1;80;2023-01-01;;TRLPEMM art. 132.8
+R1_pasaje;Tarifa fija de desechos R1 en buques de pasaje;75;2023-01-01;;TRLPEMM art. 132.8
+R2;Tarifa fija de desechos R2 por persona a bordo;0.25;2023-01-01;;TRLPEMM art. 132.8
+des_recargo_ii;Recogida en Zona II o por medios marítimos;1.25;2023-01-01;;TRLPEMM art. 132.8
+prac_t-2_fija;Practicaje cuadro T-2: fija por maniobra;248.15;2025-06-04;;Pliego de practicaje de Algeciras (BOE-A-2025-14945)
+prac_t-2_var;Practicaje cuadro T-2: €/GT;0.01097;2025-06-04;;Pliego de practicaje de Algeciras (BOE-A-2025-14945)
+prac_t-1_fija;Practicaje cuadro T-1: fija por maniobra;243.28;2025-06-04;;Pliego de practicaje de Algeciras (BOE-A-2025-14945)
+prac_t-1_var;Practicaje cuadro T-1: €/GT;0.01075;2025-06-04;;Pliego de practicaje de Algeciras (BOE-A-2025-14945)
+prac_t0_fija;Practicaje cuadro T0: fija por maniobra;238.51;2025-06-04;;Pliego de practicaje de Algeciras (BOE-A-2025-14945)
+prac_t0_var;Practicaje cuadro T0: €/GT;0.01054;2025-06-04;;Pliego de practicaje de Algeciras (BOE-A-2025-14945)
+prac_t+1_fija;Practicaje cuadro T+1: fija por maniobra;233.74;2025-06-04;;Pliego de practicaje de Algeciras (BOE-A-2025-14945)
+prac_t+1_var;Practicaje cuadro T+1: €/GT;0.01033;2025-06-04;;Pliego de practicaje de Algeciras (BOE-A-2025-14945)
+prac_t+2_fija;Practicaje cuadro T+2: fija por maniobra;229.07;2025-06-04;;Pliego de practicaje de Algeciras (BOE-A-2025-14945)
+prac_t+2_var;Practicaje cuadro T+2: €/GT;0.01012;2025-06-04;;Pliego de practicaje de Algeciras (BOE-A-2025-14945)
+prac_gt_obligatorio;Practicaje obligatorio desde (GT);500;2025-06-04;;Pliego de practicaje de Algeciras
+rem_6_gen_fija;Remolque flota hasta 6, general: fija por servicio;320;2025-06-26;;Pliego de remolque (BOE-A-2025-15405)
+rem_6_gen_var;Remolque flota hasta 6, general: €/GT;0.0997;2025-06-26;;Pliego de remolque (BOE-A-2025-15405)
+rem_6_abc_fija;Remolque flota hasta 6, zonas A, B y C: fija;408;2025-06-26;;Pliego de remolque (BOE-A-2025-15405)
+rem_6_abc_var;Remolque flota hasta 6, zonas A, B y C: €/GT;0.1269;2025-06-26;;Pliego de remolque (BOE-A-2025-15405)
+rem_7_gen_fija;Remolque flota de 7, general: fija;332;2025-06-26;;Pliego de remolque (BOE-A-2025-15405)
+rem_7_gen_var;Remolque flota de 7, general: €/GT;0.1035;2025-06-26;;Pliego de remolque (BOE-A-2025-15405)
+rem_7_abc_fija;Remolque flota de 7, zonas A, B y C: fija;424;2025-06-26;;Pliego de remolque (BOE-A-2025-15405)
+rem_7_abc_var;Remolque flota de 7, zonas A, B y C: €/GT;0.1317;2025-06-26;;Pliego de remolque (BOE-A-2025-15405)
+rem_8_gen_fija;Remolque flota de 8 o más, general: fija;344;2025-06-26;;Pliego de remolque (BOE-A-2025-15405)
+rem_8_gen_var;Remolque flota de 8 o más, general: €/GT;0.1073;2025-06-26;;Pliego de remolque (BOE-A-2025-15405)
+rem_8_abc_fija;Remolque flota de 8 o más, zonas A, B y C: fija;439;2025-06-26;;Pliego de remolque (BOE-A-2025-15405)
+rem_8_abc_var;Remolque flota de 8 o más, zonas A, B y C: €/GT;0.1365;2025-06-26;;Pliego de remolque (BOE-A-2025-15405)
+am_general_fija;Amarre servicio general: fija;42;2017-01-12;;Pliego de amarre (BOE-A-2017-1359)
+am_general_var;Amarre servicio general: €/GT;0.004;2017-01-12;;Pliego de amarre (BOE-A-2017-1359)
+am_especial_fija;Amarre duques de Alba, pantalán, Campamento, La Línea, dique exento: fija;84;2017-01-12;;Pliego de amarre (BOE-A-2017-1359)
+am_especial_var;Amarre duques de Alba, pantalán, Campamento, La Línea, dique exento: €/GT;0.008;2017-01-12;;Pliego de amarre (BOE-A-2017-1359)
+am_ferri;Amarre ferri de línea regular en la terminal de pasajeros (por servicio);40;2017-01-12;;Pliego de amarre (BOE-A-2017-1359)
+am_ferri_gt_max;GT máximo para el amarre de ferri;15000;2017-01-12;;Pliego de amarre (BOE-A-2017-1359)
+sp1_pax;Servicio al pasaje, una línea: pasajero;1.98;2022-09-06;;Pliego del servicio al pasaje (BOE-A-2022-15940)
+sp1_auto;Servicio al pasaje, una línea: automóvil;2.90;2022-09-06;;Pliego del servicio al pasaje (BOE-A-2022-15940)
+sp1_moto;Servicio al pasaje, una línea: moto o remolque;1.98;2022-09-06;;Pliego del servicio al pasaje (BOE-A-2022-15940)
+sp1_bus;Servicio al pasaje, una línea: transporte colectivo;3.90;2022-09-06;;Pliego del servicio al pasaje (BOE-A-2022-15940)
+sp2_pax;Servicio al pasaje, dos líneas: pasajero;1.65;2022-09-06;;Pliego del servicio al pasaje (BOE-A-2022-15940)
+sp2_auto;Servicio al pasaje, dos líneas: automóvil;2.60;2022-09-06;;Pliego del servicio al pasaje (BOE-A-2022-15940)
+sp2_moto;Servicio al pasaje, dos líneas: moto o remolque;1.65;2022-09-06;;Pliego del servicio al pasaje (BOE-A-2022-15940)
+sp2_bus;Servicio al pasaje, dos líneas: transporte colectivo;3.60;2022-09-06;;Pliego del servicio al pasaje (BOE-A-2022-15940)

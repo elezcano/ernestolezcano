@@ -732,3 +732,39 @@ input[type=radio] { accent-color: var(--primary); }
   .stack-row .tool .mono { display: none; }
   .stack-row .tool { padding: var(--sp-2) var(--sp-3); }
 }
+
+/* Calculadora de escala */
+.tcards { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+.calc-form .hint.fs-top { margin: 0 0 var(--sp-3); }
+.calc-form label > .hint { display: block; font-weight: 400; }
+.partidas { display: grid; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+.partida { display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(0, .7fr) minmax(0, 1.4fr); gap: var(--sp-3); padding-bottom: var(--sp-3); border-bottom: 1px dashed var(--border); }
+.partida + .partida label { font-size: 0; }
+.partida + .partida label > * { font-size: var(--fs-sm); }
+.partida + .partida label > :first-child { margin-top: 0; }
+.calc-form .seg-group + .row2 { margin-top: var(--sp-4); }
+.calc-form fieldset > .row2 + .row2, .calc-form fieldset > .row2 + .checks, .calc-form fieldset > label + .checks, .calc-form fieldset > .row3 + .row2 { margin-top: var(--sp-4); }
+.calc-form .row3 + .row2 label { margin-top: 0; }
+.res-table tr.grp td, .res-table tr.grp td:last-child { text-align: left; padding: var(--sp-4) 0 var(--sp-1); border-bottom: 1px solid var(--border); font-size: var(--fs-xs); font-weight: 500; color: var(--muted-foreground); }
+.res-table tr.grp:first-child td { padding-top: 0; }
+.res-table .res-f { display: block; margin-top: 2px; font-size: .6875rem; line-height: 1.4; color: var(--muted-foreground); overflow-wrap: anywhere; }
+#reparto { margin-bottom: var(--sp-4); }
+#reparto .legend { margin-top: 0; }
+
+/* Dominios funcionales (TLP 2.0) */
+.domains { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--sp-3); margin: 0; padding: 0; list-style: none; }
+.domains li { display: flex; flex-direction: column; gap: var(--sp-1); padding: var(--sp-5); border-radius: var(--r-xl); border: 1px solid var(--border); background: var(--card); box-shadow: var(--shadow-xs); }
+.domains .icon { box-sizing: content-box; width: 1rem; height: 1rem; margin-bottom: var(--sp-2); padding: .5rem; border-radius: var(--r-md); background: var(--muted); }
+.domains strong { font-size: var(--fs-sm); font-weight: 600; }
+.domains p { margin: 0; color: var(--muted-foreground); }
+.domains small { margin-top: auto; padding-top: var(--sp-3); font-size: var(--fs-xs); font-weight: 500; color: var(--foreground); }
+@media (max-width: 560px) {
+  .partida { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .partida label:first-child { grid-column: 1 / -1; }
+  .partida + .partida label { font-size: var(--fs-sm); }
+}
+
+.calc-form fieldset > .row3 + .hint, .calc-form fieldset > .row2 + .hint { margin: var(--sp-2) 0 var(--sp-4); }
+.calc-form fieldset > .hint + .check { margin-top: var(--sp-3); }
+.domains { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 1200px) { .domains { grid-template-columns: minmax(0, 1fr); } .domains li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--sp-4); } .domains .icon { grid-row: span 3; margin: 0; } .domains small { padding-top: var(--sp-2); } }

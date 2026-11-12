@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de tasas y tarifas de una escala — Ernesto Lezcano</title>
+<meta name="description" content="Calcula la T-1, T-2, T-3, ayudas a la navegación, tarifa fija de desechos y servicios portuarios de una escala en el Puerto Bahía de Algeciras.">
+<meta name="author" content="Ernesto Lezcano">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de tasas y tarifas de una escala — Ernesto Lezcano">
+<meta property="og:description" content="Calcula la T-1, T-2, T-3, ayudas a la navegación, tarifa fija de desechos y servicios portuarios de una escala en el Puerto Bahía de Algeciras.">
+<meta property="og:locale" content="es_ES">
+<meta name="color-scheme" content="light dark">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/inter-regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js" defer>
+</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="shell">
+<aside class="sidebar" id="sidebar" aria-label="Navegación">
+  <a class="brand" href="index.html">
+<span class="brand-mark" aria-hidden="true">EL</span>
+<span class="brand-text">
+<strong>Ernesto Lezcano</strong>
+<span>Analista funcional</span>
+</span>
+</a>
+  <nav aria-label="Principal">
+<div class="nav-group">
+<p class="nav-label">General</p>
+<ul class="menu">
+<li>
+<a href="index.html">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M3 10.5 12 3l9 7.5"/>
+<path d="M5 9.5V21h14V9.5"/>
+<path d="M10 21v-6h4v6"/>
+</svg>
+<span>Inicio</span>
+</a>
+</li>
+<li>
+<a href="proyectos/">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2h8.5A1.5 1.5 0 0 1 21 8.5v10a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/>
+</svg>
+<span>Proyectos</span>
+</a>
+</li>
+<li>
+<a href="sector.html">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="5" r="2.2"/>
+<path d="M12 7.2V21"/>
+<path d="M8 11h8"/>
+<path d="M4.5 13.5a7.5 7.5 0 0 0 15 0"/>
+</svg>
+<span>Sector portuario</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="nav-group">
+<p class="nav-label">Herramientas</p>
+<ul class="menu">
+<li>
+<a href="herramientas.html">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L3.5 17.5l3 3 5.7-5.7a4 4 0 0 0 5.3-5.3l-2.4 2.4-2.6-.5-.5-2.6z"/>
+</svg>
+<span>Todas las herramientas</span>
+</a>
+</li>
+<li>
+<a href="calculadora-g5.html">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="5" y="3" width="14" height="18" rx="2"/>
+<path d="M8 7h8"/>
+<path d="M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 15.5h.01M12 15.5h.01M15.5 15.5h.01M8.5 19h.01M12 19h3.5"/>
+</svg>
+<span>Calculadora G-5</span>
+</a>
+</li>
+<li>
+<a href="calculadora-dominio-publico.html">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 21V8l8-5 8 5v13"/>
+<path d="M9 21v-5h6v5"/>
+<path d="M8 11h.01M12 11h.01M16 11h.01"/>
+</svg>
+<span>Dominio público</span>
+</a>
+</li>
+<li>
+<a href="calculadora-escala.html" aria-current="page">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M3 17.5c1.5 1.3 3 1.3 4.5 0s3-1.3 4.5 0 3 1.3 4.5 0 3-1.3 4.5 0"/>
+<path d="M5 14.5 4 11h16l-2 3.5"/>
+<path d="M8 11V7h6l2 4"/>
+<path d="M11 7V4"/>
+</svg>
+<span>Escala portuaria</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="nav-group">
+<p class="nav-label">Sobre mí</p>
+<ul class="menu">
+<li>
+<a href="trayectoria.html">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="8.5"/>
+<path d="M12 7.5V12l3 2"/>
+</svg>
+<span>Trayectoria</span>
+</a>
+</li>
+<li>
+<a href="blog/">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 3h8l4 4v14H6z"/>
+<path d="M14 3v4h4"/>
+<path d="M9 13h6M9 17h4"/>
+</svg>
+<span>Blog</span>
+</a>
+</li>
+<li>
+<a href="contacto.html">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="5" width="18" height="14" rx="2"/>
+<path d="m4 7 8 6 8-6"/>
+</svg>
+<span>Contacto</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+  <div class="side-foot">
+    <a class="user" href="mailto:elezcanofm@gmail.com">
+<span class="avatar" aria-hidden="true">EL</span>
+<span class="user-text">
+<strong>Ernesto Lezcano</strong>
+<span>elezcanofm@gmail.com</span>
+</span>
+</a>
+  </div>
+</aside>
+<div class="sb-overlay" data-sb-close hidden>
+</div>
+<div class="main">
+  <header class="topbar">
+    <button class="icon-btn sb-toggle" type="button" aria-controls="sidebar" aria-expanded="true" aria-label="Mostrar u ocultar el menú">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="4" width="18" height="16" rx="2"/>
+<path d="M9 4v16"/>
+</svg>
+</button>
+    <span class="topbar-sep" aria-hidden="true">
+</span>
+    <p class="topbar-title">Escala portuaria</p>
+    <div class="topbar-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Cambiar entre tema claro y oscuro">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="4"/>
+<path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+</svg>
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>
+</svg>
+</button>
+      <a class="btn btn-primary btn-sm" href="contacto.html">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="5" width="18" height="14" rx="2"/>
+<path d="m4 7 8 6 8-6"/>
+</svg>
+<span>Escribirme</span>
+</a>
+    </div>
+  </header>
+  <main id="contenido">
+<div class="content">
+<a class="back" href="herramientas.html">Volver a herramientas</a>
+<header class="calc-head">
+  <div>
+    <h1 class="page-title">Calculadora de tasas y tarifas de una escala</h1>
+    <p class="page-intro">Lo que genera la escala de un buque en el Puerto Bahía de Algeciras: las tasas que liquida la autoridad portuaria y las tarifas máximas de los servicios portuarios.</p>
+  </div>
+  <div class="presets" role="group" aria-label="Ejemplos rápidos">
+    <span>Ejemplos</span>
+    <button type="button" data-p="ferri">Ferri del Estrecho</button>
+    <button type="button" data-p="ferri201">Ferri, escala 400 del año</button>
+    <button type="button" data-p="contenedores">Portacontenedores</button>
+    <button type="button" data-p="crucero">Crucero en puerto base</button>
+  </div>
+</header>
+
+<div class="calc">
+  <form class="calc-form" id="escala" autocomplete="off" novalidate>
+    <fieldset>
+      <legend>
+<span class="n">1</span> Buque y estancia</legend>
+      <div class="seg-group" role="radiogroup" aria-label="Tipo de buque">
+        <label>
+<input type="radio" name="tipo" value="rodada" checked>
+<span>Ferri o ro-ro</span>
+</label>
+        <label>
+<input type="radio" name="tipo" value="general">
+<span>Otro mercante</span>
+</label>
+        <label>
+<input type="radio" name="tipo" value="crucero">
+<span>Crucero</span>
+</label>
+      </div>
+      <div class="row2">
+        <label>Arqueo bruto (GT)<input type="text" inputmode="numeric" name="gt">
+</label>
+        <label>Horas de estancia<input type="text" inputmode="decimal" name="horas">
+<span class="hint" id="horasHint">
+</span>
+</label>
+      </div>
+      <div class="row2">
+        <label>Zona
+          <select name="zona">
+<option value="I" selected>Atraque en Zona I</option>
+<option value="II">Atraque en Zona II (30&nbsp;%)</option>
+<option value="DE">Dique exento (50&nbsp;%)</option>
+<option value="F">Fondeo en Zona II (por días)</option>
+</select>
+        </label>
+        <label id="atrWrap">Atraque
+          <select name="atraque">
+<option value="atr_nc_costado" selected>No concesionado, de costado (1,00)</option>
+<option value="atr_nc_punta">No concesionado, de punta o abarloado (0,80)</option>
+<option value="atr_csa_costado">Concesionado sin agua, de costado (0,70)</option>
+<option value="atr_csa_punta">Concesionado sin agua, de punta (0,60)</option>
+<option value="atr_cca_costado">Concesionado con agua, de costado (0,60)</option>
+<option value="atr_cca_punta">Concesionado con agua, de punta (0,50)</option>
+<option value="atr_regimen">Puerto en régimen concesional (0,30)</option>
+</select>
+        </label>
+      </div>
+      <label data-tipo="crucero">Crucero
+        <select name="crucero">
+<option value="crucero_general" selected>General (0,70)</option>
+<option value="crucero_base">Puerto base (0,56)</option>
+<option value="crucero_compania">Compañía con 12 o más escalas base (0,50)</option>
+</select>
+      </label>
+      <div class="checks">
+        <label class="check">
+<input type="checkbox" name="tmcd"> Corta distancia (cuantía S)</label>
+        <label class="check">
+<input type="checkbox" name="regular"> Servicio marítimo regular</label>
+        <label class="check">
+<input type="checkbox" name="combAlt"> Combustible alternativo o electricidad (0,50)</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+<span class="n">2</span> Escalas del año</legend>
+      <div class="row2">
+        <label>Escalas previas en el puerto este año<input type="text" inputmode="numeric" name="escalasPrevias">
+</label>
+        <label id="nEscWrap">N.º de escala del servicio<input type="text" inputmode="numeric" name="nEscala">
+</label>
+      </div>
+      <p class="hint">Las ayudas a la navegación solo se pagan en las 3 primeras escalas del año.</p>
+      <label class="check">
+<input type="checkbox" name="a201"> Aplicar escalas sucesivas (art. 201)</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+<span class="n">3</span> Pasaje</legend>
+      <div class="row3">
+        <label>Pasajeros<input type="text" inputmode="numeric" name="pax">
+</label>
+        <label>Turismos de hasta 5 m<input type="text" inputmode="numeric" name="turismo5">
+</label>
+        <label>Turismos de más de 5 m<input type="text" inputmode="numeric" name="turismoMas5">
+</label>
+        <label>Motos<input type="text" inputmode="numeric" name="moto">
+</label>
+        <label>Autocares<input type="text" inputmode="numeric" name="autocar">
+</label>
+        <label data-tipo="crucero">Pasajeros de crucero
+          <select name="paxCrucero">
+<option value="inicio" selected>Inicio o fin de crucero (1,20)</option>
+<option value="transito">En tránsito (0,75)</option>
+</select>
+        </label>
+      </div>
+      <p class="hint">Cuenta los embarcados más los desembarcados. Los conductores de camiones no son pasajeros.</p>
+      <div class="row2">
+        <label>Estación y atraque
+          <select name="concPasaje">
+<option value="no" selected>No concesionados</option>
+<option value="ambos">Ambos concesionados (50&nbsp;%)</option>
+<option value="estacion">Solo la estación concesionada (75&nbsp;%)</option>
+</select>
+        </label>
+        <label>Servicio al pasaje
+          <select name="lineasPasaje">
+<option value="1">Una línea en servicio</option>
+<option value="2">Dos líneas en servicio</option>
+<option value="0" selected>No se presta</option>
+</select>
+        </label>
+      </div>
+      <label class="check" data-tipo="rodada general">
+<input type="checkbox" name="schengen"> Tráfico entre países Schengen (0,75)</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+<span class="n">4</span> Mercancía</legend>
+      <p class="hint fs-top">Estimación simplificada por elemento de transporte cargado.</p>
+      <div class="partidas">
+<div class="partida">
+  <label>Elemento de transporte<select name="p1e">
+<option value="u10">Contenedor ≤ 20' o rígido ≤ 6,10 m (×10)</option>
+<option value="u15" selected>Semirremolque o contenedor > 20' (×15)</option>
+<option value="u25">Tren de carretera (×25)</option>
+<option value="v05">Vehículo ≤ 2.500 kg (×0,5)</option>
+<option value="v2">Vehículo > 2.500 kg (×2)</option>
+</select>
+</label>
+  <label>Unidades<input type="text" inputmode="numeric" name="p1n">
+</label>
+  <label>Operación<select name="p1o">
+<option value="ES" selected>Entrada o salida</option>
+<option value="TR">Tránsito marítimo</option>
+<option value="TBa">Trasbordo, atracados</option>
+<option value="TBb">Trasbordo, abarloado</option>
+</select>
+</label>
+</div>
+<div class="partida">
+  <label>Elemento de transporte<select name="p2e">
+<option value="u10">Contenedor ≤ 20' o rígido ≤ 6,10 m (×10)</option>
+<option value="u15" selected>Semirremolque o contenedor > 20' (×15)</option>
+<option value="u25">Tren de carretera (×25)</option>
+<option value="v05">Vehículo ≤ 2.500 kg (×0,5)</option>
+<option value="v2">Vehículo > 2.500 kg (×2)</option>
+</select>
+</label>
+  <label>Unidades<input type="text" inputmode="numeric" name="p2n">
+</label>
+  <label>Operación<select name="p2o">
+<option value="ES" selected>Entrada o salida</option>
+<option value="TR">Tránsito marítimo</option>
+<option value="TBa">Trasbordo, atracados</option>
+<option value="TBb">Trasbordo, abarloado</option>
+</select>
+</label>
+</div>
+<div class="partida">
+  <label>Elemento de transporte<select name="p3e">
+<option value="u10">Contenedor ≤ 20' o rígido ≤ 6,10 m (×10)</option>
+<option value="u15" selected>Semirremolque o contenedor > 20' (×15)</option>
+<option value="u25">Tren de carretera (×25)</option>
+<option value="v05">Vehículo ≤ 2.500 kg (×0,5)</option>
+<option value="v2">Vehículo > 2.500 kg (×2)</option>
+</select>
+</label>
+  <label>Unidades<input type="text" inputmode="numeric" name="p3n">
+</label>
+  <label>Operación<select name="p3o">
+<option value="ES" selected>Entrada o salida</option>
+<option value="TR">Tránsito marítimo</option>
+<option value="TBa">Trasbordo, atracados</option>
+<option value="TBb">Trasbordo, abarloado</option>
+</select>
+</label>
+</div>
+</div>
+      <div class="row2">
+        <label>Instalación
+          <select name="terminal">
+<option value="NC" selected>No concesionada</option>
+<option value="CA">Terminal y atraque concesionados</option>
+<option value="CS">Terminal concesionada sin atraque (80&nbsp;%)</option>
+</select>
+        </label>
+      </div>
+      <label class="check">
+<input type="checkbox" name="tmcdMercancia"> Corta distancia regular (0,60 en rodadura; 0,80 en el resto)</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+<span class="n">5</span> Servicios portuarios</legend>
+      <div class="row2 wide-first">
+        <label>Cuadro de practicaje
+          <select name="cuadroPracticaje">
+<option value="t-2">T-2 · menos arqueo acumulado</option>
+<option value="t-1">T-1</option>
+<option value="t0" selected>T0 · referencia</option>
+<option value="t+1">T+1</option>
+<option value="t+2">T+2 · más arqueo acumulado</option>
+</select>
+        </label>
+        <label>Maniobras<input type="text" inputmode="numeric" name="nPracticaje">
+</label>
+        <label>Remolque
+          <select name="remolque">
+<option value="6_gen" selected>Flota hasta 6 · zona general</option>
+<option value="6_abc">Flota hasta 6 · zonas A, B y C</option>
+<option value="7_gen">Flota de 7 · zona general</option>
+<option value="7_abc">Flota de 7 · zonas A, B y C</option>
+<option value="8_gen">Flota de 8 o más · zona general</option>
+<option value="8_abc">Flota de 8 o más · zonas A, B y C</option>
+</select>
+        </label>
+        <label>Servicios<input type="text" inputmode="numeric" name="nRemolque">
+</label>
+        <label>Amarre
+          <select name="amarre">
+<option value="general" selected>Servicio general</option>
+<option value="especial">Duques de Alba, pantalán, Campamento, La Línea</option>
+<option value="ferri">Ferri en la terminal de pasajeros</option>
+</select>
+        </label>
+        <label>Servicios<input type="text" inputmode="numeric" name="nAmarre">
+</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+<span class="n">6</span> Desechos</legend>
+      <label class="check">
+<input type="checkbox" name="pasajeBuque"> Buque de pasaje (R1 = 75 € más 0,25 € por persona)</label>
+      <label id="persWrap">Personas a bordo según la DUE<input type="text" inputmode="numeric" name="personas">
+</label>
+      <label class="check">
+<input type="checkbox" name="desechosZonaII"> Recogida en Zona II o por medios marítimos (+25&nbsp;%)</label>
+    </fieldset>
+  </form>
+
+  <aside class="calc-result" aria-live="polite">
+    <p class="res-label">Coste orientativo de la escala</p>
+    <p class="res-total" id="total">—</p>
+    <p class="res-meta" id="meta">
+</p>
+    <div id="reparto" hidden>
+      <div class="segbar" id="repBar" role="img">
+</div>
+      <ul class="legend" id="repLeg">
+</ul>
+    </div>
+    <div id="errores">
+</div>
+    <div id="detalle">
+</div>
+    <div id="notas">
+</div>
+    <button type="button" class="btn" id="copiar">Copiar desglose</button>
+  </aside>
+</div>
+
+<section class="block">
+  <h2 class="block-title">De dónde salen los valores</h2>
+  <p class="block-intro">Las cuantías básicas, los coeficientes y las tarifas máximas de los pliegos están en un archivo de texto plano, con su vigencia y su fuente: <a href="datos/tasas-escala-algeciras.csv">tasas-escala-algeciras.csv</a>. Las reglas y los casos de prueba están en la <a href="muestras/especificacion-escala.html">especificación funcional</a>.</p>
+  <p class="disclaimer">Guía divulgativa, sin valor oficial. No es asesoramiento jurídico ni fiscal. Usa el <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2011-16467" rel="noopener">texto refundido de la Ley de Puertos del Estado</a> y los coeficientes correctores de la Ley 31/2022, prorrogada. Las tarifas de los servicios son las máximas publicadas en el BOE; las vigentes pueden ser menores o estar actualizadas.</p>
+</section>
+<script src="assets/escala.js">
+</script>
+<script src="assets/escala-ui.js" defer>
+</script>
+</div>
+  </main>
+<footer class="page-foot">© 2026 Ernesto Lezcano. Valencia.</footer>
+</div>
+</div>
+</body>
+</html>
