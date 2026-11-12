@@ -4,8 +4,8 @@
   if (!form) return;
   const $ = (id) => document.getElementById(id);
   const F = form.elements;
-  const eur = (n) => n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
-  const pu = (n) => n.toLocaleString('es-ES', { minimumFractionDigits: 6, maximumFractionDigits: 8 });
+  const eur = (n) => n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: 'always' }) + ' €';
+  const pu = (n) => n.toLocaleString('es-ES', { minimumFractionDigits: 6, maximumFractionDigits: 8, useGrouping: 'always' });
   const fecha = (s) => s.split('-').reverse().join('/');
   const base = document.querySelector('link[rel=stylesheet]').href.replace(/assets\/style\.css.*$/, '');
   let rows = null;

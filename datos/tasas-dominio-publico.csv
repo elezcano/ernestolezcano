@@ -1,0 +1,43 @@
+# Fuente de tipos de las tasas del dominio público portuario - Puertos de la Generalitat Valenciana
+# Ley 2/2014, de 13 de junio, de Puertos de la Generalitat, título IV (arts. 64-85 bis). Texto consolidado: BOE-A-2014-7141.
+#
+# Columnas (las mismas que tarifas-g5.csv)
+#   clave     identificador que usa la calculadora
+#   tramo     CI = tipo de ocupación por naturaleza (art. 67); F = factores de actividad (art. 71.1);
+#             T = tipos porcentuales; K = bonificaciones y recargos; P = parámetros de cálculo
+#   escala    todas
+#   concepto  texto que muestra la calculadora
+#   valor     €/m²/año (CI), factor (F), tanto por uno (T, K) o valor del parámetro (P)
+#   desde     primer día de vigencia (AAAA-MM-DD)
+#   hasta     último día de vigencia (vacío = vigente hoy)
+#   fuente    norma que fija el valor
+#
+# Cobertura: desde el 01/01/2023 (redacción del art. 79 por la Ley 8/2022). En valores que no cambian, 'desde' marca el inicio de la cobertura, no la fecha de la norma.
+# Comprobado el 12/11/2026 contra el texto consolidado del BOE (actualización publicada el 18/07/2025).
+# Art. 71.1 b): la tabla consolidada del BOE aparece con las filas desplazadas; los factores 2, 7, 3 y 10 son los del texto original publicado en el DOGV (18/06/2014).
+# Art. 84: los importes se actualizan cada 1 de enero por el IPC. No se ha localizado publicación oficial con importes actualizados; coef_ipc = 1 aplica los importes legales.
+clave;tramo;escala;concepto;valor;desde;hasta;fuente
+# --- Tasa por ocupación: tipo por naturaleza de la superficie (Ci)
+espejo;CI;todas;Espejo de agua;0.8418;2023-01-01;;Ley 2/2014, art. 67
+relleno;CI;todas;Relleno sin urbanizar;3.3926;2023-01-01;;Ley 2/2014, art. 67
+urbanizado;CI;todas;Terreno urbanizado sin edificar;14.4255;2023-01-01;;Ley 2/2014, art. 67
+tinglado;CI;todas;Tinglados y almacenes;26.2874;2023-01-01;;Ley 2/2014, art. 67
+edificio;CI;todas;Edificios (por m² construido);38.1619;2023-01-01;;Ley 2/2014, art. 67
+# --- Tasa por actividad: factores sobre Ci
+factor_a;F;todas;a) Industrial y comercial;1.5;2023-01-01;;Ley 2/2014, art. 71.1 a)
+factor_b_cubierto;F;todas;b) Restauración, ocio y otras: tinglados, almacenes y edificios;2;2023-01-01;;Ley 2/2014, art. 71.1 b) (DOGV)
+factor_b_con_cerramiento;F;todas;b) Restauración, ocio y otras: urbanizado o relleno con cerramiento;7;2023-01-01;;Ley 2/2014, art. 71.1 b) (DOGV)
+factor_b_sin_cerramiento;F;todas;b) Restauración, ocio y otras: urbanizado o relleno sin cerramiento;3;2023-01-01;;Ley 2/2014, art. 71.1 b) (DOGV)
+factor_b_espejo;F;todas;b) Restauración, ocio y otras: espejo de agua;10;2023-01-01;;Ley 2/2014, art. 71.1 b) (DOGV)
+# --- Tipos porcentuales
+tipo_combustible;T;todas;Suministro de combustible: ingresos brutos;0.01;2023-01-01;;Ley 2/2014, art. 71.2
+tipo_pesca;T;todas;Primera venta de pescado: valor de la venta;0.002;2023-01-01;;Ley 2/2014, art. 75
+tipo_nautica_directa;T;todas;Náutico-deportiva, puerto de gestión directa: valor del bien;0.05;2023-01-01;;Ley 2/2014, art. 79 (Ley 8/2022)
+tipo_nautica_resto;T;todas;Náutico-deportiva, resto de puertos: valor del bien;0.02;2023-01-01;;Ley 2/2014, art. 79 b) (Ley 8/2022)
+# --- Bonificaciones y recargos
+bonif_subsuelo;K;todas;Subsuelo o espacios sumergidos (tipo de ocupación al 50 %);0.50;2023-01-01;;Ley 2/2014, art. 82.1
+bonif_plan_estrategico;K;todas;Plan estratégico (50 % de ocupación y de actividad);0.50;2023-01-01;;Ley 2/2014, art. 82.3
+recargo_sin_titulo;K;todas;Ocupación sin título;0.20;2023-01-01;;Ley 2/2014, art. 85 bis
+# --- Parámetros
+umbral_reduccion;P;todas;Superficie a partir de la que se reduce la tasa de actividad (m²);200;2023-01-01;;Ley 2/2014, art. 71.1
+coef_ipc;P;todas;Actualización por IPC acumulado (1 = importes legales);1;2023-01-01;;Ley 2/2014, art. 84

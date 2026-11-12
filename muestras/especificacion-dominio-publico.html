@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Especificación funcional: tasas del dominio público — Ernesto Lezcano</title>
+<meta name="description" content="Muestra de entregable de Ernesto Lezcano: especificación funcional de la calculadora de tasas del dominio público portuario.">
+<meta name="author" content="Ernesto Lezcano">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Especificación funcional: tasas del dominio público — Ernesto Lezcano">
+<meta property="og:description" content="Muestra de entregable de Ernesto Lezcano: especificación funcional de la calculadora de tasas del dominio público portuario.">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#0D1A28">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/lora.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer>
+</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<nav class="sidebar" aria-label="Principal">
+  <a class="brand" href="../index.html">
+<strong>Ernesto Lezcano</strong>
+<span>Analista funcional</span>
+</a>
+  <button class="menu-toggle" type="button" aria-expanded="false">Menú</button>
+  <ul class="menu">
+<li>
+<a href="../index.html">Inicio</a>
+</li>
+<li>
+<a href="../proyectos/">Proyectos</a>
+</li>
+<li>
+<a href="../sector.html">Sector portuario</a>
+</li>
+<li>
+<a href="../herramientas.html" aria-current="page">Herramientas</a>
+</li>
+<li>
+<a href="../trayectoria.html">Trayectoria</a>
+</li>
+<li>
+<a href="../blog/">Blog</a>
+</li>
+<li>
+<a href="../contacto.html">Contacto</a>
+</li>
+</ul>
+  <div class="side-foot">
+<a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a>
+</div>
+</nav>
+<div class="main">
+<main id="contenido">
+<div class="content">
+<div class="spec">
+<a class="back no-print" href="../herramientas.html">Volver a herramientas</a>
+<header class="spec-head">
+  <p class="spec-kind">Muestra de entregable · Especificación funcional</p>
+  <h1 class="page-title">Calculadora de tasas del dominio público portuario</h1>
+  <dl class="spec-meta">
+    <div>
+<dt>Autor</dt>
+<dd>Ernesto Lezcano</dd>
+</div>
+    <div>
+<dt>Versión</dt>
+<dd>1.0</dd>
+</div>
+    <div>
+<dt>Fecha</dt>
+<dd>12/11/2026</dd>
+</div>
+    <div>
+<dt>Estado</dt>
+<dd>Muestra pública</dd>
+</div>
+  </dl>
+  <p class="page-intro">Cómo especifico una funcionalidad de cálculo a partir de una norma. Corresponde a la <a href="../calculadora-dominio-publico.html">calculadora publicada en esta web</a> y usa solo normativa pública.</p>
+  <button class="btn no-print" type="button" onclick="window.print()">Guardar como PDF</button>
+</header>
+<section class="spec-sec">
+<h2>1. Objetivo</h2>
+<p>Estimar la tasa anual por el uso del dominio público portuario de la Generalitat Valenciana (ocupación, actividad, primera venta de pescado e instalaciones náutico-deportivas), con el desglose de cada componente.</p>
+</section>
+<section class="spec-sec">
+<h2>2. Alcance</h2>
+<ul>
+<li>Incluye: las cuatro tasas del título IV de la Ley 2/2014, bonificaciones del art. 82, exenciones del art. 83, recargo del art. 85 bis y prorrata por periodo.</li>
+<li>No incluye: tasas resultantes de licitación al alza, superficies mixtas en un mismo cálculo, garantías, IVA ni la emisión de la liquidación oficial.</li>
+</ul>
+</section>
+<section class="spec-sec">
+<h2>3. Datos de entrada</h2>
+<div class="tbl-wrap">
+<table class="spec-table ">
+<thead>
+<tr>
+<th>Dato</th>
+<th>Tipo</th>
+<th>Valores</th>
+<th>Cuándo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo de tasa</td>
+<td>Lista</td>
+<td>Ocupación y actividad · Primera venta de pescado · Náutico-deportiva</td>
+<td>Siempre</td>
+</tr>
+<tr>
+<td>Naturaleza de la superficie</td>
+<td>Lista</td>
+<td>Espejo de agua · Relleno · Urbanizado · Tinglado · Edificio</td>
+<td>Ocupación</td>
+</tr>
+<tr>
+<td>m² ocupados</td>
+<td>Decimal</td>
+<td>&gt; 0</td>
+<td>Ocupación</td>
+</tr>
+<tr>
+<td>Subsuelo</td>
+<td>Sí/No</td>
+<td>
+</td>
+<td>Ocupación</td>
+</tr>
+<tr>
+<td>Actividad</td>
+<td>Lista</td>
+<td>Ninguna · a) · b) · Combustible</td>
+<td>Ocupación</td>
+</tr>
+<tr>
+<td>Cerramiento</td>
+<td>Sí/No</td>
+<td>
+</td>
+<td>Actividad b) en relleno o urbanizado</td>
+</tr>
+<tr>
+<td>m² de la actividad (S)</td>
+<td>Decimal</td>
+<td>0 &lt; S ≤ m² ocupados; vacío = m² ocupados</td>
+<td>Actividad a) o b)</td>
+</tr>
+<tr>
+<td>Ingresos brutos</td>
+<td>Importe</td>
+<td>&gt; 0</td>
+<td>Combustible</td>
+</tr>
+<tr>
+<td>Valor de la primera venta</td>
+<td>Importe</td>
+<td>&gt; 0</td>
+<td>Pescado</td>
+</tr>
+<tr>
+<td>Valor de terrenos y de obras, gestión</td>
+<td>Importes, lista</td>
+<td>Directa · Resto</td>
+<td>Náutico-deportiva</td>
+</tr>
+<tr>
+<td>Ayuntamiento, plan estratégico, exención, sin título</td>
+<td>Sí/No, lista</td>
+<td>
+</td>
+<td>Opcionales</td>
+</tr>
+<tr>
+<td>Periodo</td>
+<td>Fechas</td>
+<td>Hasta ≥ desde</td>
+<td>Opcional</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="spec-sec">
+<h2>4. Reglas de negocio</h2>
+<div class="rns">
+<div class="rn">
+<span class="rn-id">RN-01</span> <div>
+<strong>Tasa por ocupación</strong> <p>Cuota = m² ocupados × Ci, donde Ci es el tipo del art. 67 según la naturaleza de la superficie.</p>
+<small>Arts. 66 y 67</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-02</span> <div>
+<strong>Subsuelo</strong> <p>Si la ocupación es de subsuelo o espacio sumergido y no impide usar la superficie, el tipo de ocupación es el 50 % de Ci.</p>
+<small>Art. 82.1</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-03</span> <div>
+<strong>Tasa por actividad</strong> <p>Precio unitario = factor × Ci × F, redondeado a 4 decimales. Cuota = precio unitario × S.</p>
+<small>Art. 71.1</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-04</span> <div>
+<strong>Factor</strong> <p>a) 1,5. b) 2 en tinglados y edificios; 7 en urbanizado o relleno con cerramiento; 3 sin cerramiento; 10 en espejo de agua.</p>
+<small>Art. 71.1 (DOGV)</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-05</span> <div>
+<strong>Reducción por superficie</strong> <p>Si S supera 200 m², F = √(200 / S). Si no, F = 1.</p>
+<small>Art. 71.1</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-06</span> <div>
+<strong>Combustible</strong> <p>La actividad de suministro de combustible paga el 1 % de los ingresos brutos, en lugar de factor × Ci.</p>
+<small>Art. 71.2</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-07</span> <div>
+<strong>Tasas específicas</strong> <p>Pescado: 2 ‰ del valor de la primera venta. Náutico-deportiva: 5 % (gestión directa) o 2 % (resto) del valor del bien. Sustituyen a ocupación y actividad.</p>
+<small>Arts. 72-79</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-08</span> <div>
+<strong>Ayuntamientos</strong> <p>Solo pagan la ocupación: la tasa de actividad se anula.</p>
+<small>Art. 82.2</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-09</span> <div>
+<strong>Plan estratégico</strong> <p>Bonificación del 50 % de la ocupación y de la actividad.</p>
+<small>Art. 82.3</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-10</span> <div>
+<strong>Exenciones</strong> <p>Total, o solo de la tasa de actividad, previa resolución motivada.</p>
+<small>Art. 83</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-11</span> <div>
+<strong>Sin título</strong> <p>La tasa resultante se incrementa un 20 %.</p>
+<small>Art. 85 bis</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-12</span> <div>
+<strong>Orden y redondeo</strong> <p>Ocupación y actividad → ayuntamiento → plan estratégico → exención → sin título → prorrata. Importes a 2 decimales.</p>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-13</span> <div>
+<strong>Prorrata</strong> <p>Importe del periodo = importe anual × días / 365. Hipótesis: la ley mide la base «en años o fracción» sin detallar el cálculo.</p>
+<small>Arts. 66 y 70</small>
+</div>
+</div>
+<div class="rn">
+<span class="rn-id">RN-14</span> <div>
+<strong>Actualización</strong> <p>Ci × coeficiente de IPC acumulado. Por defecto 1: no se ha localizado publicación oficial con importes actualizados.</p>
+<small>Art. 84</small>
+</div>
+</div>
+</div>
+</section>
+<section class="spec-sec">
+<h2>5. Fuente de tipos</h2>
+<p>Los importes, factores, porcentajes, bonificaciones y parámetros se leen de <a href="../datos/tasas-dominio-publico.csv">tasas-dominio-publico.csv</a>, con la misma estructura que la fuente de la tarifa G-5: una fila por valor y vigencia.</p>
+</section>
+<section class="spec-sec">
+<h2>6. Casos de prueba</h2>
+<div class="tbl-wrap">
+<table class="spec-table ">
+<thead>
+<tr>
+<th>Caso</th>
+<th>Entrada</th>
+<th>Resultado esperado</th>
+<th>Regla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CP-01</td>
+<td>Quiosco: 100 m² urbanizado sin cerramiento, actividad b)</td>
+<td>1.442,55 + 4.327,65 = 5.770,20 €/año</td>
+<td>RN-01, 03, 04</td>
+</tr>
+<tr>
+<td>CP-02</td>
+<td>CP-01 sin título</td>
+<td>6.924,24 €/año</td>
+<td>RN-11</td>
+</tr>
+<tr>
+<td>CP-03</td>
+<td>Nave: 1.000 m² de tinglado, actividad a)</td>
+<td>26.287,40 + 17.634,10 = 43.921,50 €/año</td>
+<td>RN-03, 05</td>
+</tr>
+<tr>
+<td>CP-04</td>
+<td>Gasolinera: 50 m² urbanizado, 1.000.000 € de ingresos</td>
+<td>721,28 + 10.000,00 = 10.721,28 €/año</td>
+<td>RN-06</td>
+</tr>
+<tr>
+<td>CP-05</td>
+<td>Conducción: 500 m² de subsuelo bajo urbanizado</td>
+<td>3.606,38 €/año</td>
+<td>RN-02</td>
+</tr>
+<tr>
+<td>CP-06</td>
+<td>Lonja: 2.000.000 € de primera venta</td>
+<td>4.000,00 €/año</td>
+<td>RN-07</td>
+</tr>
+<tr>
+<td>CP-07</td>
+<td>Marina: 5.000.000 € de valor del bien</td>
+<td>250.000 € (directa) · 100.000 € (resto)</td>
+<td>RN-07</td>
+</tr>
+<tr>
+<td>CP-08</td>
+<td>CP-01 en plan estratégico</td>
+<td>2.885,10 €/año</td>
+<td>RN-09</td>
+</tr>
+<tr>
+<td>CP-09</td>
+<td>CP-01 de un ayuntamiento</td>
+<td>1.442,55 €/año</td>
+<td>RN-08</td>
+</tr>
+<tr>
+<td>CP-10</td>
+<td>Edificio 250 m², actividad b)</td>
+<td>F = 0,8944; precio unitario 68,2661 €/m²</td>
+<td>RN-05</td>
+</tr>
+<tr>
+<td>CP-11</td>
+<td>100 m² ocupados y S = 150 m²</td>
+<td>Error: S supera la superficie ocupada</td>
+<td>Validación</td>
+</tr>
+<tr>
+<td>CP-12</td>
+<td>CP-01 del 01/07 al 31/12</td>
+<td>184 días → 2.908,81 €</td>
+<td>RN-13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="spec-sec">
+<h2>7. Decisiones abiertas</h2>
+<ul>
+<li>Redondeo del precio unitario de la actividad a 4 decimales: en la nave del CP-03 da 17.634,10 € frente a 17.634,12 € sin redondear.</li>
+<li>Superficies mixtas: si S es la superficie total o la de cada tramo (art. 71).</li>
+<li>Método de prorrata de la fracción de año (arts. 66 y 70).</li>
+<li>Importes actualizados por IPC (art. 84): sin publicación oficial localizada.</li>
+</ul>
+</section>
+</div>
+</div>
+</main>
+<footer class="page-foot">© 2026 Ernesto Lezcano. Valencia.</footer>
+</div>
+</body>
+</html>

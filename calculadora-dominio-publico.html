@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de tasas del dominio público portuario — Ernesto Lezcano</title>
+<meta name="description" content="Calcula las tasas de ocupación, actividad, primera venta de pescado e instalaciones náutico-deportivas de los puertos de la Generalitat Valenciana.">
+<meta name="author" content="Ernesto Lezcano">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de tasas del dominio público portuario — Ernesto Lezcano">
+<meta property="og:description" content="Calcula las tasas de ocupación, actividad, primera venta de pescado e instalaciones náutico-deportivas de los puertos de la Generalitat Valenciana.">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#0D1A28">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/lora.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js" defer>
+</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<nav class="sidebar" aria-label="Principal">
+  <a class="brand" href="index.html">
+<strong>Ernesto Lezcano</strong>
+<span>Analista funcional</span>
+</a>
+  <button class="menu-toggle" type="button" aria-expanded="false">Menú</button>
+  <ul class="menu">
+<li>
+<a href="index.html">Inicio</a>
+</li>
+<li>
+<a href="proyectos/">Proyectos</a>
+</li>
+<li>
+<a href="sector.html">Sector portuario</a>
+</li>
+<li>
+<a href="herramientas.html" aria-current="page">Herramientas</a>
+</li>
+<li>
+<a href="trayectoria.html">Trayectoria</a>
+</li>
+<li>
+<a href="blog/">Blog</a>
+</li>
+<li>
+<a href="contacto.html">Contacto</a>
+</li>
+</ul>
+  <div class="side-foot">
+<a href="mailto:elezcanofm@gmail.com">elezcanofm@gmail.com</a>
+</div>
+</nav>
+<div class="main">
+<main id="contenido">
+<div class="content">
+<a class="back" href="herramientas.html">Volver a herramientas</a>
+<header class="calc-head">
+  <div>
+    <h1 class="page-title">Calculadora de tasas del dominio público portuario</h1>
+    <p class="page-intro">Lo que paga al año quien ocupa o explota un espacio en un puerto de la Generalitat Valenciana con una concesión o una autorización. Ley 2/2014 de Puertos, título IV.</p>
+  </div>
+  <div class="presets" role="group" aria-label="Ejemplos rápidos">
+    <span>Ejemplos</span>
+    <button type="button" data-p="quiosco">Quiosco 100 m²</button>
+    <button type="button" data-p="cerrado">Con cerramiento</button>
+    <button type="button" data-p="kiosco">Kiosco en edificio</button>
+    <button type="button" data-p="s250">Edificio 250 m²</button>
+    <button type="button" data-p="nave">Nave industrial</button>
+    <button type="button" data-p="gasolinera">Gasolinera</button>
+    <button type="button" data-p="conduccion">Conducción enterrada</button>
+    <button type="button" data-p="lonja">Lonja</button>
+    <button type="button" data-p="marina">Marina</button>
+  </div>
+</header>
+
+<div class="calc">
+  <form class="calc-form" id="dp" autocomplete="off" novalidate>
+    <fieldset>
+      <legend>
+<span class="n">1</span> Qué tasa</legend>
+      <div class="seg-group" role="radiogroup" aria-label="Tipo de tasa">
+        <label>
+<input type="radio" name="tipo" value="general" checked>
+<span>Ocupación y actividad</span>
+</label>
+        <label>
+<input type="radio" name="tipo" value="pesca">
+<span>Primera venta de pescado</span>
+</label>
+        <label>
+<input type="radio" name="tipo" value="nautica">
+<span>Instalación náutico-deportiva</span>
+</label>
+      </div>
+      <p class="hint" data-tipo="general">La tasa de actividad se suma a la de ocupación (art. 68.2).</p>
+      <p class="hint" data-tipo="pesca nautica">Sustituye a las tasas de ocupación y actividad de esas instalaciones (arts. 72.2 y 76.2).</p>
+    </fieldset>
+
+    <fieldset data-tipo="general">
+      <legend>
+<span class="n">2</span> Superficie ocupada</legend>
+      <div class="row2">
+        <label>Naturaleza
+          <select name="naturaleza">
+<option value="espejo">Espejo de agua</option>
+<option value="relleno">Relleno sin urbanizar</option>
+<option value="urbanizado" selected>Terreno urbanizado sin edificar</option>
+<option value="tinglado">Tinglados y almacenes</option>
+<option value="edificio">Edificios (m² construidos)</option>
+</select>
+        </label>
+        <label>m² ocupados<input type="text" inputmode="decimal" name="m2" value="100">
+</label>
+      </div>
+      <label class="check">
+<input type="checkbox" name="subsuelo"> Subsuelo o espacio sumergido que no impide usar la superficie (−50 %)</label>
+    </fieldset>
+
+    <fieldset data-tipo="general">
+      <legend>
+<span class="n">3</span> Actividad</legend>
+      <div class="seg-group" role="radiogroup" aria-label="Clase de actividad">
+        <label>
+<input type="radio" name="actividad" value="ninguna">
+<span>Sin actividad</span>
+</label>
+        <label>
+<input type="radio" name="actividad" value="a">
+<span>a) Industrial y comercial</span>
+</label>
+        <label>
+<input type="radio" name="actividad" value="b" checked>
+<span>b) Restauración, ocio y otras</span>
+</label>
+        <label>
+<input type="radio" name="actividad" value="combustible">
+<span>Suministro de combustible</span>
+</label>
+      </div>
+      <label class="check" id="cerrWrap">
+<input type="checkbox" name="cerramiento"> Con cerramiento</label>
+      <div data-act="a b">
+        <label>m² dedicados a la actividad (S)<input type="text" inputmode="decimal" name="sActividad" placeholder="Igual que los ocupados">
+</label>
+        <p class="hint" id="sHelp">
+</p>
+      </div>
+      <label data-act="combustible">Ingresos brutos anuales de la instalación (€)<input type="text" inputmode="decimal" name="ingresos">
+</label>
+    </fieldset>
+
+    <fieldset data-tipo="pesca">
+      <legend>
+<span class="n">2</span> Lonja</legend>
+      <label>Valor anual de la primera venta de pesca fresca (€)<input type="text" inputmode="decimal" name="ventas">
+</label>
+    </fieldset>
+
+    <fieldset data-tipo="nautica">
+      <legend>
+<span class="n">2</span> Instalación náutico-deportiva</legend>
+      <div class="row2">
+        <label>Terrenos y aguas, valor de mercado (€)<input type="text" inputmode="decimal" name="valorTerrenos">
+</label>
+        <label>Obras e instalaciones (€)<input type="text" inputmode="decimal" name="valorObras">
+</label>
+      </div>
+      <label>Puerto
+        <select name="gestion">
+<option value="directa" selected>Gestionado directamente por la Generalitat (5 %)</option>
+<option value="resto">Resto de puertos (2 %)</option>
+</select>
+      </label>
+      <p class="hint">Obras: coste de inversión si tienen 5 años o menos; si no, tasación de reposición (art. 78).</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+<span class="n">4</span> Bonificaciones y recargos</legend>
+      <div class="checks">
+        <label class="check" data-tipo="general">
+<input type="checkbox" name="ayuntamiento"> Ayuntamiento en espacio contiguo (solo ocupación, art. 82.2)</label>
+        <label class="check" data-tipo="general">
+<input type="checkbox" name="planEstrategico"> Plan estratégico (−50 %, art. 82.3)</label>
+        <label class="check">
+<input type="checkbox" name="sinTitulo"> Sin título (+20 %, art. 85 bis)</label>
+      </div>
+      <label>Exención (art. 83)
+        <select name="exencion">
+<option value="no" selected>Ninguna</option>
+<option value="total">Exención total</option>
+<option value="actividad">Solo la tasa de actividad</option>
+</select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>
+<span class="n">5</span> Periodo (opcional)</legend>
+      <div class="row2">
+        <label>Desde<input type="date" name="desde">
+</label>
+        <label>Hasta (incluido)<input type="date" name="hasta">
+</label>
+      </div>
+      <p class="hint">Prorrata por días sobre 365. Déjalo vacío para ver el importe anual.</p>
+    </fieldset>
+
+    <details class="adv">
+      <summary>Criterios de cálculo avanzados</summary>
+      <div class="row2">
+        <label>Ci manual (€/m²/año)<input type="text" inputmode="decimal" name="ciManual" placeholder="Del art. 67">
+</label>
+        <label>Factor manual<input type="text" inputmode="decimal" name="factorManual" placeholder="Del art. 71">
+</label>
+        <label>Umbral de reducción (m²)<input type="text" inputmode="decimal" name="umbralManual" placeholder="200">
+</label>
+        <label>Coeficiente de actualización IPC<input type="text" inputmode="decimal" name="ipcManual" placeholder="1 = importes legales">
+</label>
+      </div>
+      <label class="check">
+<input type="checkbox" name="aplicarReduccion" checked> Aplicar la reducción √(umbral/S) si S supera el umbral</label>
+    </details>
+  </form>
+
+  <aside class="calc-result" aria-live="polite">
+    <p class="res-label">Tasa anual estimada</p>
+    <p class="res-total" id="total">—</p>
+    <p class="res-meta" id="meta">
+</p>
+    <div class="chain" id="chain">
+</div>
+    <div id="errores">
+</div>
+    <div id="detalle">
+</div>
+    <div id="notas">
+</div>
+    <button type="button" class="btn" id="copiar" style="margin-top:1rem">Copiar desglose</button>
+  </aside>
+</div>
+
+<section class="block" style="margin-top:3rem">
+  <h2 class="block-title">De dónde salen los tipos</h2>
+  <p class="block-intro">Los importes del art. 67, los factores del art. 71, los porcentajes, las bonificaciones, los recargos y el umbral de 200 m² están en un archivo de texto plano con la fecha de vigencia de cada valor: <a href="datos/tasas-dominio-publico.csv">tasas-dominio-publico.csv</a>. Las reglas y los casos de prueba están en la <a href="muestras/especificacion-dominio-publico.html">especificación funcional</a>.</p>
+  <p class="disclaimer">Cálculo orientativo, sin valor oficial, a partir de la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2014-7141" rel="noopener">Ley 2/2014 de Puertos de la Generalitat</a>. Usa los importes legales sin actualizar por IPC. No sustituye una liquidación oficial.</p>
+</section>
+<script src="assets/dp.js">
+</script>
+<script src="assets/dp-ui.js" defer>
+</script>
+</div>
+</main>
+<footer class="page-foot">© 2026 Ernesto Lezcano. Valencia.</footer>
+</div>
+</body>
+</html>

@@ -59,10 +59,11 @@
 <header class="dash-head">
   <div>
     <h1 class="page-title">Sector portuario</h1>
-    <p class="page-intro">El dominio que conozco, en datos: qué cobra un puerto de la Generalitat y cuánto. Los importes se calculan en vivo con los precios vigentes de la tarifa G-5.</p>
+    <p class="page-intro">El dominio que conozco, en datos: qué cobra un puerto de la Generalitat y cuánto. Los importes se calculan en vivo con las tarifas y tasas vigentes.</p>
   </div>
 </header>
 
+<h2 class="dash-sec">Amarres deportivos · tarifa G-5</h2>
 <form class="dash-filters" id="dashF" aria-label="Filtros del panel" onsubmit="return false">
   <div class="seg-group" role="radiogroup" aria-label="Tipo de puerto">
     <label>
@@ -164,10 +165,58 @@
 </details>
   </section>
 
+</div>
+
+<h2 class="dash-sec">Dominio público</h2>
+<form class="dash-filters" id="dpF" aria-label="Filtros de dominio público" onsubmit="return false">
+  <div class="seg-group" role="radiogroup" aria-label="Actividad">
+    <label>
+<input type="radio" name="act" value="b" checked>
+<span>Restauración, ocio y otras</span>
+</label>
+    <label>
+<input type="radio" name="act" value="a">
+<span>Industrial y comercial</span>
+</label>
+    <label>
+<input type="radio" name="act" value="ninguna">
+<span>Solo ocupación</span>
+</label>
+  </div>
+  <label class="dash-sel">Superficie
+    <select name="m2">
+      <option value="50">50 m²</option>
+      <option value="100" selected>100 m²</option>
+      <option value="200">200 m²</option>
+      <option value="500">500 m²</option>
+      <option value="1000">1.000 m²</option>
+    </select>
+  </label>
+</form>
+<div class="dash-grid">
+  <section class="card span2" aria-labelledby="c6t">
+    <div class="card-head">
+<h2 id="c6t">Tasa anual según la superficie que se ocupa</h2>
+<p class="card-sub" id="c6s">
+</p>
+</div>
+    <div class="hbars stacked" id="c6" role="list">
+</div>
+    <ul class="legend" id="c6leg">
+</ul>
+    <details class="tview">
+<summary>Ver como tabla</summary>
+<div id="c6tab">
+</div>
+</details>
+  </section>
+</div>
+
+<div class="dash-grid" style="margin-top:1rem">
   <section class="card span2" aria-labelledby="c4t">
     <div class="card-head">
-<h2 id="c4t">Las 7 tarifas y los procesos que tocan</h2>
-<p class="card-sub">Pulsa una tarifa para ver qué grava y con qué procesos se relaciona.</p>
+<h2 id="c4t">Tarifas, tasas y los procesos que tocan</h2>
+<p class="card-sub">Las 7 tarifas por servicios (Ley 1/1999) y las 4 tasas del dominio público (Ley 2/2014). Pulsa una para ver qué grava y con qué procesos se relaciona.</p>
 </div>
     <div class="tx">
       <div>
@@ -175,6 +224,7 @@
           <button type="button" data-f="todas" aria-pressed="true">Todas</button>
           <button type="button" data-f="general" aria-pressed="false">Generales</button>
           <button type="button" data-f="especifica" aria-pressed="false">Específicas</button>
+          <button type="button" data-f="dominio" aria-pressed="false">Dominio público</button>
         </div>
         <ul class="tx-list">
 <li>
@@ -210,6 +260,26 @@
 <li>
 <button type="button" class="tx-card especifica" data-code="E-3" aria-pressed="false">
 <span class="tx-code">E-3</span> <span class="tx-name">Suministros</span>
+</button>
+</li>
+<li>
+<button type="button" class="tx-card dominio" data-code="OCU" aria-pressed="false">
+<span class="tx-code">OCU</span> <span class="tx-name">Ocupación</span>
+</button>
+</li>
+<li>
+<button type="button" class="tx-card dominio" data-code="ACT" aria-pressed="false">
+<span class="tx-code">ACT</span> <span class="tx-name">Actividad</span>
+</button>
+</li>
+<li>
+<button type="button" class="tx-card dominio" data-code="PES" aria-pressed="false">
+<span class="tx-code">PES</span> <span class="tx-name">Primera venta de pescado</span>
+</button>
+</li>
+<li>
+<button type="button" class="tx-card dominio" data-code="NÁU" aria-pressed="false">
+<span class="tx-code">NÁU</span> <span class="tx-name">Instalaciones náutico-deportivas</span>
 </button>
 </li>
 </ul>
@@ -327,6 +397,18 @@
 <div data-term="tarifa específica">
 <dt>Tarifa específica</dt> <dd>Se devenga solo cuando se solicita el servicio.</dd>
 </div>
+<div data-term="autorización">
+<dt>Autorización</dt> <dd>Título a precario y personal para ocupar sin obras fijas. Hasta 3 años.</dd>
+</div>
+<div data-term="concesión">
+<dt>Concesión</dt> <dd>Título para ocupar con obras no desmontables. Hasta 50 años, excepcionalmente 75.</dd>
+</div>
+<div data-term="ci">
+<dt>Ci</dt> <dd>Tipo de ocupación por m² y año según la superficie. Es la base de la tasa de actividad.</dd>
+</div>
+<div data-term="caducidad">
+<dt>Caducidad</dt> <dd>Fin del título por incumplimiento grave, con pérdida de las garantías.</dd>
+</div>
 </dl>
     <p class="tx-empty" id="glEmpty" hidden>Ningún término coincide.</p>
   </section>
@@ -334,9 +416,11 @@
 
 <div class="tip" id="tip" role="status" hidden>
 </div>
-<p class="disclaimer">Importes orientativos, sin IVA, calculados con los precios vigentes de <a href="datos/tarifas-g5.csv">tarifas-g5.csv</a>. Fuente: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1999-10811" rel="noopener">Ley 1/1999 de Tarifas Portuarias (BOE)</a>. Más detalle en la <a href="calculadora-g5.html">calculadora</a> y en la <a href="muestras/especificacion-g5.html">especificación funcional</a>.</p>
-<script type="application/json" id="tarData">{"G-2": {"code": "G-2", "tipo": "general", "name": "Buques", "cap": "Capítulo II", "grava": "La estancia de los buques en el puerto: el uso de las aguas, las obras de acceso y el puesto de atraque, amarre o fondeo asignado.", "procesos": ["escalas", "liquidaciones"]}, "G-3": {"code": "G-3", "tipo": "general", "name": "Pasajeros y mercancías", "cap": "Capítulo III", "grava": "El paso de mercancías, pasajeros y vehículos embarcados en régimen de pasaje por las aguas, accesos y zonas de manipulación del puerto.", "procesos": ["mercancias", "liquidaciones"]}, "G-4": {"code": "G-4", "tipo": "general", "name": "Pesca fresca y acuicultura", "cap": "Capítulo IV", "grava": "La estancia de buques pesqueros o de acuicultura y la entrada de sus productos en las zonas de manipulación del puerto.", "procesos": ["pesca", "liquidaciones"]}, "G-5": {"code": "G-5", "tipo": "general", "name": "Embarcaciones deportivas y de recreo", "cap": "Capítulo V", "grava": "El uso de las aguas, instalaciones y servicios del puerto por embarcaciones deportivas y de recreo, incluida su estancia en atraque, amarre o fondeo.", "procesos": ["amarres", "liquidaciones"], "link": "calculadora-g5.html"}, "E-1": {"code": "E-1", "tipo": "especifica", "name": "Equipos", "cap": "Capítulo VI", "grava": "El uso de grúas, maquinaria de manipulación y transporte, básculas, carretillas y otro utillaje portuario.", "procesos": ["servicios", "liquidaciones"]}, "E-2": {"code": "E-2", "tipo": "especifica", "name": "Superficies y locales", "cap": "Capítulo VII", "grava": "La ocupación de explanadas, almacenes, locales y edificios de la zona portuaria que no estén en concesión o autorización.", "procesos": ["servicios", "liquidaciones"]}, "E-3": {"code": "E-3", "tipo": "especifica", "name": "Suministros", "cap": "Capítulo VIII", "grava": "El consumo de agua, energía eléctrica u otros suministros, y el uso de las instalaciones para prestarlos.", "procesos": ["servicios", "liquidaciones"]}}</script>
+<p class="disclaimer">Importes orientativos, sin IVA, calculados con <a href="datos/tarifas-g5.csv">tarifas-g5.csv</a> y <a href="datos/tasas-dominio-publico.csv">tasas-dominio-publico.csv</a>. Fuentes: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1999-10811" rel="noopener">Ley 1/1999 de Tarifas Portuarias</a> y <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2014-7141" rel="noopener">Ley 2/2014 de Puertos de la Generalitat</a>. Más detalle en las calculadoras de la <a href="calculadora-g5.html">G-5</a> y del <a href="calculadora-dominio-publico.html">dominio público</a>.</p>
+<script type="application/json" id="tarData">{"G-2": {"code": "G-2", "tipo": "general", "name": "Buques", "cap": "Capítulo II", "grava": "La estancia de los buques en el puerto: el uso de las aguas, las obras de acceso y el puesto de atraque, amarre o fondeo asignado.", "procesos": ["escalas", "liquidaciones"]}, "G-3": {"code": "G-3", "tipo": "general", "name": "Pasajeros y mercancías", "cap": "Capítulo III", "grava": "El paso de mercancías, pasajeros y vehículos embarcados en régimen de pasaje por las aguas, accesos y zonas de manipulación del puerto.", "procesos": ["mercancias", "liquidaciones"]}, "G-4": {"code": "G-4", "tipo": "general", "name": "Pesca fresca y acuicultura", "cap": "Capítulo IV", "grava": "La estancia de buques pesqueros o de acuicultura y la entrada de sus productos en las zonas de manipulación del puerto.", "procesos": ["pesca", "liquidaciones"]}, "G-5": {"code": "G-5", "tipo": "general", "name": "Embarcaciones deportivas y de recreo", "cap": "Capítulo V", "grava": "El uso de las aguas, instalaciones y servicios del puerto por embarcaciones deportivas y de recreo, incluida su estancia en atraque, amarre o fondeo.", "procesos": ["amarres", "liquidaciones"], "link": "calculadora-g5.html"}, "E-1": {"code": "E-1", "tipo": "especifica", "name": "Equipos", "cap": "Capítulo VI", "grava": "El uso de grúas, maquinaria de manipulación y transporte, básculas, carretillas y otro utillaje portuario.", "procesos": ["servicios", "liquidaciones"]}, "E-2": {"code": "E-2", "tipo": "especifica", "name": "Superficies y locales", "cap": "Capítulo VII", "grava": "La ocupación de explanadas, almacenes, locales y edificios de la zona portuaria que no estén en concesión o autorización.", "procesos": ["servicios", "liquidaciones"]}, "E-3": {"code": "E-3", "tipo": "especifica", "name": "Suministros", "cap": "Capítulo VIII", "grava": "El consumo de agua, energía eléctrica u otros suministros, y el uso de las instalaciones para prestarlos.", "procesos": ["servicios", "liquidaciones"]}, "OCU": {"code": "OCU", "tipo": "dominio", "name": "Ocupación", "cap": "Ley 2/2014, arts. 64-67", "grava": "La ocupación del dominio público portuario, incluidos el vuelo y el subsuelo. Paga el titular de la concesión o autorización, por m² y año según la naturaleza de la superficie.", "procesos": ["dominio", "liquidaciones"], "link": "calculadora-dominio-publico.html"}, "ACT": {"code": "ACT", "tipo": "dominio", "name": "Actividad", "cap": "Ley 2/2014, arts. 68-71", "grava": "Las actividades comerciales, industriales, de servicios u otras que se hacen en el dominio público. Se suma a la de ocupación.", "procesos": ["dominio", "liquidaciones"], "link": "calculadora-dominio-publico.html"}, "PES": {"code": "PES", "tipo": "dominio", "name": "Primera venta de pescado", "cap": "Ley 2/2014, arts. 72-75", "grava": "El uso de lonjas e instalaciones para la primera venta de pesca fresca: el 2 ‰ del valor subastado.", "procesos": ["pesca", "dominio", "liquidaciones"], "link": "calculadora-dominio-publico.html"}, "NÁU": {"code": "NÁU", "tipo": "dominio", "name": "Instalaciones náutico-deportivas", "cap": "Ley 2/2014, arts. 76-79", "grava": "El uso de instalaciones náutico-deportivas para dar servicio a la náutica de recreo: el 5 % o el 2 % anual del valor del bien.", "procesos": ["amarres", "dominio", "liquidaciones"], "link": "calculadora-dominio-publico.html"}}</script>
 <script src="assets/g5.js">
+</script>
+<script src="assets/dp.js">
 </script>
 <script src="assets/sector.js" defer>
 </script>

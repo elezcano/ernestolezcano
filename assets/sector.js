@@ -6,8 +6,8 @@
   if (!F) return;
   const base = document.querySelector('link[rel=stylesheet]').href.replace(/assets\/style\.css.*$/, '');
   const hoy = new Date().toISOString().slice(0, 10);
-  const eur = (n, d = 2) => n.toLocaleString('es-ES', { minimumFractionDigits: d, maximumFractionDigits: d }) + ' €';
-  const pu = (n) => n.toLocaleString('es-ES', { minimumFractionDigits: 4, maximumFractionDigits: 4 });
+  const eur = (n, d = 2) => n.toLocaleString('es-ES', { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: 'always' }) + ' €';
+  const pu = (n) => n.toLocaleString('es-ES', { minimumFractionDigits: 4, maximumFractionDigits: 4, useGrouping: 'always' });
   const SITUACIONES = [
     ['punta', 'En punta'], ['costado', 'De costado'], ['fondeo_con_muerto', 'Fondeo a muerto'],
     ['fondeo_sin_muerto', 'Fondeo con medios propios'], ['abarloada', 'Abarloado'],
@@ -140,7 +140,8 @@
     if (!t) { d.replaceChildren(el('p', 'tx-empty', 'Elige una tarifa.')); return; }
     const head = el('p', 'tx-d-code ' + t.tipo, t.code);
     const name = el('h3', null, t.name);
-    const meta = el('p', 'tx-d-meta', `${t.tipo === 'general' ? 'General: se devenga al realizar la actividad' : 'Específica: se devenga al solicitar el servicio'} · ${t.cap} de la Ley 1/1999`);
+    const meta = el('p', 'tx-d-meta', t.tipo === 'dominio' ? `Tasa por uso del dominio público · ${t.cap}`
+      : `${t.tipo === 'general' ? 'Tarifa general: se devenga al realizar la actividad' : 'Tarifa específica: se devenga al solicitar el servicio'} · ${t.cap} de la Ley 1/1999`);
     const grava = el('p', 'tx-d-text', t.grava);
     const kids = [head, name, meta, grava];
     if (t.link) { const a = el('a', 'btn btn-primary', 'Abrir la calculadora'); a.href = base + t.link; kids.push(a); }
@@ -161,6 +162,47 @@
     $('gl').querySelectorAll('div').forEach((d) => { const ok = !q || norm(d.textContent).includes(q); d.hidden = !ok; if (ok) n++; });
     $('glEmpty').hidden = n > 0;
   });
+
+  // ---------- Dominio público ----------
+  const DF = $('dpF');
+  let dpRows = null;
+  const NAT = [['espejo', 'Espejo de agua'], ['relleno', 'Relleno sin urbanizar'], ['urbanizado', 'Terreno urbanizado'], ['tinglado', 'Tinglados y almacenes'], ['edificio', 'Edificios']];
+  function renderDP() {
+    if (!dpRows || !DF) return;
+    const act = DF.act.value, m2 = Number(DF.m2.value);
+    const data = NAT.map(([k, n]) => {
+      const r = DP.calcular({ tipo: 'general', naturaleza: k, m2, actividad: act, cerramiento: false }, dpRows);
+      const ocu = r.lineas.find((l) => l.grupo === 'Ocupación'); const ac = r.lineas.find((l) => l.grupo === 'Actividad');
+      return { label: n, ocu: ocu ? ocu.importe : 0, act: ac ? ac.importe : 0, total: r.anual };
+    }).sort((a, b) => b.total - a.total);
+    const max = Math.max(...data.map((d) => d.total));
+    $('c6').replaceChildren(...data.flatMap((d) => {
+      const row = el('div', 'hb'); row.setAttribute('role', 'listitem'); row.tabIndex = 0;
+      row.setAttribute('aria-label', `${d.label}: ${eur(d.total)} al año`);
+      const track = el('span', 'hb-track stack');
+      const s1 = el('span', 'hb-seg s1'); s1.style.width = (d.ocu / max * 100).toFixed(2) + '%';
+      track.append(s1);
+      if (d.act > 0) { const s2 = el('span', 'hb-seg s2'); s2.style.width = (d.act / max * 100).toFixed(2) + '%'; track.append(s2); }
+      row.append(el('span', 'hb-label', d.label), document.createTextNode(' '), track, document.createTextNode(' '), el('span', 'hb-val', eur(d.total, 0)));
+      const lines = [[eur(d.total) + ' al año', d.label], [eur(d.ocu), 'ocupación']];
+      if (d.act > 0) lines.push([eur(d.act), 'actividad']);
+      const on = () => showTip(track, lines);
+      row.addEventListener('pointerenter', on); row.addEventListener('focus', on);
+      row.addEventListener('pointerleave', hideTip); row.addEventListener('blur', hideTip);
+      return [row, document.createTextNode('\n')];
+    }));
+    const legend = [['s1', 'Ocupación']]; if (act !== 'ninguna') legend.push(['s2', 'Actividad']);
+    $('c6leg').replaceChildren(...legend.flatMap(([c, t]) => { const li = el('li'); li.append(el('span', 'sw ' + c), document.createTextNode(' ' + t)); return [li, document.createTextNode('\n')]; }));
+    const actTxt = { b: 'restauración, ocio y otras (sin cerramiento)', a: 'industrial y comercial', ninguna: 'sin actividad' }[act];
+    $('c6s').textContent = `${m2.toLocaleString('es-ES', { useGrouping: 'always' })} m², ${actTxt}. Importes legales sin actualizar por IPC.`;
+    $('c6tab').replaceChildren(table(['Superficie', 'Ocupación', 'Actividad', 'Total al año'], data.map((d) => [d.label, eur(d.ocu), eur(d.act), eur(d.total)])));
+  }
+  if (DF) {
+    DF.addEventListener('input', renderDP); DF.addEventListener('change', renderDP);
+    fetch(base + 'datos/tasas-dominio-publico.csv').then((r) => { if (!r.ok) throw new Error(); return r.text(); })
+      .then((t) => { dpRows = DP.parseCSV(t); renderDP(); })
+      .catch(() => { $('c6').textContent = 'No se han podido cargar los tipos.'; });
+  }
 
   F.addEventListener('input', render);
   F.addEventListener('change', render);
