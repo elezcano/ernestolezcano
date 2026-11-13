@@ -271,7 +271,7 @@
 <path d="M9 12h6M9 15.5h6M9 19h3.5"/>
 </svg>
 <strong>Tickets</strong>
-<p>Redacto y actualizo historias, comentarios y prioridades en Jira y Confluence.</p>
+<p>Redacto historias, comentarios de validación y prioridades en Jira y Confluence.</p>
 </li>
 <li>
 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -296,7 +296,7 @@
 <path d="M15 15l5.5 5.5"/>
 </svg>
 <strong>Normativa vigente</strong>
-<p>Compruebo la redacción en vigor en el BOE y el DOGV antes de especificar.</p>
+<p>Compruebo la redacción en vigor en el BOE, el DOGV y EUR-Lex antes de especificar.</p>
 </li>
 <li>
 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -305,7 +305,7 @@
 <path d="M9 13h6M9 17h4"/>
 </svg>
 <strong>Documentación</strong>
-<p>Informes de pruebas, guías de usuario y guiones de vídeos formativos.</p>
+<p>Manuales por perfil, informes de pruebas y guiones de vídeos formativos.</p>
 </li>
 <li>
 <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -325,6 +325,7 @@
   <div class="filter" role="group" aria-label="Filtrar por proyecto">
 <button type="button" data-project="todas" aria-pressed="true">Todas</button>
 <button type="button" data-project="navale" aria-pressed="false">GVA Navale</button>
+<button type="button" data-project="tlp" aria-pressed="false">TLP 2.0</button>
 <button type="button" data-project="web" aria-pressed="false">Esta web</button>
 </div>
 </div>
@@ -334,11 +335,11 @@
 <section class="stack-row">
 <h3>Gestión y documentación</h3>
 <ul class="tools">
-<li class="tool" data-projects="navale">
+<li class="tool" data-projects="navale tlp">
 <span class="mono" aria-hidden="true">Ji</span>
 <span>
 <strong>Jira</strong>
-<small>Historias y sprints</small>
+<small>Tickets, validación y sprints</small>
 </span>
 </li>
 <li class="tool" data-projects="navale">
@@ -348,6 +349,27 @@
 <small>Documentación funcional</small>
 </span>
 </li>
+<li class="tool" data-projects="tlp">
+<span class="mono" aria-hidden="true">Wd</span>
+<span>
+<strong>Word y PDF</strong>
+<small>Manuales de usuario por perfil</small>
+</span>
+</li>
+<li class="tool" data-projects="">
+<span class="mono" aria-hidden="true">Ex</span>
+<span>
+<strong>Excel</strong>
+<small>Informes y análisis</small>
+</span>
+</li>
+<li class="tool" data-projects="tlp web">
+<span class="mono" aria-hidden="true">Md</span>
+<span>
+<strong>Markdown</strong>
+<small>Guías divulgativas</small>
+</span>
+</li>
 <li class="tool" data-projects="">
 <span class="mono" aria-hidden="true">No</span>
 <span>
@@ -355,17 +377,10 @@
 <small>Notas de trabajo</small>
 </span>
 </li>
-<li class="tool" data-projects="">
-<span class="mono" aria-hidden="true">Ex</span>
-<span>
-<strong>Office / Excel</strong>
-<small>Informes y análisis</small>
-</span>
-</li>
 </ul>
 </section>
 <section class="stack-row">
-<h3>Diseño</h3>
+<h3>Diseño y prototipado</h3>
 <ul class="tools">
 <li class="tool" data-projects="">
 <span class="mono" aria-hidden="true">Fi</span>
@@ -374,10 +389,90 @@
 <small>Maquetas de pantallas</small>
 </span>
 </li>
+<li class="tool" data-projects="tlp web">
+<span class="mono" aria-hidden="true">Js</span>
+<span>
+<strong>HTML y JavaScript</strong>
+<small>Prototipos y calculadoras</small>
+</span>
+</li>
+<li class="tool" data-projects="tlp navale">
+<span class="mono" aria-hidden="true">Ps</span>
+<span>
+<strong>Pseudocódigo</strong>
+<small>Lógica de cálculo especificada</small>
+</span>
+</li>
 </ul>
 </section>
 <section class="stack-row">
-<h3>Datos y pruebas</h3>
+<h3>Pruebas e integraciones</h3>
+<ul class="tools">
+<li class="tool" data-projects="tlp navale">
+<span class="mono" aria-hidden="true">Ap</span>
+<span>
+<strong>APIs REST</strong>
+<small>Comprobaciones y diagnóstico</small>
+</span>
+</li>
+<li class="tool" data-projects="tlp">
+<span class="mono" aria-hidden="true">Oa</span>
+<span>
+<strong>OpenAPI</strong>
+<small>Contratos de integración B2B</small>
+</span>
+</li>
+<li class="tool" data-projects="">
+<span class="mono" aria-hidden="true">Po</span>
+<span>
+<strong>Postman</strong>
+<small>Pruebas de APIs</small>
+</span>
+</li>
+<li class="tool" data-projects="web">
+<span class="mono" aria-hidden="true">Pw</span>
+<span>
+<strong>Playwright</strong>
+<small>Pruebas en navegador</small>
+</span>
+</li>
+<li class="tool" data-projects="tlp navale">
+<span class="mono" aria-hidden="true">En</span>
+<span>
+<strong>Entornos</strong>
+<small>Preproducción y regresión</small>
+</span>
+</li>
+</ul>
+</section>
+<section class="stack-row">
+<h3>Plataforma</h3>
+<ul class="tools">
+<li class="tool" data-projects="tlp">
+<span class="mono" aria-hidden="true">Kc</span>
+<span>
+<strong>Keycloak</strong>
+<small>Perfiles, roles y permisos</small>
+</span>
+</li>
+<li class="tool" data-projects="tlp">
+<span class="mono" aria-hidden="true">Ng</span>
+<span>
+<strong>Angular</strong>
+<small>Front con service workers</small>
+</span>
+</li>
+<li class="tool" data-projects="navale">
+<span class="mono" aria-hidden="true">Jv</span>
+<span>
+<strong>Java / Spring</strong>
+<small>12 años de desarrollo</small>
+</span>
+</li>
+</ul>
+</section>
+<section class="stack-row">
+<h3>Datos</h3>
 <ul class="tools">
 <li class="tool" data-projects="">
 <span class="mono" aria-hidden="true">SQ</span>
@@ -400,32 +495,11 @@
 <small>Datos geográficos</small>
 </span>
 </li>
-<li class="tool" data-projects="">
-<span class="mono" aria-hidden="true">Po</span>
-<span>
-<strong>Postman</strong>
-<small>Pruebas de APIs</small>
-</span>
-</li>
-<li class="tool" data-projects="web">
-<span class="mono" aria-hidden="true">Pw</span>
-<span>
-<strong>Playwright</strong>
-<small>Pruebas en navegador</small>
-</span>
-</li>
 </ul>
 </section>
 <section class="stack-row">
-<h3>Desarrollo y automatización</h3>
+<h3>Automatización</h3>
 <ul class="tools">
-<li class="tool" data-projects="navale">
-<span class="mono" aria-hidden="true">Jv</span>
-<span>
-<strong>Java / Spring</strong>
-<small>12 años de desarrollo</small>
-</span>
-</li>
 <li class="tool" data-projects="navale web">
 <span class="mono" aria-hidden="true">Py</span>
 <span>
@@ -433,7 +507,7 @@
 <small>Verificación de importes</small>
 </span>
 </li>
-<li class="tool" data-projects="navale web">
+<li class="tool" data-projects="navale tlp web">
 <span class="mono" aria-hidden="true">Nd</span>
 <span>
 <strong>Node.js</strong>
@@ -457,13 +531,46 @@
 </ul>
 </section>
 <section class="stack-row">
+<h3>Normativa</h3>
+<ul class="tools">
+<li class="tool" data-projects="navale tlp web">
+<span class="mono" aria-hidden="true">Bo</span>
+<span>
+<strong>BOE consolidado</strong>
+<small>Leyes y pliegos de servicios</small>
+</span>
+</li>
+<li class="tool" data-projects="navale web">
+<span class="mono" aria-hidden="true">Dv</span>
+<span>
+<strong>DOGV</strong>
+<small>Normativa autonómica</small>
+</span>
+</li>
+<li class="tool" data-projects="tlp">
+<span class="mono" aria-hidden="true">Eu</span>
+<span>
+<strong>EUR-Lex</strong>
+<small>Código Aduanero de la Unión</small>
+</span>
+</li>
+</ul>
+</section>
+<section class="stack-row">
 <h3>Inteligencia artificial</h3>
 <ul class="tools">
-<li class="tool" data-projects="navale web">
+<li class="tool" data-projects="navale tlp web">
 <span class="mono" aria-hidden="true">Cl</span>
 <span>
 <strong>Claude</strong>
 <small>Análisis y documentación</small>
+</span>
+</li>
+<li class="tool" data-projects="navale tlp">
+<span class="mono" aria-hidden="true">Na</span>
+<span>
+<strong>Navegador con IA</strong>
+<small>Pruebas funcionales</small>
 </span>
 </li>
 <li class="tool" data-projects="navale">
@@ -471,13 +578,6 @@
 <span>
 <strong>Conectores</strong>
 <small>Jira y Confluence con IA</small>
-</span>
-</li>
-<li class="tool" data-projects="navale">
-<span class="mono" aria-hidden="true">Na</span>
-<span>
-<strong>Navegador con IA</strong>
-<small>Pruebas funcionales</small>
 </span>
 </li>
 <li class="tool" data-projects="navale">

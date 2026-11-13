@@ -766,5 +766,7 @@ input[type=radio] { accent-color: var(--primary); }
 
 .calc-form fieldset > .row3 + .hint, .calc-form fieldset > .row2 + .hint { margin: var(--sp-2) 0 var(--sp-4); }
 .calc-form fieldset > .hint + .check { margin-top: var(--sp-3); }
-.domains { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.domains { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 1200px) { .domains { grid-template-columns: minmax(0, 1fr); } .domains li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--sp-4); } .domains .icon { grid-row: span 3; margin: 0; } .domains small { padding-top: var(--sp-2); } }
+
+.chips + .block-intro { margin: var(--sp-4) 0 0; }

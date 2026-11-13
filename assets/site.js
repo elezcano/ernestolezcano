@@ -53,5 +53,7 @@
       area.classList.toggle('filtering', project !== 'todas');
       status.textContent = project === 'todas' ? '' : `${count} herramientas usadas en ${btn.textContent}`;
     });
+    const pre = location.hash.slice(1) && filter.querySelector(`button[data-project="${CSS.escape(location.hash.slice(1))}"]`);
+    if (pre) pre.click();
   }
 })();
